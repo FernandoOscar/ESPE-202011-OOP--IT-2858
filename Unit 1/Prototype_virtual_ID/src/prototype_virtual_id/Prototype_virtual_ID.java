@@ -1,8 +1,7 @@
 
 package prototype_virtual_id;
 
-import java.io.FileWriter;
-import java.io.PrintWriter;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -37,7 +36,8 @@ public class Prototype_virtual_ID {
                     
                     
                     case 1:
-                        validation();
+                        GetData.enterData();
+                        
                         break;
                    
                     case 2:
@@ -74,33 +74,5 @@ public class Prototype_virtual_ID {
         System.out.println("(4) Physiotherapy");
         option2 = sn2.nextInt();
     }
-    private static void validation() {
-        boolean temp = false;
-        
-        Scanner input = new Scanner(System.in);        
-        System.out.print("Are you a student of the Universiad de las Fuerzas Armadas: ");
-        System.out.println(" ");
-        System.out.print("Yes(Y) or No(N): ");
-        char answer1 = input.next().charAt(0);
-        
-        if(answer1 == 'Y'){
-            System.out.println("Give me your ID: ");
-            String id = input.next();
-            input.nextLine();
-            System.out.print("Give me your name: ");
-            String name = input.next();
-            input.nextLine();
-            System.out.println("Give your career: ");
-            String career = input.next();
-            input.nextLine();
-            System.out.println("");            
-            System.out.println("Your request has to be read by the director of your career");
-               
-        } 
-        if(answer1 == 'N'){
-            System.out.println("You cannot access this benefit");
-            temp = true;
-        }
-    }
-    
 }
+   
