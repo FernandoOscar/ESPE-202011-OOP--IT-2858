@@ -11,6 +11,17 @@ package ec.edu.espe.simulador.model;
  */
 public class ClinicHistory {
     private String system;
+
+    @Override
+    public String toString() {
+        return "ClinicHistory{" + "system=" + system + '}';
+    }
+
+    
+    public ClinicHistory(String system) {
+        this.system = system;
+    }
+    
     
     String update(Student student){
         return getSystem();
