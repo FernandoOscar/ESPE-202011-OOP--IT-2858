@@ -41,7 +41,7 @@ public class Prototype_virtual_ID {
                         break;
                    
                     case 2:
-                   
+                        attention();
                         break;
                    
                     case 3:
@@ -64,7 +64,16 @@ public class Prototype_virtual_ID {
         
     }
     
-
+    public static void attention(){
+        Scanner sn2 = new Scanner(System.in);
+        int option2;
+        System.out.println("\n-----In what area should it be understood?---");
+        System.out.println("(1) General Medice");
+        System.out.println("(2) Odontology");
+        System.out.println("(3) Clinical Laboratory");
+        System.out.println("(4) Physiotherapy");
+        option2 = sn2.nextInt();
+    }
     private static void validation() {
         boolean temp = false;
         
