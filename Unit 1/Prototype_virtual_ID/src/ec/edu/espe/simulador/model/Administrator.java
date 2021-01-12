@@ -11,6 +11,16 @@ package ec.edu.espe.simulador.model;
  */
 public class Administrator {
     private String Student[];
+
+    @Override
+    public String toString() {
+        return "Administrator{" + "Student=" + Student + '}';
+    }
+
+    public Administrator(String[] Student) {
+        this.Student = Student;
+    }
+    
     
     boolean addDatabase(){
         return true;

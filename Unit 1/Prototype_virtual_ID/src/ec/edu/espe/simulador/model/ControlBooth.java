@@ -12,6 +12,16 @@ package ec.edu.espe.simulador.model;
 public class ControlBooth {
     private String name;
     private int id;
+
+    @Override
+    public String toString() {
+        return "ControlBooth{" + "name=" + name + ", id=" + id + '}';
+    }
+
+    public ControlBooth(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
     
     
     boolean checkID(VirtualCard virtualCard){

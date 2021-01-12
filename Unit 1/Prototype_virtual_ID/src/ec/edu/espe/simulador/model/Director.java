@@ -14,6 +14,17 @@ public class Director {
     private String name;
     private String faculty;
 
+    @Override
+    public String toString() {
+        return "Director{" + "career=" + career + ", name=" + name + ", faculty=" + faculty + '}';
+    }
+
+    public Director(String career, String name, String faculty) {
+        this.career = career;
+        this.name = name;
+        this.faculty = faculty;
+    }
+
     /**
      * @return the career
      */

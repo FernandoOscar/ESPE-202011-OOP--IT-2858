@@ -15,6 +15,19 @@ public class Doctor {
     private String area;
     private String address;
     private int phone;
+
+    @Override
+    public String toString() {
+        return "Doctor{" + "id=" + id + ", name=" + name + ", area=" + area + ", address=" + address + ", phone=" + phone + '}';
+    }
+
+    public Doctor(int id, String name, String area, String address, int phone) {
+        this.id = id;
+        this.name = name;
+        this.area = area;
+        this.address = address;
+        this.phone = phone;
+    }
     
     boolean addHistory(ClinicHistory clinicHistory){
         return true;

@@ -13,6 +13,16 @@ public class GeneralMedicine {
     private String medicine;
     private boolean expiration;
 
+    @Override
+    public String toString() {
+        return "GeneralMedicine{" + "medicine=" + medicine + ", expiration=" + expiration + '}';
+    }
+
+    public GeneralMedicine(String medicine, boolean expiration) {
+        this.medicine = medicine;
+        this.expiration = expiration;
+    }
+
     /**
      * @return the medicine
      */
