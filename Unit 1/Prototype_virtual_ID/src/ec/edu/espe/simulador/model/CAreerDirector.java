@@ -13,6 +13,19 @@ public class CAreerDirector {
     private String name;
     private String department;
     private String career;
+
+    @Override
+    public String toString() {
+        return "CAreerDirector{" + "name=" + name + ", department=" + department + ", career=" + career + '}';
+    }
+
+    
+    public CAreerDirector(String name, String department, String career) {
+        this.name = name;
+        this.department = department;
+        this.career = career;
+    }
+    
     
     boolean approveMotion(){
         return true;
