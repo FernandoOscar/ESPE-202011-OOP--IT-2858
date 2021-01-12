@@ -5,6 +5,8 @@
  */
 package ec.edu.espe.simulador.model;
 
+
+
 /**
  *
  * @author MAJOF_Developers 
@@ -22,6 +24,9 @@ public class Student {
         return "Student{" + "id=" + id + ", name=" + name + ", age=" + age + ", email=" + email + ", address=" + address + ", phone=" + phone + '}';
     }
     
+    
+    
+    
     public Student(int id, String name, int age, String email, String address, int phone) {
         this.id = id;
         this.name = name;
@@ -30,6 +35,8 @@ public class Student {
         this.address = address;
         this.phone = phone;
     }
+    
+    
     
     
     public void updateData(){
