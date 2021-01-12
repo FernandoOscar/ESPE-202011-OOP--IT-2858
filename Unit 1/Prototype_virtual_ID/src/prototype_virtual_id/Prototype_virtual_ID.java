@@ -2,6 +2,7 @@
 package prototype_virtual_id;
 
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -36,7 +37,14 @@ public class Prototype_virtual_ID {
                     
                     
                     case 1:
-                        GetData.enterData();
+                        
+                        try{
+                            GetData.enterData();
+                            
+                        }catch(IOException e){
+                            
+                        }
+                        
                         
                         break;
                    
