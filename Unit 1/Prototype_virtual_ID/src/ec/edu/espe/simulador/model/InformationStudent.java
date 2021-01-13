@@ -39,7 +39,7 @@ public class InformationStudent {
         char answer1 = input.next().charAt(0);
         input.nextLine();
               
-        if(answer1 == 'Y'){
+        if(answer1 == 'Y' && answer1 == 'y'){
             try{
                 
                 file.createNewFile();
@@ -58,21 +58,20 @@ public class InformationStudent {
                 System.out.println("Your request has to be read by the director of your career");
                 System.out.println("  BE PATTIENT ;) ");
                 System.out.println(" ");
+                String dataToSave = getName()+","+getId()+","
+                                     +getCareer();
+                Data.save("StudentData.csv", dataToSave);
                 
                 line.println(getName()+","+getId()+","+getCareer());
                 line.close();
                 write.close();
-                
-                String dataToSave = getName()+","+getId()+","
-                                     +getCareer();
-                Data.save("StudentData.csv", dataToSave);
                 
             }catch (IOException ex) {
                 Logger.getLogger(Prototype_virtual_ID.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
             
-        if(answer1 == 'N'){
+        if(answer1 == 'N' && answer1 == 'n'){
             System.out.println("You cannot access this benefit!!");
             System.out.println(" ");
         }

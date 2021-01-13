@@ -1,8 +1,6 @@
 
 package prototype_virtual_id;
 
-
-import ec.edu.espe.filemanager.utils.Data;
 import ec.edu.espe.simulador.model.Director;
 import ec.edu.espe.simulador.model.InformationStudent;
 import ec.edu.espe.simulador.model.Polyclinic;
@@ -49,10 +47,8 @@ public class Prototype_virtual_ID {
                         break;
                         
                     case 2:
-                        
                         Director obj2 = new Director();
                         obj2.security();
-                     
                         break;
                         
                     case 3:
@@ -76,9 +72,6 @@ public class Prototype_virtual_ID {
                 sn.next();
             } 
        }
-        
-    }
-    
-    
+    }   
 }
    
