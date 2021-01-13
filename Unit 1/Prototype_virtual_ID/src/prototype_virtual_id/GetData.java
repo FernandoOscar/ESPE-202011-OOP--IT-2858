@@ -10,6 +10,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -19,13 +21,12 @@ import java.util.Scanner;
  */
 public class GetData {
     
-    private String id = "";
     private String name = "";
+    private String id = "";
     private String career = "";
     
-
     
-     
+    
     public void enterData() {
         
         Scanner input = new Scanner(System.in);
@@ -34,72 +35,43 @@ public class GetData {
         System.out.println(" ");
         System.out.print("Yes(Y) or No(N): ");
         char answer1 = input.next().charAt(0);
-        
-        try{
-            if(answer1 == 'Y'){
-            
-            file.createNewFile();
-            FileWriter write = new FileWriter(file, true);
-            PrintWriter line = new PrintWriter(write);
-            
-            System.out.print("Give me your name: ");
-            setName(input.nextLine());
-            input.nextLine();
+        input.nextLine();
+              
+        if(answer1 == 'Y'){
+            try{
+                
+                file.createNewFile();
+                FileWriter write = new FileWriter(file, true);
+                PrintWriter line = new PrintWriter(write);
 
-            System.out.println("Give me your ID");
-            System.out.println("Format LXXXXXXXX: ");
-            setId(input.next());
+                System.out.print("Enter your name: ");
+                setName(input.nextLine());
+                System.out.print("Enter your id: ");
+                setId(input.nextLine());
+                System.out.print("Enter your career: ");
+                setCareer(input.nextLine());
+                
+                System.out.println(" ");            
+                System.out.println("Your data has been saved correctly!!");
+                System.out.println("Your request has to be read by the director of your career");
+                System.out.println("  BE PATTIENT ;) ");
+                System.out.println(" ");
+                
+                
+                line.close();
+                write.close();
+                
+            }catch (IOException ex) {
+                Logger.getLogger(Prototype_virtual_ID.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
             
-
-            System.out.print("Give me your surname: ");
-            String surname = input.next();
-            input.nextLine();
-
-            System.out.println("Give your career: ");
-            setCareer(input.next());
-            
-            System.out.println(" ");            
-            System.out.println("Your data has been saved correctly!!");
-            System.out.println("Your request has to be read by the director of your career");
-            System.out.println("  BE PATTIENT ;) ");
-            System.out.println(" ");
-            
-            
-            line.println(getId()+","+getName()+","+getCareer());
-            line.close();
-            write.close();
-                      
-        } 
-        
         if(answer1 == 'N'){
             System.out.println("You cannot access this benefit!!");
             System.out.println(" ");
         }
            
-        }catch(IOException e){
-                
-                }
-            
         
-        
-
-    }
-    public GetData() {
-        this.career = "";
-    }
-
-    /**
-     * @return the id
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(String id) {
-        this.id = id;
     }
 
     /**
@@ -117,6 +89,20 @@ public class GetData {
     }
 
     /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /**
      * @return the career
      */
     public String getCareer() {
@@ -129,6 +115,10 @@ public class GetData {
     public void setCareer(String career) {
         this.career = career;
     }
+}
+
+
+
         
         
         
@@ -150,5 +140,5 @@ public class GetData {
     
     
     
-}
+
 

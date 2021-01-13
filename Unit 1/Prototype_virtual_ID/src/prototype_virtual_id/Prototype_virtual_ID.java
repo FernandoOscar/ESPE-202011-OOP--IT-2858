@@ -40,13 +40,13 @@ public class Prototype_virtual_ID {
                     case 1:
                         GetData obj1 = new GetData();
                         obj1.enterData();
-                        obj1.getId();                   
-                        obj1.getName();
-                        obj1.getCareer();
-                        String dataToSave = obj1.getId()+","+obj1.getName()+","
-                                            +obj1.getCareer();
-                        System.out.println(" ");
-                        Data.save("StudentData.csv", dataToSave);
+                        //obj1.getId();                   
+                        //obj1.getName();
+                        //obj1.getCareer();
+                        //String dataToSave = obj1.getId()+","+obj1.getName()+","
+                          //                  +obj1.getCareer();
+                        //System.out.println(" ");
+                        //Data.save("StudentData.csv", dataToSave);
                         break;
                    
                     case 2:
