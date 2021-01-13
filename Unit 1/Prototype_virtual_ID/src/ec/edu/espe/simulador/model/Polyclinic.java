@@ -5,6 +5,8 @@
  */
 package ec.edu.espe.simulador.model;
 
+import java.util.Scanner;
+
 /**
  *
  * @author JOHNY
@@ -12,6 +14,22 @@ package ec.edu.espe.simulador.model;
 public class Polyclinic {
     private int virtualid;
     private boolean qrcode;
+    
+    
+    public static void attention(){
+        Scanner sn2 = new Scanner(System.in);
+        int option2;
+        System.out.println("\n-----In what area should it be understood?---");
+        System.out.println("(1) General Medice");
+        System.out.println("(2) Odontology");
+        System.out.println("(3) Clinical Laboratory");
+        System.out.println("(4) Physiotherapy");
+        option2 = sn2.nextInt();
+    }
+
+    public Polyclinic() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     @Override
     public String toString() {
