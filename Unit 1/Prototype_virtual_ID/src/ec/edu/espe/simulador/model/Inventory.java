@@ -12,5 +12,14 @@ package ec.edu.espe.simulador.model;
 public class Inventory {
     String location;
     boolean availability;
-    String area;   
-}
+    String area; 
+   
+    public static void Medicines(){
+        String[] medicine = {"antibiotic","sleeping pills","sunburn cream","syrup"};
+        System.out.println("medicine size --> " + medicine.length );
+    }
+                        
+    }
+    
+    
+
