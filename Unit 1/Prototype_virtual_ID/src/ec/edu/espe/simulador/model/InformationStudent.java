@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package prototype_virtual_id;
+package ec.edu.espe.simulador.model;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import prototype_virtual_id.Prototype_virtual_ID;
 
 
 
@@ -19,7 +20,7 @@ import java.util.logging.Logger;
  *
  * @author User
  */
-public class GetData {
+public class InformationStudent {
     
     private String name = "";
     private String id = "";
@@ -49,7 +50,7 @@ public class GetData {
                 System.out.print("Enter your id: ");
                 setId(input.nextLine());
                 System.out.print("Enter your career: ");
-                setCareer(input.nextLine());
+                setCareer(input.nextLine());                
                 
                 System.out.println(" ");            
                 System.out.println("Your data has been saved correctly!!");
@@ -57,7 +58,7 @@ public class GetData {
                 System.out.println("  BE PATTIENT ;) ");
                 System.out.println(" ");
                 
-                
+                line.println(getName()+","+getId()+","+getCareer());
                 line.close();
                 write.close();
                 
@@ -116,29 +117,3 @@ public class GetData {
         this.career = career;
     }
 }
-
-
-
-        
-        
-        
-        
-    
-     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
