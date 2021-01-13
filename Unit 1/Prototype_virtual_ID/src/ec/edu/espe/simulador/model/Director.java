@@ -30,7 +30,7 @@ public class Director {
         char answer1 = ans1.next().charAt(0);
         ans1.nextLine();
               
-        if(answer1 == 'Y' && answer1 == 'y'){
+        if(answer1 == 'Y'){
             try{
                 System.out.println("Give me your name: ");
                 name = ans1.nextLine();
@@ -45,13 +45,14 @@ public class Director {
                     System.out.println("Search Student Request");
                     System.out.println("======================");
                     Scanner keyboard = new Scanner(System.in);
-                    System.out.print("Write the word to search in the file: ");
+                    System.out.print("Write the request to search in the file: ");
                     String data = keyboard.nextLine();
                     Data.find(file, data);
                 }
                 
-        if(answer1 == 'N' && answer1 == 'n'){
+                else{
                     System.out.println("Incorrect password");
+                    System.out.println(" ");
                 } 
             }catch(Exception e){
                 

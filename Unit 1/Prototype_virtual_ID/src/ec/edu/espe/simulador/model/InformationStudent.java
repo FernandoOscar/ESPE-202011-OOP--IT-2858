@@ -39,7 +39,7 @@ public class InformationStudent {
         char answer1 = input.next().charAt(0);
         input.nextLine();
               
-        if(answer1 == 'Y' && answer1 == 'y'){
+        if(answer1 == 'Y'){
             try{
                 
                 file.createNewFile();
@@ -57,10 +57,11 @@ public class InformationStudent {
                 System.out.println("Your data has been saved correctly!!");
                 System.out.println("Your request has to be read by the director of your career");
                 System.out.println("  BE PATTIENT ;) ");
-                System.out.println(" ");
                 String dataToSave = getName()+","+getId()+","
                                      +getCareer();
                 Data.save("StudentData.csv", dataToSave);
+                System.out.println(" ");
+                
                 
                 line.println(getName()+","+getId()+","+getCareer());
                 line.close();
@@ -71,7 +72,7 @@ public class InformationStudent {
             }
         }
             
-        if(answer1 == 'N' && answer1 == 'n'){
+        if(answer1 == 'N'){
             System.out.println("You cannot access this benefit!!");
             System.out.println(" ");
         }
