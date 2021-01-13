@@ -40,6 +40,9 @@ public class GetData {
             System.out.print("Give me your name: ");
             String name = input.next();
             input.nextLine();
+            System.out.print("Give me your surname: ");
+            String surname = input.next();
+            input.nextLine();
             System.out.println("Give your career: ");
             String career = input.next();
             input.nextLine();
