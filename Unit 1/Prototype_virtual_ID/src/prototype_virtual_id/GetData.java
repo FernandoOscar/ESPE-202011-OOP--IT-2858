@@ -45,10 +45,16 @@ public class GetData {
             System.out.print("Give me your name: ");
             setName(input.nextLine());
             input.nextLine();
+
             System.out.println("Give me your ID");
             System.out.println("Format LXXXXXXXX: ");
             setId(input.next());
             
+
+            System.out.print("Give me your surname: ");
+            String surname = input.next();
+            input.nextLine();
+
             System.out.println("Give your career: ");
             setCareer(input.next());
             
