@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.simulador.model;
 
+import ec.edu.espe.filemanager.utils.Data;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -62,6 +63,10 @@ public class InformationStudent {
                 line.close();
                 write.close();
                 
+                String dataToSave = getName()+","+getId()+","
+                                     +getCareer();
+                Data.save("StudentData.csv", dataToSave);
+                
             }catch (IOException ex) {
                 Logger.getLogger(Prototype_virtual_ID.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -71,6 +76,7 @@ public class InformationStudent {
             System.out.println("You cannot access this benefit!!");
             System.out.println(" ");
         }
+        
            
         
     }

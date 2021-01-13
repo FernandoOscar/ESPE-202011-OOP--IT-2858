@@ -6,7 +6,6 @@ import ec.edu.espe.filemanager.utils.Data;
 import ec.edu.espe.simulador.model.Director;
 import ec.edu.espe.simulador.model.InformationStudent;
 import ec.edu.espe.simulador.model.Polyclinic;
-import java.io.File;
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -47,13 +46,6 @@ public class Prototype_virtual_ID {
                     case 1:
                         InformationStudent obj1 = new InformationStudent();
                         obj1.enterData();
-                                           
-                        obj1.getName();
-                        obj1.getId();
-                        obj1.getCareer();
-                        String dataToSave = obj1.getName()+","+obj1.getId()+","
-                                            +obj1.getCareer();
-                        Data.save("StudentData.csv", dataToSave);
                         break;
                         
                     case 2:
