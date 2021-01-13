@@ -48,7 +48,7 @@ public class InformationStudent {
 
                 System.out.print("Enter your name: ");
                 setName(input.nextLine());
-                System.out.print("Enter your id: ");
+                System.out.print("Enter your id in format LXXXXXXXX: ");
                 setId(input.nextLine());
                 System.out.print("Enter your career: ");
                 setCareer(input.nextLine());                
