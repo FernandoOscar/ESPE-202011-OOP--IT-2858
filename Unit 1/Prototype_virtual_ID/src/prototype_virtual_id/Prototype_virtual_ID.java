@@ -3,12 +3,17 @@ package prototype_virtual_id;
 
 
 import ec.edu.espe.filemanager.utils.Data;
+import ec.edu.espe.simulador.model.Director;
 import ec.edu.espe.simulador.model.InformationStudent;
+import ec.edu.espe.simulador.model.Polyclinic;
+import java.io.File;
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Prototype_virtual_ID {
+    
+    
     
     
     
@@ -27,8 +32,9 @@ public class Prototype_virtual_ID {
        
         while(!exit){
             System.out.println("1. Request VirtualID");
-            System.out.println("2. Request Attention Polyclinic");          
-            System.out.println("3. Exit");
+            System.out.println("2. Accept Request");
+            System.out.println("3. Request Attention Polyclinic");
+            System.out.println("4. Exit");
            
             try{
                 
@@ -47,15 +53,21 @@ public class Prototype_virtual_ID {
                         obj1.getCareer();
                         String dataToSave = obj1.getName()+","+obj1.getId()+","
                                             +obj1.getCareer();
-                        System.out.println(" ");
                         Data.save("StudentData.csv", dataToSave);
                         break;
-                   
+                        
                     case 2:
-                        attention();
+                        
+                        Director obj2 = new Director();
+                        obj2.security();
+                      
+                        break;
+                        
+                    case 3:
+                        Polyclinic.attention();
                         break;
                    
-                    case 3:
+                    case 4:
                         System.out.println("Thanks!!!");
                         exit=true;
                         System.out.println(" ");
@@ -75,15 +87,6 @@ public class Prototype_virtual_ID {
         
     }
     
-    public static void attention(){
-        Scanner sn2 = new Scanner(System.in);
-        int option2;
-        System.out.println("\n-----In what area should it be understood?---");
-        System.out.println("(1) General Medice");
-        System.out.println("(2) Odontology");
-        System.out.println("(3) Clinical Laboratory");
-        System.out.println("(4) Physiotherapy");
-        option2 = sn2.nextInt();
-    }
+    
 }
    

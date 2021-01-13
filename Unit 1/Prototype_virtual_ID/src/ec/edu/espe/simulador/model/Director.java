@@ -5,65 +5,71 @@
  */
 package ec.edu.espe.simulador.model;
 
+
+import ec.edu.espe.filemanager.utils.Data;
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import prototype_virtual_id.Prototype_virtual_ID;
+
 /**
  *
  * @author JOHNY
  */
 public class Director {
-    private String career;
-    private String name;
-    private String faculty;
-
-    @Override
-    public String toString() {
-        return "Director{" + "career=" + career + ", name=" + name + ", faculty=" + faculty + '}';
+    String career;
+    String name;
+    String faculty;
+    int password = 1234;
+    
+    
+    public void security(){
+        
+        Scanner ans1 = new Scanner(System.in);
+        System.out.println("Are you a career Director?");
+        System.out.print("Yes(Y) or No(N): ");
+        char answer1 = ans1.next().charAt(0);
+        ans1.nextLine();
+              
+        if(answer1 == 'Y'){
+            try{
+                System.out.println("Give me your name: ");
+                name = ans1.nextLine();
+                System.out.print("What career are you director of?: ");
+                career = ans1.nextLine();
+                System.out.print("Enter your password: ");
+                password = ans1.nextInt();
+                
+                if(password==1234){
+                    File file = new File("StudentData.csv"); 
+                    System.out.println("======================");
+                    System.out.println("Search Student Request");
+                    System.out.println("======================");
+                    Scanner keyboard = new Scanner(System.in);
+                    System.out.print("Write the word to search in the file: ");
+                    String data = keyboard.nextLine();
+                    Data.find(file, data);
+                }
+                
+                else{
+                    System.out.println("Incorrect password");
+                } 
+            }catch(Exception e){
+                
+            }
+            
+        }
+            
+        if(answer1 == 'N'){
+            System.out.println("Only career directors can use this field!!");
+            System.out.println(" ");
+            
+        }
+        
+        
+        
     }
 
-    public Director(String career, String name, String faculty) {
-        this.career = career;
-        this.name = name;
-        this.faculty = faculty;
-    }
-
-    /**
-     * @return the career
-     */
-    public String getCareer() {
-        return career;
-    }
-
-    /**
-     * @param career the career to set
-     */
-    public void setCareer(String career) {
-        this.career = career;
-    }
-
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * @return the faculty
-     */
-    public String getFaculty() {
-        return faculty;
-    }
-
-    /**
-     * @param faculty the faculty to set
-     */
-    public void setFaculty(String faculty) {
-        this.faculty = faculty;
-    }
 }
