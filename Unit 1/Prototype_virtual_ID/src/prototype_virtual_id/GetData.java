@@ -18,8 +18,15 @@ import java.util.Scanner;
  * @author User
  */
 public class GetData {
+    
+    private String id = "";
+    private String name = "";
+    private String career = "";
+    
+
+    
      
-    public static void enterData() throws IOException{
+    public void enterData() {
         
         Scanner input = new Scanner(System.in);
         File file = new File("StudentData.csv");      
@@ -28,28 +35,31 @@ public class GetData {
         System.out.print("Yes(Y) or No(N): ");
         char answer1 = input.next().charAt(0);
         
-        if(answer1 == 'Y'){
+        try{
+            if(answer1 == 'Y'){
             
             file.createNewFile();
             FileWriter write = new FileWriter(file, true);
             PrintWriter line = new PrintWriter(write);
+            
+            System.out.print("Give me your name: ");
+            setName(input.nextLine());
+            input.nextLine();
             System.out.println("Give me your ID");
             System.out.println("Format LXXXXXXXX: ");
-            String id = input.next();
-            input.nextLine();
-            System.out.print("Give me your name: ");
-            String name = input.next();
-            input.nextLine();
+            setId(input.next());
+            
             System.out.println("Give your career: ");
-            String career = input.next();
-            input.nextLine();
+            setCareer(input.next());
+            
             System.out.println(" ");            
             System.out.println("Your data has been saved correctly!!");
             System.out.println("Your request has to be read by the director of your career");
+            System.out.println("  BE PATTIENT ;) ");
             System.out.println(" ");
-            line.print(id);
-            line.print(name);
-            line.print(career);
+            
+            
+            line.println(getId()+","+getName()+","+getCareer());
             line.close();
             write.close();
                       
@@ -58,9 +68,60 @@ public class GetData {
         if(answer1 == 'N'){
             System.out.println("You cannot access this benefit!!");
             System.out.println(" ");
-           
         }
+           
+        }catch(IOException e){
+                
+                }
+            
+        
+        
 
+    }
+    public GetData() {
+        this.career = "";
+    }
+
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the career
+     */
+    public String getCareer() {
+        return career;
+    }
+
+    /**
+     * @param career the career to set
+     */
+    public void setCareer(String career) {
+        this.career = career;
     }
         
         
@@ -83,38 +144,5 @@ public class GetData {
     
     
     
-    
-    public static void save(String fileName, String record){
-        //TODO code to save data in a file
-        System.out.println("Calling save method, with parameters: "+fileName+" and "+record);   
-    }
-    
-    /*public static String find(File file, String data){
-        
-        try {
-            if(file.exists()) {
-                BufferedReader readFile = new BufferedReader(new FileReader(file));
-                String readLine;
-                while((readLine = readFile.readLine()) != null) {
-                    //totalLines=totalLines+1;
-                    String[] words = readLine.split(" ");
-                    for (String word : words) {
-                        if (word.equals(data)) {                            
-                            //totalCoincidence = totalCoincidence +1;
-                            System.out.println(readLine);                            
-                        }
-                    }
-                }
-            }
-        } catch(IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-        return data;
-    }*/
-    
-    
-    
 }
-
-
 
