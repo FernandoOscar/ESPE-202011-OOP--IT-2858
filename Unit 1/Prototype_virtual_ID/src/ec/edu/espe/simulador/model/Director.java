@@ -48,6 +48,7 @@ public class Director {
                     System.out.print("Write the request to search in the file: ");
                     String data = keyboard.nextLine();
                     Data.find(file, data);
+                    System.out.println("");
                 }
                 
                 else{
