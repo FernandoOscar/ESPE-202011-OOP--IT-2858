@@ -26,6 +26,7 @@ public class Polyclinic {
         System.out.println("(4) Physiotherapy");
         option2 = sn2.nextInt();
     }
+    
 
     public Polyclinic() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

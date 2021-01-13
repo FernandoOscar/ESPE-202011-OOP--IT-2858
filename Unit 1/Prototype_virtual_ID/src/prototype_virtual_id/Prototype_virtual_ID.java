@@ -57,13 +57,10 @@ public class Prototype_virtual_ID {
                         break;
                         
                     case 2:
-                        File file = new File("StudentData.csv");  
+                        
                         Director obj2 = new Director();
                         obj2.security();
-                        Scanner keyboard = new Scanner(System.in);
-                        System.out.print("Write the word to search in the file: ");
-                        String data = keyboard.nextLine();
-                        Data.find(file, data);
+                      
                         break;
                         
                     case 3:

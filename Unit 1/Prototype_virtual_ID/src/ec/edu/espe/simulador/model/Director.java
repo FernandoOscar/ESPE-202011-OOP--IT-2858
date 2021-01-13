@@ -6,6 +6,8 @@
 package ec.edu.espe.simulador.model;
 
 
+import ec.edu.espe.filemanager.utils.Data;
+import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -41,9 +43,14 @@ public class Director {
                 password = ans1.nextInt();
                 
                 if(password==1234){
+                    File file = new File("StudentData.csv"); 
                     System.out.println("======================");
                     System.out.println("Search Student Request");
                     System.out.println("======================");
+                    Scanner keyboard = new Scanner(System.in);
+                    System.out.print("Write the word to search in the file: ");
+                    String data = keyboard.nextLine();
+                    Data.find(file, data);
                 }
                 
                 else{
