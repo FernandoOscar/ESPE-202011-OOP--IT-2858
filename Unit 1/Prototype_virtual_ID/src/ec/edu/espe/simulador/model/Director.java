@@ -8,15 +8,12 @@ package ec.edu.espe.simulador.model;
 
 import ec.edu.espe.filemanager.utils.Data;
 import java.io.File;
-import java.io.IOException;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import prototype_virtual_id.Prototype_virtual_ID;
+
 
 /**
  *
- * @author JOHNY
+ * @author Developers
  */
 public class Director {
     String career;

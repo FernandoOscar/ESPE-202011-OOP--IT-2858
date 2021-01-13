@@ -5,6 +5,8 @@
  */
 package ec.edu.espe.simulador.model;
 
+import ec.edu.espe.filemanager.utils.Data;
+import java.io.File;
 import java.util.Scanner;
 
 /**
@@ -25,57 +27,11 @@ public class Polyclinic {
         System.out.println("(3) Clinical Laboratory");
         System.out.println("(4) Physiotherapy");
         option2 = sn2.nextInt();
-    }
-    
-
-    public Polyclinic() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String toString() {
-        return "Polyclinic{" + "virtualid=" + virtualid + ", qrcode=" + qrcode + '}';
-    }
-
-    
-    public Polyclinic(int virtualid, boolean qrcode) {
-        this.virtualid = virtualid;
-        this.qrcode = qrcode;
-    }
-    
-    void attendStudent(Student student){
         
-    }
-    boolean verifydentification(QR qr){
-        return true;
-    }
-
-    /**
-     * @return the virtualid
-     */
-    public int getVirtualid() {
-        return virtualid;
-    }
-
-    /**
-     * @param virtualid the virtualid to set
-     */
-    public void setVirtualid(int virtualid) {
-        this.virtualid = virtualid;
-    }
-
-    /**
-     * @return the qrcode
-     */
-    public boolean isQrcode() {
-        return qrcode;
-    }
-
-    /**
-     * @param qrcode the qrcode to set
-     */
-    public void setQrcode(boolean qrcode) {
-        this.qrcode = qrcode;
+        if (option2==1){
+              
+        }
+      }
     }
     
-}
+   
