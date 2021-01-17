@@ -5,11 +5,15 @@
  */
 package ec.edu.espe.simulador.model;
 
+
+
 /**
  *
  * @author group2
  */
 public class Inventory {
+    
+    
     String location;
     boolean availability;
     String area; 

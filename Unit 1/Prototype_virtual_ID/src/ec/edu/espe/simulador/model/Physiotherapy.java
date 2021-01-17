@@ -5,6 +5,10 @@
  */
 package ec.edu.espe.simulador.model;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -12,69 +16,42 @@ import java.util.Scanner;
  * @author LENOVO
  */
 public class Physiotherapy {
+    
+    Scanner sc1 = new Scanner(System.in);
+    File file = new File("PhysMedicine.csv");
+    
     private String medicine;
-    private Boolean expiration;
-    private String sympton;
     
     public void genmed(){
-        Scanner gen = new Scanner(System.in);
-        System.out.println("What medicine do you need? ");
-        setSympton(gen.nextLine());
         
         
+        try{
+            file.createNewFile();
+            FileWriter write = new FileWriter(file, true);
+            PrintWriter line = new PrintWriter(write);
+            System.out.print("Enter your name of medicament: ");
+            medicine = sc1.nextLine();
+            System.out.println("Your medication was added correctly!!");
+        
+            line.println(medicine);
+            line.close();
+            write.close();
+        }catch(IOException e){
+            }
     }
-
-    @Override
-    public String toString() {
-        return "Physiotherapy{" + "medicine=" + medicine + ", expiration=" + expiration + '}';
-    }
-
-    
-    public Physiotherapy(String medicine, Boolean expiration) {
-        this.medicine = medicine;
-        this.expiration = expiration;
-    }
-    
-    /**
-     * @return the medicine
-     */
-    public String getMedicine() {
-        return medicine;
-    }
-
-    /**
-     * @param medicine the medicine to set
-     */
-    public void setMedicine(String medicine) {
-        this.medicine = medicine;
-    }
-
-    /**
-     * @return the expiration
-     */
-    public Boolean getExpiration() {
-        return expiration;
-    }
-
-    /**
-     * @param expiration the expiration to set
-     */
-    public void setExpiration(Boolean expiration) {
-        this.expiration = expiration;
-    }
-
-    /**
-     * @return the sympton
-     */
-    public String getSympton() {
-        return sympton;
-    }
-
-    /**
-     * @param sympton the sympton to set
-     */
-    public void setSympton(String sympton) {
-        this.sympton = sympton;
-    }
-    
 }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+
+   
