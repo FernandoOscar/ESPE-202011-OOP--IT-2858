@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author LENOVO
+ * @author Group4 
  */
 public class Physiotherapy {
     
@@ -38,6 +38,15 @@ public class Physiotherapy {
             write.close();
         }catch(IOException e){
             }
+    }
+
+    @Override
+    public String toString() {
+        return "Physiotherapy{" + "sc1=" + sc1 + ", file=" + file + ", medicine=" + medicine + '}';
+    }
+
+    public Physiotherapy(String medicine) {
+        this.medicine = medicine;
     }
 
     /**
