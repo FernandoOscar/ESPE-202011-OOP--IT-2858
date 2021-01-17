@@ -5,6 +5,8 @@
  */
 package ec.edu.espe.simulador.model;
 
+import java.util.Scanner;
+
 /**
  *
  * @author LENOVO
@@ -12,6 +14,15 @@ package ec.edu.espe.simulador.model;
 public class Odontology {
     private String medicine;
     private boolean expiration;
+    private String sympton;
+    
+    
+    public void odmed(){
+        Scanner gen = new Scanner(System.in);
+        System.out.println("What medicine do you need? ");
+        setSympton(gen.nextLine());
+          
+    }
 
     @Override
     public String toString() {
@@ -50,5 +61,19 @@ public class Odontology {
      */
     public void setExpiration(boolean expiration) {
         this.expiration = expiration;
+    }
+
+    /**
+     * @return the sympton
+     */
+    public String getSympton() {
+        return sympton;
+    }
+
+    /**
+     * @param sympton the sympton to set
+     */
+    public void setSympton(String sympton) {
+        this.sympton = sympton;
     }
 }

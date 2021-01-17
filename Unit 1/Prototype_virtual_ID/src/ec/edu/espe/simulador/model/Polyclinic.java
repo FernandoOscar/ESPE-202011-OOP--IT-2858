@@ -26,11 +26,22 @@ public class Polyclinic {
         System.out.println("(2) Odontology");
         System.out.println("(3) Clinical Laboratory");
         System.out.println("(4) Physiotherapy");
-        option2 = sn2.nextInt();
         
-        if (option2==1){
-              
+        try {
+            System.out.println("Write on of the options: ");
+            option2 = sn2.nextInt();
+            if(option2==1){
+                Inventory.Medicines();
+            }if(option2==2){
+                
+            }if(option2==3){
+                
+            }
+        }catch(Exception e){
+            
         }
+        
+        
       }
     }
     
