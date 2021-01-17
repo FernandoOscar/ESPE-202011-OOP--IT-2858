@@ -6,6 +6,11 @@
 package ec.edu.espe.simulador.model;
 
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 /**
  *
@@ -16,22 +21,43 @@ public class GeneralMedicine {
     private boolean expiration;
     private String sympton;
     
+    
+        
+    
     public void genmed(){
-        Scanner gen = new Scanner(System.in);
-        System.out.println("What medicine do you need? ");
-        sympton= gen.nextLine();
+        try{
+            Scanner generalmed = new Scanner(System.in);
+            System.out.println("What medicine do you need? ");
+            setSympton(generalmed.nextLine());
         
+            Scanner sc3 = new Scanner(System.in);
+            File file = new File("GeneralMedicine.csv");
+     
+            String Generalmedicine;
+            file.createNewFile();
+            FileWriter write = new FileWriter(file, true);
+            PrintWriter line = new PrintWriter(write);
+            System.out.print("Enter your name of medicament: ");
+            Generalmedicine = sc3.nextLine();
+            System.out.println("Your medication was added correctly!!");
         
+            line.println(getMedicine());
+            line.close();
+            write.close();
+        }catch(IOException e){
+            }
     }
 
     @Override
     public String toString() {
-        return "GeneralMedicine{" + "medicine=" + medicine + ", expiration=" + expiration + '}';
+        return "GeneralMedicine{" + "medicine=" + medicine + ", expiration=" + expiration + ", sympton=" + sympton + '}';
     }
+    
 
-    public GeneralMedicine(String medicine, boolean expiration) {
+    public GeneralMedicine(String medicine, boolean expiration, String sympton) {
         this.medicine = medicine;
         this.expiration = expiration;
+        this.sympton = sympton;
     }
 
     /**
@@ -75,5 +101,12 @@ public class GeneralMedicine {
     public void setSympton(String sympton) {
         this.sympton = sympton;
     }
+
+        
+    
+
+    
+
+
     
 }
