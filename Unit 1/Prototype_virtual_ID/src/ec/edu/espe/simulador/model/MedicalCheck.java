@@ -10,56 +10,18 @@ package ec.edu.espe.simulador.model;
  * @author LENOVO
  */
 public class MedicalCheck {
-    private String date;
-    private String time;
-
-    @Override
-    public String toString() {
-        return "MedicalCheck{" + "date=" + date + ", time=" + time + '}';
+    String date;
+    String time;
+    
+    public void removeAppointment(){
+        
     }
     
-
-    public MedicalCheck(String date, String time) {
-        this.date = date;
-        this.time = time;
+    public void addAppointment(){
+        
     }
     
-    
-    boolean removeAppointment(){
-        return true;
-    }
-    String addAppointment(){
-        return getDate();
-    }
-    boolean updateAppointment(){
-        return true;
-    }
-
-    /**
-     * @return the date
-     */
-    public String getDate() {
-        return date;
-    }
-
-    /**
-     * @param date the date to set
-     */
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    /**
-     * @return the time
-     */
-    public String getTime() {
-        return time;
-    }
-
-    /**
-     * @param time the time to set
-     */
-    public void setTime(String time) {
-        this.time = time;
+    public void updateAppointment(){
+        
     }
 }

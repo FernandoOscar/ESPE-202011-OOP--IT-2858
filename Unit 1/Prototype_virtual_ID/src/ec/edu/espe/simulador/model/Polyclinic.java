@@ -11,38 +11,19 @@ import java.util.Scanner;
 
 /**
  *
- * @author JOHNY
+ * @author Group4
  */
 public class Polyclinic {
-    private int virtualid;
-    private boolean qrcode;
-    
-    
-    public static void attention(){
-        Scanner sn2 = new Scanner(System.in);
-        int option2;
-        System.out.println("\n-----In what area should it be understood?---");
-        System.out.println("(1) General Medice");
-        System.out.println("(2) Odontology");
-        System.out.println("(3) Clinical Laboratory");
-        System.out.println("(4) Physiotherapy");
-        
-        try {
-            System.out.println("Write on of the options: ");
-            option2 = sn2.nextInt();
-            if(option2==1){
-                Inventory.Medicines();
-            }if(option2==2){
-                
-            }if(option2==3){
-                
-            }
-        }catch(Exception e){
-            
-        }
-        
-        
-      }
+
+    int virtualid;
+    boolean qrcode;
+
+    public void attendeStudent() {
+
     }
-    
-   
+
+    public boolean verifyIdentification(QR qrcode) {
+        
+        return true;
+    }
+}
