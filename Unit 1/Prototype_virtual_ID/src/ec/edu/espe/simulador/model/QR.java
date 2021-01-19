@@ -5,6 +5,9 @@
  */
 package ec.edu.espe.simulador.model;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
  * @author JOHNY
@@ -13,45 +16,13 @@ public class QR {
     private int id;
     private boolean security;
 
-    @Override
-    public String toString() {
-        return "QR{" + "id=" + id + ", security=" + security + '}';
+    public void security() {
+        Scanner dateID = new Scanner(System.in);
+        ArrayList VirtualCard = new ArrayList();
+        System.out.println("Ingrese su ID: ");
+        id = dateID.nextInt();
+        VirtualCard.add(id);
+        
+        
     }
-    
-
-    public QR(int id, boolean security) {
-        this.id = id;
-        this.security = security;
-    }
-    
-    /**
-     * @return the id
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    /**
-     * @return the security
-     */
-    public boolean isSecurity() {
-        return security;
-    }
-
-    /**
-     * @param security the security to set
-     */
-    public void setSecurity(boolean security) {
-        this.security = security;
-    }
-    
-    
-      
 }
