@@ -19,7 +19,7 @@ public class Administrator {
         int option;
 
         while (!exit) {
-            
+
             try {
 
                 System.out.println("1) Login as Student");
@@ -45,9 +45,8 @@ public class Administrator {
                         System.out.println(" ");
                         System.out.println(" ");
                         break;
-
+                    
                     case 3:
-
                         System.out.println("Thanks!!!");
                         exit = true;
                         System.out.println(" ");

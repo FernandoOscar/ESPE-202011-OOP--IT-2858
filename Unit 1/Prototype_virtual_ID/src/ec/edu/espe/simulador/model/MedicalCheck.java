@@ -5,9 +5,9 @@
  */
 package ec.edu.espe.simulador.model;
 
-import ec.edu.espe.filemanager.utils.Data;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
@@ -20,12 +20,15 @@ public class MedicalCheck {
     String date;
     String time;
 
-    public void addAppointment(Student student) {
+    public void addAppointment() throws IOException {
 
+        File file = new File("MedicalCheck.csv");
         Scanner as = new Scanner(System.in);
         Scanner mc = new Scanner(System.in);
-        File file = new File("MedicalCheck.csv");
-        System.out.println("would you like to make an appintment?");
+        FileWriter write = new FileWriter(file, true);
+        PrintWriter line = new PrintWriter(write);
+        
+        System.out.println("Would you like to make an appointment?");
         System.out.println("Yes(Y) or No(N)");
         char elect = as.next().charAt(0);
         as.nextLine();
@@ -34,38 +37,34 @@ public class MedicalCheck {
             if (!file.exists()) {
                 try {
                     file.createNewFile();
-                    FileWriter write = new FileWriter(file, true);
-                    PrintWriter line = new PrintWriter(write);
                     System.out.println(" ");
-                    System.out.println("Agree on the date");
+                    System.out.println("For what day do you need the appointment?");
+                    System.out.println("Enter date in format dd/mm/yyyy: ");
                     date = mc.nextLine();
-                    System.out.println("Agree the time");
+                    System.out.println("What time do you need the appointment?");
+                    System.out.println("Enter time in format hh:mm: ");
                     time = mc.nextLine();
-
-                    line.println();
-
+                    line.println(date + "," + time + ",");
+                    System.out.println("Your appointment was added");
                     line.close();
                     write.close();
 
-                } catch (Exception e) {
+                } catch (IOException e) {
                 }
             } else {
                 try {
-                    file.createNewFile();
-                    
-                    FileWriter write = new FileWriter(file, true);
-                    PrintWriter line = new PrintWriter(write);
                     System.out.println(" ");
-                    System.out.println("Agree on the date");
+                    System.out.println("For what day do you need the appointment?");
+                    System.out.println("Enter date in format dd/mm/yyyy: ");
                     date = mc.nextLine();
-                    System.out.println("Agree the time");
+                    System.out.println("What time do you need the appointment?");
+                    System.out.println("Enter time in format hh:mm: ");
                     time = mc.nextLine();
-
-                    line.println();
-
+                    line.println(date + "," + time + ",");
+                    System.out.println("Your appointment was added");
                     line.close();
                     write.close();
-                } catch (Exception e) {
+                } catch (IOException e) {
                     System.out.println("Error");
                 }
             }

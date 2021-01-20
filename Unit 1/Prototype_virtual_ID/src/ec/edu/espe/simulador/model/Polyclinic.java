@@ -6,6 +6,7 @@
 package ec.edu.espe.simulador.model;
 import ec.edu.espe.filemanager.utils.Data;
 import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -15,21 +16,26 @@ import java.util.Scanner;
 public class Polyclinic {
     int virtualid;
     boolean qrcode;
-    Scanner vr= new Scanner(System.in);
+    Scanner vr = new Scanner(System.in);
 
     
 
-    public void attendeStudent() {
+    public void attendeStudent() throws IOException {
         
-        
-   
         System.out.println("WELCOME AT POLYCLINIC");
+        System.out.println("First you need to make appoinment");
+        MedicalCheck turn = new MedicalCheck();
+        turn.addAppointment();   
+        
+        
+        Scanner ans = new Scanner(System.in);
         int option2 = 0;
         System.out.println("\n-------What are should it be understood?");
         System.out.println("1. General Medice");
         System.out.println("2. Odontology");
         System.out.println("3. Clinical Laboratory");
         System.out.println("4. Physiotherapy");
+        option2 = ans.nextInt();
         
         switch(option2){
             case 1:

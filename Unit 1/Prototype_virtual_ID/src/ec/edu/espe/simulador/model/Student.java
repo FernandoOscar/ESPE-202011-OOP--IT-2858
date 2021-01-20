@@ -32,7 +32,7 @@ public class Student {
         if (answer1 == 'Y' || answer1 == 'y') {
 
             System.out.println("1) Request VirtualID");
-            System.out.println("2) Request Attention Polyclinic");
+            System.out.println("2) Polyclinic");
             System.out.println("Write one of the options: ");
             answer2 = valid.nextInt();
 
@@ -68,6 +68,8 @@ public class Student {
                     break;
                     
                     case 2:
+                        Polyclinic appo = new Polyclinic();
+                        appo.attendeStudent();
                         
                         break;
 
