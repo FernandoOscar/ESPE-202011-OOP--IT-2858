@@ -33,7 +33,7 @@ public class MedicalCheck {
         char elect = as.next().charAt(0);
         as.nextLine();
 
-        if (elect == 'Y') {
+        if (elect == 'Y' || elect == 'y') {
             if (!file.exists()) {
                 try {
                     file.createNewFile();
@@ -69,7 +69,7 @@ public class MedicalCheck {
                 }
             }
         }
-        if (elect == 'N') {
+        if (elect == 'N' || elect == 'n') {
             System.out.println("Thanks");
         }
     }

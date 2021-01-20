@@ -31,6 +31,8 @@ public class Student {
 
         if (answer1 == 'Y' || answer1 == 'y') {
 
+            System.out.println(" ");
+            System.out.println(" ");
             System.out.println("1) Request VirtualID");
             System.out.println("2) Polyclinic");
             System.out.println("Write one of the options: ");
@@ -46,7 +48,7 @@ public class Student {
 
                         System.out.print("Enter your name: ");
                         name = input.nextLine();
-                        System.out.print("Enter your id in format whitouth L: ");
+                        System.out.print("Enter your id withouth L: ");
                         id = input.nextInt();
                         System.out.print("Enter your career: ");
                         career = input.nextLine();

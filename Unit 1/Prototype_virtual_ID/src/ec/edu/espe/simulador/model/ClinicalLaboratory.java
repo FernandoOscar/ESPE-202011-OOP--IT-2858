@@ -12,6 +12,10 @@ package ec.edu.espe.simulador.model;
 public class ClinicalLaboratory {
     private String sample;
 
+    public ClinicalLaboratory() {
+    }
+    
+
     @Override
     public String toString() {
         return "ClinicalLaboratory{" + "sample=" + sample + '}';

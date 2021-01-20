@@ -23,7 +23,6 @@ public class Polyclinic {
     public void attendeStudent() throws IOException {
         
         System.out.println("WELCOME AT POLYCLINIC");
-        System.out.println("First you need to make appoinment");
         MedicalCheck turn = new MedicalCheck();
         turn.addAppointment();   
         
@@ -39,13 +38,15 @@ public class Polyclinic {
         
         switch(option2){
             case 1:
-                //GeneralMedicine gd = new GeneralMedicine();
+                Inventory turn1 = new Inventory();
+                turn1.medicines();
                 break;
             case 2:
                 //Odontology od = new Odontology();
                 break;
             case 3:
-                //ClinicalLaboratory cl= new ClinicalLaboratory();
+                Inventory turn3 = new Inventory();
+                turn3.samples();
                 break;
             case 4:
                 //Physiotherapy phy = new Physiotherapy();
@@ -56,7 +57,7 @@ public class Polyclinic {
         
     }
 
-    public boolean verifyIdentification(QR qrcode) {
+    public boolean verifyIdentification() {
         File file = new File("StudentData.csv");
         if (!file.exists()) {
             try {
