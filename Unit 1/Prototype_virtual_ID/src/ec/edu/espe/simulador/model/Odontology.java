@@ -24,7 +24,7 @@ public class Odontology {
     private Scanner sc1 = new Scanner(System.in);
     private File file = new File("Odontology.csv");
     
-    private String medicine;
+    
     
     public void genmed(){
         

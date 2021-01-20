@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import prototype_virtual_id.Prototype_virtual_ID;
+import prototype_virtual_id.Administrator;
 
 
 
@@ -74,7 +74,7 @@ public class InformationStudent {
                 write.close();
                 
             }catch (IOException ex) {
-                Logger.getLogger(Prototype_virtual_ID.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
             
