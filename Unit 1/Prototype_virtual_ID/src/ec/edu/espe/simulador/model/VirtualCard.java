@@ -17,11 +17,19 @@ public class VirtualCard {
     private String name;
 
 
-public void giveWay(){
-    Scanner dateID = new Scanner(System.in);
-    System.out.println("Ingrese su ID: ");
-    id = dateID.nextInt();
-    
-}
+public boolean giveWay() {
+        return true;
+    }
+
+    public void showIdentification(InformationStudent date) {
+        int x;
+        x = date.getId().length();
+        if (x != 7) {
+            System.out.println("Unidentified ID");
+        } else {
+            //return true;
+        }
+        //return true;
+    }
     
 }
