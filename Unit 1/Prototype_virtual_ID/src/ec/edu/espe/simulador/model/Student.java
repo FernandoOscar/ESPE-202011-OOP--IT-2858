@@ -29,7 +29,7 @@ public class Student {
         Scanner valid = new Scanner(System.in);
         int answer2;
 
-        if (answer1 == 'Y') {
+        if (answer1 == 'Y' || answer1 == 'y') {
 
             System.out.println("1) Request VirtualID");
             System.out.println("2) Request Attention Polyclinic");
@@ -78,7 +78,7 @@ public class Student {
 
         }
         
-        if (answer1 == 'N') {
+        if (answer1 == 'N' || answer1 == 'n') {
             System.out.println("You cannot access this benefit!!");
             System.out.println(" ");
         }

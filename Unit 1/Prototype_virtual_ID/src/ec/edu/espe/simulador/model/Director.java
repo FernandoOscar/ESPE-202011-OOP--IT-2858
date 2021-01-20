@@ -30,7 +30,7 @@ public class Director {
         char answer1 = ans1.next().charAt(0);
         ans1.nextLine();
               
-        if(answer1 == 'Y'){
+        if(answer1 == 'Y' || answer1 == 'y'){
             try{
                 System.out.println("Give me your name: ");
                 name = ans1.nextLine();
