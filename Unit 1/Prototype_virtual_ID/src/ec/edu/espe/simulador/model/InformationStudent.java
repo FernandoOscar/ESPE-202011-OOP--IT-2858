@@ -32,24 +32,30 @@ public class InformationStudent {
     public void enterData() {
         
         Scanner input = new Scanner(System.in);
-        File file = new File("StudentData.csv");      
+        File file = new File("StudentData.csv"); 
+        VirtualCard dataID = new VirtualCard();
         System.out.print("Are you a student of the Universidad de las Fuerzas Armadas: ");
         System.out.println(" ");
         System.out.print("Yes(Y) or No(N): ");
         char answer1 = input.next().charAt(0);
         input.nextLine();
-              
+        boolean val;
+        int bill;
         if(answer1 == 'Y'){
             try{
                 
                 file.createNewFile();
                 FileWriter write = new FileWriter(file, true);
                 PrintWriter line = new PrintWriter(write);
-
+                
                 System.out.print("Enter your name: ");
                 setName(input.nextLine());
+                do{
                 System.out.print("Enter your id in format LXXXXXXXX: ");
                 setId(input.nextLine());
+                bill = getId().length();
+                val = dataID.showIdentification(bill);
+                }while(val);
                 System.out.print("Enter your career: ");
                 setCareer(input.nextLine());                
                 
