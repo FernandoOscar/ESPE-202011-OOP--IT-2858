@@ -22,18 +22,26 @@ public class Polyclinic {
 
     public void attendeStudent() throws IOException {
         
+        System.out.println("\n");
+        System.out.println("========================");
         System.out.println("WELCOME AT POLYCLINIC");
+        System.out.println("========================");
+        System.out.println("\n");
         MedicalCheck turn = new MedicalCheck();
-        turn.addAppointment();   
+        turn.addAppointment();
+        
         
         
         Scanner ans = new Scanner(System.in);
         int option2 = 0;
-        System.out.println("\n-------What are should it be understood?");
+        System.out.println("\n");
+        System.out.println("==========================================");
+        System.out.println("-------What are should it be understood?");
         System.out.println("1. General Medice");
         System.out.println("2. Odontology");
         System.out.println("3. Clinical Laboratory");
         System.out.println("4. Physiotherapy");
+        System.out.println("===========================================");
         option2 = ans.nextInt();
         
         switch(option2){

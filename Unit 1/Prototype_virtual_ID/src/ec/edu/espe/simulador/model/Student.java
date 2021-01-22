@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class Student {
 
-    int id;
+    String id;
     String name;
     String career;
 
@@ -48,22 +48,23 @@ public class Student {
 
                         System.out.print("Enter your name: ");
                         name = input.nextLine();
-                        System.out.print("Enter your id withouth L: ");
-                        id = input.nextInt();
+                        System.out.print("Enter your id with L: ");
+                        id = input.nextLine();
                         System.out.print("Enter your career: ");
                         career = input.nextLine();
-                        input.next();
-                        System.out.println(" ");
+                        System.out.println("===========================================================");
                         System.out.println("Your data has been saved correctly!!");
                         System.out.println("Your request has to be read by the director of your career");
                         System.out.println("  BE PATTIENT ;) ");
+                        System.out.println("===========================================================");
 
-                        String dataToSave = (name + "," + id + "," + career + ",");
-                        Data.save("StudentData.csv", dataToSave);
+                        //String dataToSave = (name + "," + id + "," + career + ",");
+                        //Data.save("StudentData.csv", dataToSave);
                         System.out.println(" ");
                         line.println(name + "," + id + "," + career + ",");
                         line.close();
                         write.close();
+                        
                     }catch(IOException e) {
                         System.out.println("Enter any character to continue");
                     }

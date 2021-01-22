@@ -33,6 +33,7 @@ public class Inventory {
         do{
             System.out.println("How many samples do you need to enter? :");
             n = read.nextInt();
+            
         }while(n<0);
         
         read.nextLine();
@@ -41,7 +42,8 @@ public class Inventory {
             sample = read.nextLine();       
             ClinicalLaboratory.setSample(sample);
             cLaboratory.add(ClinicalLaboratory);
-            System.out.println("The clinical laboratory received a sample of:" + ClinicalLaboratory.getSample()); 
+            System.out.println("The clinical laboratory received a sample of:" 
+                                + ClinicalLaboratory.getSample()); 
         }
         
     }

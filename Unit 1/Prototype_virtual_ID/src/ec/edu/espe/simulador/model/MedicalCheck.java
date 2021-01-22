@@ -37,7 +37,7 @@ public class MedicalCheck {
             if (!file.exists()) {
                 try {
                     file.createNewFile();
-                    System.out.println(" ");
+                    
                     System.out.println("For what day do you need the appointment?");
                     System.out.println("Enter date in format dd/mm/yyyy: ");
                     date = mc.nextLine();
