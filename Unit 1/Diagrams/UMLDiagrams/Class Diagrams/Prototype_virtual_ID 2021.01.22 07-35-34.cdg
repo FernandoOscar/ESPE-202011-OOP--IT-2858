@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Prototype_virtual_ID">
+  <ClassDiagramComponents>
+    <Class name="ClinicalLaboratory" package="ec.edu.espe.simulador.model" visibility="public" xPosition="2195.0" yPosition="83.0">
+      <Fields>
+        <Field name="sample" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="sample"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getSample" returnType="String" visibility="public"/>
+        <Method name="setSample" returnType="void" visibility="public">
+          <Argument type="String" name="sample"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ClinicHistory" package="ec.edu.espe.simulador.model" visibility="public" xPosition="14.0" yPosition="9.0">
+      <Fields>
+        <Field name="system" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="system"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="update" returnType="String" visibility="package">
+          <Argument type="Student" name="student"/>
+        </Method>
+        <Method name="getSystem" returnType="String" visibility="public"/>
+        <Method name="setSystem" returnType="void" visibility="public">
+          <Argument type="String" name="system"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ControlBooth" package="ec.edu.espe.simulador.model" visibility="public" xPosition="564.0" yPosition="28.0">
+      <Fields>
+        <Field name="name" type="String" visibility="package"/>
+        <Field name="id" type="int" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="check" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Director" package="ec.edu.espe.simulador.model" visibility="public" xPosition="781.0" yPosition="28.0">
+      <Fields>
+        <Field name="career" type="String" visibility="package"/>
+        <Field name="name" type="String" visibility="package"/>
+        <Field name="faculty" type="String" visibility="package"/>
+        <Field name="password" type="int" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="security" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Doctor" package="ec.edu.espe.simulador.model" visibility="public" xPosition="755.0" yPosition="259.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="id" type="String" visibility="private"/>
+        <Field name="area" type="String" visibility="private"/>
+        <Field name="address" type="String" visibility="private"/>
+        <Field name="phone" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="doctorData" returnType="void" visibility="public"/>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getId" returnType="String" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getArea" returnType="String" visibility="public"/>
+        <Method name="setArea" returnType="void" visibility="public">
+          <Argument type="String" name="area"/>
+        </Method>
+        <Method name="getAddress" returnType="String" visibility="public"/>
+        <Method name="setAddress" returnType="void" visibility="public">
+          <Argument type="String" name="address"/>
+        </Method>
+        <Method name="getPhone" returnType="String" visibility="public"/>
+        <Method name="setPhone" returnType="void" visibility="public">
+          <Argument type="String" name="phone"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GeneralMedicine" package="ec.edu.espe.simulador.model" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="medicine" type="String" visibility="private"/>
+        <Field name="expiration" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getMedicine" returnType="String" visibility="public"/>
+        <Method name="setMedicine" returnType="void" visibility="public">
+          <Argument type="String" name="medicine"/>
+        </Method>
+        <Method name="isExpiration" returnType="String" visibility="public"/>
+        <Method name="setExpiration" returnType="void" visibility="public">
+          <Argument type="String" name="expiration"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Inventory" package="ec.edu.espe.simulador.model" visibility="public" xPosition="1846.0" yPosition="46.0">
+      <Fields>
+        <Field name="location" type="String" visibility="package"/>
+        <Field name="availability" type="boolean" visibility="package"/>
+        <Field name="area" type="String" visibility="package"/>
+        <Field name="ClinicalLaboratory" type="ClinicalLaboratory" visibility="private"/>
+        <Field name="GeneralMedicine" type="GeneralMedicine" visibility="private"/>
+        <Field name="Odontology" type="Odontology" visibility="private"/>
+        <Field name="cLaboratory" type="ArrayList&lt;ClinicalLaboratory&gt;" visibility="package"/>
+        <Field name="gMedicines" type="ArrayList&lt;GeneralMedicine&gt;" visibility="package"/>
+        <Field name="Odont" type="ArrayList&lt;Odontology&gt;" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="samples" returnType="void" visibility="public"/>
+        <Method name="medicines" returnType="void" visibility="public"/>
+        <Method name="tools" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MedicalCheck" package="ec.edu.espe.simulador.model" visibility="public" xPosition="1011.0" yPosition="344.0">
+      <Fields>
+        <Field name="date" type="String" visibility="package"/>
+        <Field name="time" type="String" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="addAppointment" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Odontology" package="ec.edu.espe.simulador.model" visibility="public" xPosition="1470.0" yPosition="267.0">
+      <Fields>
+        <Field name="dentalTools" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getDentalTools" returnType="String" visibility="public"/>
+        <Method name="setDentalTools" returnType="void" visibility="public">
+          <Argument type="String" name="dentalTools"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Physiotherapy" package="ec.edu.espe.simulador.model" visibility="public" xPosition="14.0" yPosition="259.0">
+      <Fields>
+        <Field name="sc1" type="Scanner" visibility="private"/>
+        <Field name="file" type="File" visibility="private"/>
+        <Field name="medicine" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="medicine"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="genmed" returnType="void" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getSc1" returnType="Scanner" visibility="public"/>
+        <Method name="setSc1" returnType="void" visibility="public">
+          <Argument type="Scanner" name="sc1"/>
+        </Method>
+        <Method name="getFile" returnType="File" visibility="public"/>
+        <Method name="setFile" returnType="void" visibility="public">
+          <Argument type="File" name="file"/>
+        </Method>
+        <Method name="getMedicine" returnType="String" visibility="public"/>
+        <Method name="setMedicine" returnType="void" visibility="public">
+          <Argument type="String" name="medicine"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Polyclinic" package="ec.edu.espe.simulador.model" visibility="public" xPosition="282.0" yPosition="259.0">
+      <Fields>
+        <Field name="virtualid" type="int" visibility="package"/>
+        <Field name="qrcode" type="boolean" visibility="package"/>
+        <Field name="vr" type="Scanner" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="attendeStudent" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="QR" package="ec.edu.espe.simulador.model" visibility="public" xPosition="491.0" yPosition="259.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="security" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="boolean" name="security"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="isSecurity" returnType="boolean" visibility="public"/>
+        <Method name="setSecurity" returnType="void" visibility="public">
+          <Argument type="boolean" name="security"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Student" package="ec.edu.espe.simulador.model" visibility="public" xPosition="333.0" yPosition="28.0">
+      <Fields>
+        <Field name="id" type="String" visibility="package"/>
+        <Field name="name" type="String" visibility="package"/>
+        <Field name="career" type="String" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="enterData" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="VirtualCard" package="ec.edu.espe.simulador.model" visibility="public" xPosition="1071.0" yPosition="9.0">
+      <Fields>
+        <Field name="department" type="String" visibility="private"/>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="department"/>
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="giveWay" returnType="void" visibility="public"/>
+        <Method name="showIdentification" returnType="boolean" visibility="public">
+          <Argument type="int" name="dataID"/>
+        </Method>
+        <Method name="getDepartment" returnType="String" visibility="public"/>
+        <Method name="setDepartment" returnType="void" visibility="public">
+          <Argument type="String" name="department"/>
+        </Method>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Administrator" package="prototype_virtual_id" visibility="public" xPosition="1237.0" yPosition="344.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="ClinicalLaboratory" source="ec.edu.espe.simulador.model.Inventory" target="ec.edu.espe.simulador.model.ClinicalLaboratory" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cLaboratory" source="ec.edu.espe.simulador.model.Inventory" target="ec.edu.espe.simulador.model.ClinicalLaboratory" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;ClinicalLaboratory&gt;"/>
+    <HasRelation name="gMedicines" source="ec.edu.espe.simulador.model.Inventory" target="ec.edu.espe.simulador.model.GeneralMedicine" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;GeneralMedicine&gt;"/>
+    <HasRelation name="GeneralMedicine" source="ec.edu.espe.simulador.model.Inventory" target="ec.edu.espe.simulador.model.GeneralMedicine" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Odont" source="ec.edu.espe.simulador.model.Inventory" target="ec.edu.espe.simulador.model.Odontology" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Odontology&gt;"/>
+    <HasRelation name="Odontology" source="ec.edu.espe.simulador.model.Inventory" target="ec.edu.espe.simulador.model.Odontology" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ec.edu.espe.simulador.model.ClinicHistory" target="ec.edu.espe.simulador.model.Student" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
