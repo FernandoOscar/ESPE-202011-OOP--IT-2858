@@ -16,19 +16,25 @@ public class VirtualCard {
     private String department;
     private int id;
     private String name;
-    private int[] numID = new int[8];
 
-    VirtualCard() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public boolean giveWay() {
-        return true;
+    public void giveWay() {
+        int random;
+        int codeID[] = new int[7];
+        for(int i = 0; i < 7; i++)
+        {
+        random = (int)(Math.random()*9);
+        codeID[i] = random;
+        }
+        System.out.println("\n");
+        System.out.print("Su QR es -> ");
+        for(int i = 0; i < 7; i++)
+        {
+            System.out.print(codeID[i]);
+        }
+        System.out.println("\n");
     }
 
     public boolean showIdentification(int dataID) {
-        int x;
-
         if (dataID != 8) {
             System.out.println("\tWrong ID!!");
             return true;
@@ -40,11 +46,6 @@ public class VirtualCard {
         this.department = department;
         this.id = id;
         this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "VirtualCard{" + "department=" + getDepartment() + ", id=" + getId() + ", name=" + getName() + ", numID=" + getNumID() + '}';
     }
 
     /**
@@ -88,20 +89,5 @@ public class VirtualCard {
     public void setName(String name) {
         this.name = name;
     }
-
-    /**
-     * @return the numID
-     */
-    public int[] getNumID() {
-        return numID;
-    }
-
-    /**
-     * @param numID the numID to set
-     */
-    public void setNumID(int[] numID) {
-        this.numID = numID;
-    }
     
-
 }
