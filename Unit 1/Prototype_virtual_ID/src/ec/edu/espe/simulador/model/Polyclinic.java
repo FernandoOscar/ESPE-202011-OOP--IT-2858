@@ -63,6 +63,11 @@ public class Polyclinic {
                 turn2.tools();
                 break;
             case 3:
+                System.out.println(" ");
+                System.out.println("Available Medicines");
+                System.out.println("Hemogram \nUroanalysis \nSARS-CoV-2 COVID19 \nCoproanalysis");
+                System.out.println("======================");
+                System.out.println(" ");
                 Inventory turn3 = new Inventory();
                 turn3.samples();
                 break;

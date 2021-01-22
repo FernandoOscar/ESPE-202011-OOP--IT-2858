@@ -39,7 +39,7 @@ public class Inventory {
             sample = read.nextLine();       
             ClinicalLaboratory.setSample(sample);
             cLaboratory.add(ClinicalLaboratory);
-            System.out.println("The clinical laboratory received a sample of:" 
+            System.out.println("The clinical laboratory received a sample of: " 
                                 + ClinicalLaboratory.getSample()); 
         }
         
@@ -53,7 +53,7 @@ public class Inventory {
         String expiration;
         int n;
         do{
-            System.out.println("How much medication do you need:");
+            System.out.println("How much medication do you need: ");
             n = read.nextInt();
         }while(n<0);
         

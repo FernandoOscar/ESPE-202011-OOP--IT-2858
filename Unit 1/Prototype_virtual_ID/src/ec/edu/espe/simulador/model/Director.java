@@ -61,7 +61,7 @@ public class Director {
             
         }
             
-        if(answer1 == 'N'){
+        if(answer1 == 'N' || answer1 == 'n'){
             System.out.println("Only career directors can use this field!!");
             System.out.println(" ");
             
