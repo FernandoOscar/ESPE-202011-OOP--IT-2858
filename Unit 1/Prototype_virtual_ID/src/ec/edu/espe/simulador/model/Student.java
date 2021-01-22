@@ -31,6 +31,13 @@ public class Student {
 
         if (answer1 == 'Y' || answer1 == 'y') {
 
+            
+            Scanner input1 = new Scanner(System.in);
+            System.out.println("Enter your name:");
+            String data1 = input1.nextLine();
+            System.out.println(" ");
+            Data.find(file, data1);
+
             System.out.println(" ");
             System.out.println(" ");
             System.out.println("1) Request VirtualID");
@@ -64,25 +71,25 @@ public class Student {
                         line.println(name + "," + id + "," + career + ",");
                         line.close();
                         write.close();
-                        
-                    }catch(IOException e) {
+
+                    } catch (IOException e) {
                         System.out.println("Enter any character to continue");
                     }
                     break;
-                    
-                    case 2:
-                        Polyclinic appo = new Polyclinic();
-                        appo.attendeStudent();
-                        
-                        break;
 
-                    default:
-                        System.out.println("Only numbers between  1 - 2");
-                        System.out.println(" ");
+                case 2:
+                    Polyclinic appo = new Polyclinic();
+                    appo.attendeStudent();
+
+                    break;
+
+                default:
+                    System.out.println("Only numbers between  1 - 2");
+                    System.out.println(" ");
             }
 
         }
-        
+
         if (answer1 == 'N' || answer1 == 'n') {
             System.out.println("You cannot access this benefit!!");
             System.out.println(" ");
