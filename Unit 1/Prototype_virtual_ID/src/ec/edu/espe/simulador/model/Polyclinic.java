@@ -36,15 +36,20 @@ public class Polyclinic {
         System.out.println("\n");
         System.out.println("==========================================");
         System.out.println("-------What are should it be understood?");
-        System.out.println("1. General Medice");
+        System.out.println("1. General Medicine");
         System.out.println("2. Odontology");
         System.out.println("3. Clinical Laboratory");
-        System.out.println("4. Physiotherapy");
         System.out.println("===========================================");
         option2 = ans.nextInt();
 
         switch (option2) {
             case 1:
+                System.out.println(" ");
+                System.out.println("Available Medicines");
+                System.out.println("Paracetamol \nOmeprazole \nSimvastatina \nAspirin");
+                System.out.println("======================");
+                System.out.println(" ");
+
                 Inventory turn1 = new Inventory();
                 turn1.medicines();
                 break;
@@ -53,6 +58,7 @@ public class Polyclinic {
                 System.out.println("Available Treatments");
                 System.out.println("Root canals \nExtraction \nOrthodontics \nProphylaxis");
                 System.out.println("======================");
+                System.out.println(" ");
                 Inventory turn2 = new Inventory();
                 turn2.tools();
                 break;
@@ -60,14 +66,13 @@ public class Polyclinic {
                 Inventory turn3 = new Inventory();
                 turn3.samples();
                 break;
-            case 4:
-                //Physiotherapy phy = new Physiotherapy();
-                break;
+            
+            default:
+                System.out.println("Only numbers between  1 - 3");
+                System.out.println(" ");
 
         }
 
     }
 
 }
-
-
