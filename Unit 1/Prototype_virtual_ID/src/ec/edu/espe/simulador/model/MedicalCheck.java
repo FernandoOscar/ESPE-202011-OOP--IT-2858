@@ -22,6 +22,7 @@ public class MedicalCheck {
 
     public void addAppointment() throws IOException {
 
+        
         File file = new File("MedicalCheck.csv");
         Scanner as = new Scanner(System.in);
         Scanner mc = new Scanner(System.in);

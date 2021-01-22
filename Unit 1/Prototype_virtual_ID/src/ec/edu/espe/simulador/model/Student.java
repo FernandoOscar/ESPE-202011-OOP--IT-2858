@@ -26,24 +26,17 @@ public class Student {
         char answer1 = input.next().charAt(0);
         input.nextLine();
 
-        Scanner valid = new Scanner(System.in);
-        int answer2;
-
         if (answer1 == 'Y' || answer1 == 'y') {
 
-            
-            Scanner input1 = new Scanner(System.in);
-            System.out.println("Enter your name:");
-            String data1 = input1.nextLine();
-            System.out.println(" ");
-            Data.find(file, data1);
-
+            Scanner valid = new Scanner(System.in);
+            int answer2;
             System.out.println(" ");
             System.out.println(" ");
             System.out.println("1) Request VirtualID");
             System.out.println("2) Polyclinic");
             System.out.println("Write one of the options: ");
             answer2 = valid.nextInt();
+            
 
             switch (answer2) {
 
