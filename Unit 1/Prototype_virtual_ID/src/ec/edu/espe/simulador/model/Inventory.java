@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ec.edu.espe.simulador.model;
 
 import java.util.ArrayList;
@@ -22,8 +17,10 @@ public class Inventory {
     String area;
     private ClinicalLaboratory ClinicalLaboratory;
     private GeneralMedicine GeneralMedicine;
+    private Odontology Odontology;
     ArrayList<ClinicalLaboratory> cLaboratory = new ArrayList();
     ArrayList<GeneralMedicine> gMedicines = new ArrayList();
+    ArrayList<Odontology> Odont = new ArrayList();
     
     public void samples(){
         ClinicalLaboratory = new ClinicalLaboratory();
@@ -72,6 +69,28 @@ public class Inventory {
             System.out.println("The medicine you admitted is: " + GeneralMedicine.getMedicine() +
                     " and should be taken before "+ GeneralMedicine.isExpiration()); 
         }
+    }
+    
+    
+    public void tools(){
+       Odontology = new Odontology();
+       Scanner read = new Scanner(System.in);
+       String dentalTools;
+       int n;
+       do{
+            System.out.println("How many treatments does it require? :");
+            n = read.nextInt();
+        }while(n<0);
+       
+       read.nextLine();
+       for(int i=0; i<n ; i++){
+          System.out.println("What treatment does it require? :");
+          dentalTools = read.nextLine();          
+          Odontology.setDentalTools(dentalTools);
+          Odont.add(Odontology);
+          System.out.println("The treatment to be carried out is: " + Odontology.getDentalTools()); 
+       }
+       
     }
    
 

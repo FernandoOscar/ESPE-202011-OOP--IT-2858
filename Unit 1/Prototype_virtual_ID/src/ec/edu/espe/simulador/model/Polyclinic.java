@@ -28,55 +28,46 @@ public class Polyclinic {
         System.out.println("========================");
         System.out.println("\n");
 
-        File file = new File("StudentData.csv");
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter your ID: ");
-        String data1 = input.nextLine();
-        System.out.println(" ");
-        Data.find(file, data1);
+        MedicalCheck turn = new MedicalCheck();
+        turn.addAppointment();
 
-        if (data1.isEmpty()) {
+        Scanner ans = new Scanner(System.in);
+        int option2 = 0;
+        System.out.println("\n");
+        System.out.println("==========================================");
+        System.out.println("-------What are should it be understood?");
+        System.out.println("1. General Medice");
+        System.out.println("2. Odontology");
+        System.out.println("3. Clinical Laboratory");
+        System.out.println("4. Physiotherapy");
+        System.out.println("===========================================");
+        option2 = ans.nextInt();
 
-            MedicalCheck turn = new MedicalCheck();
-            turn.addAppointment();
+        switch (option2) {
+            case 1:
+                Inventory turn1 = new Inventory();
+                turn1.medicines();
+                break;
+            case 2:
+                System.out.println(" ");
+                System.out.println("Available Treatments");
+                System.out.println("Root canals \nExtraction \nOrthodontics \nProphylaxis");
+                System.out.println("======================");
+                Inventory turn2 = new Inventory();
+                turn2.tools();
+                break;
+            case 3:
+                Inventory turn3 = new Inventory();
+                turn3.samples();
+                break;
+            case 4:
+                //Physiotherapy phy = new Physiotherapy();
+                break;
 
-            Scanner ans = new Scanner(System.in);
-            int option2 = 0;
-            System.out.println("\n");
-            System.out.println("==========================================");
-            System.out.println("-------What are should it be understood?");
-            System.out.println("1. General Medice");
-            System.out.println("2. Odontology");
-            System.out.println("3. Clinical Laboratory");
-            System.out.println("4. Physiotherapy");
-            System.out.println("===========================================");
-            option2 = ans.nextInt();
-
-            switch (option2) {
-                case 1:
-                    Inventory turn1 = new Inventory();
-                    turn1.medicines();
-                    break;
-                case 2:
-                    //Odontology od = new Odontology();
-                    break;
-                case 3:
-                    Inventory turn3 = new Inventory();
-                    turn3.samples();
-                    break;
-                case 4:
-                    //Physiotherapy phy = new Physiotherapy();
-                    break;
-
-            }
-
-        }
-
-        if (data1.contentEquals(data1)) {
-            System.out.println("The name does not exist !!!");
-            System.out.println(" ");
         }
 
     }
 
 }
+
+
