@@ -5,9 +5,6 @@
  */
 package ec.edu.espe.simulador.model;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 /**
  *
  * @author JOHNY

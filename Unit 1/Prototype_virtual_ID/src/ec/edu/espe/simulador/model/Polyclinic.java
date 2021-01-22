@@ -4,9 +4,6 @@
  * and open the template in the editor.
  */
 package ec.edu.espe.simulador.model;
-
-import ec.edu.espe.filemanager.utils.Data;
-import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -64,7 +61,7 @@ public class Polyclinic {
                 break;
             case 3:
                 System.out.println(" ");
-                System.out.println("Available Medicines");
+                System.out.println("Available Samples");
                 System.out.println("Hemogram \nUroanalysis \nSARS-CoV-2 COVID19 \nCoproanalysis");
                 System.out.println("======================");
                 System.out.println(" ");

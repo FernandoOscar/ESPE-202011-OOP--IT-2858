@@ -1,6 +1,5 @@
 package ec.edu.espe.simulador.model;
 
-import ec.edu.espe.filemanager.utils.Data;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
