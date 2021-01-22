@@ -1,0 +1,19 @@
+*Possible Objects*
+
+-Student
+-Identification
+-System
+-Prototype
+-Technologie
+-License
+-Information
+-Computer
+-Human
+-Institution
+-Security
+-Database
+-Program
+-Library
+-Sport
+-University
+-Companie
