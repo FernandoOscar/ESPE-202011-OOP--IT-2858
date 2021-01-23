@@ -35,7 +35,6 @@ public class MedicalCheck {
         as.nextLine();
 
         if (elect == 'Y' || elect == 'y') {
-            if (!file.exists()) {
                 try {
                     file.createNewFile();
                     
@@ -52,7 +51,7 @@ public class MedicalCheck {
 
                 } catch (IOException e) {
                 }
-            } else {
+            
                 try {
                     System.out.println(" ");
                     System.out.println("For what day do you need the appointment?");
@@ -68,7 +67,7 @@ public class MedicalCheck {
                 } catch (IOException e) {
                     System.out.println("Error");
                 }
-            }
+            
         }
         if (elect == 'N' || elect == 'n') {
             System.out.println("Thanks");
@@ -78,5 +77,6 @@ public class MedicalCheck {
     
 
     }
+
 
 

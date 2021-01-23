@@ -18,20 +18,7 @@ public class VirtualCard {
     private String name;
 
     public void giveWay() {
-        int random;
-        int codeID[] = new int[7];
-        for(int i = 0; i < 7; i++)
-        {
-        random = (int)(Math.random()*9);
-        codeID[i] = random;
-        }
-        System.out.println("\n");
-        System.out.print("Su QR es -> ");
-        for(int i = 0; i < 7; i++)
-        {
-            System.out.print(codeID[i]);
-        }
-        System.out.println("\n");
+        
     }
 
     public boolean showIdentification(int dataID) {
