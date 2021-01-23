@@ -5,7 +5,6 @@
  */
 package ec.edu.espe.simulador.model;
 
-import ec.edu.espe.filemanager.utils.Data;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -20,49 +19,36 @@ import java.util.logging.Logger;
  */
 public class Doctor {
     
-    private String name;
-    private String id;
-    private String area;
-    private String address;
-    private String phone;
+    String name;
+    String area;
+    String schedule;
     
     public void doctorData() {
 
         Scanner input = new Scanner(System.in);
         File file = new File("DoctorData.csv");
-        System.out.print("Are you available for today? : ");
-        System.out.println(" ");
-        System.out.print("Yes(Y) or No(N): ");
+        System.out.println("Do you want to add a new doctor to the polyclinic?");
+        System.out.println("Yes(Y) or No(N): ");
         char answer1 = input.next().charAt(0);
         input.nextLine();
 
-        if (answer1 == 'Y') {
+        if (answer1 == 'Y' || answer1 == 'y') {
             try {
-
+                System.out.println("Please enter your data");
                 file.createNewFile();
                 FileWriter write = new FileWriter(file, true);
                 PrintWriter line = new PrintWriter(write);
 
                 System.out.print("Enter your name: ");
-                setName(input.nextLine());
-                System.out.print("Enter your id: ");
-                setId(input.nextLine());
+                name = input.nextLine();
                 System.out.print("Enter your area: ");
-                setArea(input.nextLine());
-                System.out.print("Enter your address: ");
-                setAddress(input.nextLine());
-                System.out.print("Enter your phone: ");
-                setPhone(input.nextLine());
-
-                System.out.println(" ");            
-                System.out.println("Your data has been saved correctly");
-                System.out.println("Your can attend today");
+                area = input.nextLine();
+                System.out.print("Enter your schedule: ");
+                schedule = input.nextLine();
                
-                String dataToSave = getName() + "," + getId() + "," + getArea() + "," + getAddress() + "," + getPhone();
-                Data.save("DoctorData.csv", dataToSave);
-                System.out.println(" ");
+                String dataToSave = (name + "," + area + "," + schedule + ",");
 
-                line.println(getName() + "," + getId() + "," + getArea() + "," + getAddress() + "," + getPhone());
+                line.println(dataToSave);
                 line.close();
                 write.close();
 
@@ -71,79 +57,9 @@ public class Doctor {
             }
         }
 
-        if (answer1 == 'N') {
-            System.out.println("You can not access!!");
+        if (answer1 == 'N' || answer1 == 'n') {
+            System.out.println("Ok!");
             System.out.println(" ");
         }
-    }
-
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * @return the id
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    /**
-     * @return the area
-     */
-    public String getArea() {
-        return area;
-    }
-
-    /**
-     * @param area the area to set
-     */
-    public void setArea(String area) {
-        this.area = area;
-    }
-
-    /**
-     * @return the address
-     */
-    public String getAddress() {
-        return address;
-    }
-
-    /**
-     * @param address the address to set
-     */
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    /**
-     * @return the phone
-     */
-    public String getPhone() {
-        return phone;
-    }
-
-    /**
-     * @param phone the phone to set
-     */
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 }

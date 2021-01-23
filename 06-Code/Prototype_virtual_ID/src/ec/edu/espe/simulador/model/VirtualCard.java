@@ -5,8 +5,6 @@
  */
 package ec.edu.espe.simulador.model;
 
-import java.util.Scanner;
-
 /**
  *
  * @author LENOVO

@@ -5,40 +5,20 @@
  */
 package ec.edu.espe.simulador.model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author LENOVO
  */
 public class ClinicHistory {
-    private String system;
 
-    @Override
-    public String toString() {
-        return "ClinicHistory{" + "system=" + system + '}';
-    }
+    String reasonConsult;
+    ArrayList<GeneralMedicine> prescription;
 
-    
-    public ClinicHistory(String system) {
-        this.system = system;
-    }
-    
-    
-    String update(Student student){
-        return getSystem();
+    public ClinicHistory(String reasonConsult, ArrayList<GeneralMedicine> prescription) {
+        this.reasonConsult = reasonConsult;
+        this.prescription = prescription;
     }
 
-    /**
-     * @return the system
-     */
-    public String getSystem() {
-        return system;
-    }
-
-    /**
-     * @param system the system to set
-     */
-    public void setSystem(String system) {
-        this.system = system;
-    }
-    
 }

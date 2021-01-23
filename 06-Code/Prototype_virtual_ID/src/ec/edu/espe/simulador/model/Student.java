@@ -41,23 +41,21 @@ public class Student {
     public void menu() throws IOException {
 
         Scanner sn = new Scanner(System.in);
-        System.out.println("1) Request Id");
-        System.out.println("2) Request Attention at Polyclinic");
-        System.out.println("3) Exit");
+        System.out.println("\t1. Request Id");
+        System.out.println("\t2. Request Attention at Polyclinic");
+        System.out.println("\t3. Exit");
         int option = sn.nextInt();
-        System.out.println("   ");
-        System.out.println("   ");
-        
-        switch(option){
-            
+
+        switch (option) {
+
             case 1:
                 requestId();
                 break;
-                
+
             case 2:
-                requestAttention();                
+                requestAttention();
                 break;
-                
+
             case 3:
                 System.out.println(" ");
                 break;
@@ -68,45 +66,45 @@ public class Student {
     public void requestId() throws IOException {
 
         Scanner input = new Scanner(System.in);
-        File file = new File("StudentData.csv");
-        System.out.print("Are you a student of the Universidad de las Fuerzas Armadas: ");
-        System.out.println(" ");
-        System.out.print("Yes(Y) or No(N): ");
+        File file = new File("Requests.csv");
+        System.out.println("Are you an old student? (O)");
+        System.out.println("Are you a new student? (N)");
+        System.out.print("Old(O) or New(N): ");
         char answer1 = input.next().charAt(0);
         input.nextLine();
 
-        if (answer1 == 'Y' || answer1 == 'y') {
+        if (answer1 == 'O' || answer1 == 'o') {
             try {
-
-                file.createNewFile();
                 FileWriter write = new FileWriter(file, true);
                 PrintWriter line = new PrintWriter(write);
 
-                System.out.print("Ingrese el id: ");
+                System.out.print("Enter your id: ");
                 id = input.nextLine();
-                System.out.print("Ingrese el nombre: ");
+                System.out.print("Enter your name: ");
                 name = input.nextLine();
-                System.out.print("Ingrese la edad: ");
+                System.out.print("Enter your age: ");
                 age = input.nextInt();
                 input.nextLine();
-                System.out.print("Ingrese el correo: ");
+                System.out.print("Enter your email: ");
                 email = input.nextLine();
-                System.out.print("Ingrese la direccion: ");
+                System.out.print("Enter your address: ");
                 address = input.nextLine();
-                System.out.print("Ingrese el numero telefonico: ");
+                System.out.print("Enter your phone: ");
                 phone = input.nextInt();
                 input.nextLine();
-                System.out.print("Ingrese la carrera: ");
+                System.out.print("Enter your career: ");
                 career = input.nextLine();
                 System.out.println("===========================================================");
-                System.out.println("Your data has been saved correctly!!");
-                System.out.println("Your request has to be read by the director of your career");
+                System.out.println("Your request has been successfully saved!!");
+                System.out.println("This request has to be read and added to the database by the "
+                        + "administrator");
                 System.out.println("  BE PATTIENT ;) ");
                 System.out.println("===========================================================");
 
                 System.out.println(" ");
-                line.println(id + "," + name + "," + age + "," + email + "," + address + ","
+                String saveData = (id + "," + name + "," + age + "," + email + "," + address + ","
                         + phone + "," + career);
+                line.println(saveData);
                 line.close();
                 write.close();
 
@@ -117,14 +115,14 @@ public class Student {
         }
 
         if (answer1 == 'N' || answer1 == 'n') {
-            System.out.println("You cannot access this benefit!!");
+            System.out.println("You need to approach the career director to add your request");
             System.out.println(" ");
         }
     }
 
     public void requestAttention() throws IOException {
-        Polyclinic poly = new Polyclinic();
-        poly.attendeStudent();
+        MedicalCheck check = new MedicalCheck();
+        check.addAppointment();
     }
 
     /**
