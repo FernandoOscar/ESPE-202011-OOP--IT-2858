@@ -1,0 +1,38 @@
+Inspector: Group two (Sigma Programers) Cortez Tamayo, Jonathan Andres
+					Coyago Arce, Eunice Pamela
+					Cuji Revelo, Milton Roberto
+					Garces Mosquera, Christian Marce
+					Guerra Lopez, Luciana Noemi
+
+
+                        
+                                       Roles                           
+
+Authors:                   MAJOFDevelopers
+ 
+Reviewer:                 Group two (Sigma Programers)             
+
+
+
+
+
+1. Tab, better put a / t
+2. To create line breaks you must use a / n
+3. It does not have an established sequence in the equipment (different types of programming)
+4. It remains to establish a single type of format to save files
+5. Add data entry request to the user in each menu
+6. The translation of an IEEE point is missing
+7. They did not remove the blue letters from the IEEE format
+
+
+
+Spanish Version
+
+1.	Tabulación mejor poner un /t
+2.	Para crear saltos de línea se debe usar un /n
+3.	No tiene una secuencia establecida en el equipo (diferentes tipos de progrmacion)
+4.	Falta establecer un solo tipo de formato para guardar archivos
+5.	Agregar petición de ingreso de datos al usuario en cada menú
+6.	Falta la traducción de un punto del IEEE
+7.	No eliminaron las letras azules del formato IEEE
+
