@@ -16,7 +16,23 @@ public class Director extends Administrator{
     private Student student;
 
     
-
+public Director(String career, String faculty, String id, Student student, String name) {
+        super(name);
+        this.career = career;
+        this.faculty = faculty;
+        this.id = id;
+        this.student = student;
+    }
+    
+    
+    public Director(){
+        
+    }
+    
+    
+    
+    
+    
     public void approveMotion() {
 
         Scanner input = new Scanner(System.in);
@@ -37,18 +53,7 @@ public class Director extends Administrator{
 
     }
 
-    public Director(String career, String faculty, String id, Student student, String name) {
-        super(name);
-        this.career = career;
-        this.faculty = faculty;
-        this.id = id;
-        this.student = student;
-    }
     
-    
-    public Director(){
-        
-    }
 
     /**
      * @return the career

@@ -16,9 +16,9 @@ public class Prototype_Virtual_ID {
 
     public static void main(String[] args) throws IOException {
 
-        System.out.println("                    ================================");
-        System.out.println("                    Welcome to the Virtual ID System");
-        System.out.println("                    ================================");
+        System.out.println("\t================================");
+        System.out.println("\tWelcome to the Virtual ID System");
+        System.out.println("\t================================");
 
         Scanner sn = new Scanner(System.in);
         boolean exit = false;
@@ -49,24 +49,34 @@ public class Prototype_Virtual_ID {
                         file.createNewFile();
                         FileWriter write = new FileWriter(file, true);
                         PrintWriter line = new PrintWriter(write);
-                        
 
                         Director director = new Director();
-                        Administrator administrator = new Director();
+                        Administrator administrator = new Administrator();
                         
-                        director.addRequest(); 
+                        System.out.println("Method before use polymorphism objects");
+                        System.out.println("addRequest is the method of --> " + administrator.getClass());
+
+                        //POLYMORPHISM
+                        //Polymorphism objects
+                        administrator = new Director();
+
+                        System.out.println("\nDirector --> is of type " + director.getClass().getName());
+                        System.out.println("Administrator --> is of type " + administrator.getClass().getName());
                         
+                        System.out.println("\nMethod after use polymorphism objects");
+                        System.out.println("addRequest is the method of --> " + administrator.getClass());
+
+                        director.addRequest();
+
                         System.out.println("===========================================================");
                         System.out.println("Your request has been successfully saved!!");
                         System.out.println("This request has to be read and added to the database by the "
                                 + "administrator");
                         System.out.println("  BE PATTIENT ;) ");
                         System.out.println("===========================================================");
-                        
-                        
-                       
+
                         System.out.println(" ");
-                        
+
                         line.print(director.getSaveData());
                         line.close();
                         write.close();
