@@ -5,13 +5,8 @@
  */
 package ec.edu.espe.simulador.model;
 
-import java.io.File;
-import java.io.FileWriter;
+import ec.edu.espe.filemanager.utils.Data;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -19,47 +14,74 @@ import java.util.logging.Logger;
  */
 public class Doctor {
     
-    String name;
-    String area;
-    String schedule;
+    private String name;
+    private String area;
+    private String schedule;
     
-    public void doctorData() {
-
-        Scanner input = new Scanner(System.in);
-        File file = new File("DoctorData.csv");
-        System.out.println("Do you want to add a new doctor to the polyclinic?");
-        System.out.println("Yes(Y) or No(N): ");
-        char answer1 = input.next().charAt(0);
-        input.nextLine();
-
-        if (answer1 == 'Y' || answer1 == 'y') {
-            try {
-                System.out.println("Please enter your data");
-                file.createNewFile();
-                FileWriter write = new FileWriter(file, true);
-                PrintWriter line = new PrintWriter(write);
-
-                System.out.print("Enter your name: ");
-                name = input.nextLine();
-                System.out.print("Enter your area: ");
-                area = input.nextLine();
-                System.out.print("Enter your schedule: ");
-                schedule = input.nextLine();
-               
-                String dataToSave = (name + "," + area + "," + schedule + ",");
-
-                line.println(dataToSave);
-                line.close();
-                write.close();
-
-            } catch (IOException ex) {
-                Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-
-        if (answer1 == 'N' || answer1 == 'n') {
-            System.out.println("Ok!");
-            System.out.println(" ");
-        }
+    
+    public void addHistory(String ClinicHistory, String reason) throws IOException{
+        Data.save(ClinicHistory, reason);
     }
+
+    public Doctor(String name, String area, String schedule) {
+        this.name = name;
+        this.area = area;
+        this.schedule = schedule;
+    }
+
+    public Doctor() {
+    }
+    
+    
+    
+    
+    public void checkHistory(){
+        Data.findAll("", name);
+    }
+    
+    
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the area
+     */
+    public String getArea() {
+        return area;
+    }
+
+    /**
+     * @param area the area to set
+     */
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    /**
+     * @return the schedule
+     */
+    public String getSchedule() {
+        return schedule;
+    }
+
+    /**
+     * @param schedule the schedule to set
+     */
+    public void setSchedule(String schedule) {
+        this.schedule = schedule;
+    }
+    
+    
 }

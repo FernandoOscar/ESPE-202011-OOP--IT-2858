@@ -1,10 +1,9 @@
 package ec.edu.espe.simulador.model;
 
-import java.io.File;
-import java.io.FileWriter;
+import ec.edu.espe.filemanager.utils.Data;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author MAJOF_Developers
@@ -18,6 +17,15 @@ public class Student {
     private String address;
     private int phone;
     private String career;
+    
+    
+    public void requestId(String fileName, String data){
+        try {
+            Data.save(fileName, data);
+        } catch (IOException ex) {
+            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     @Override
     public String toString() {
@@ -36,93 +44,6 @@ public class Student {
 
     public Student() {
 
-    }
-
-    public void menu() throws IOException {
-
-        Scanner sn = new Scanner(System.in);
-        System.out.println("\t1. Request Id");
-        System.out.println("\t2. Request Attention at Polyclinic");
-        System.out.println("\t3. Exit");
-        int option = sn.nextInt();
-
-        switch (option) {
-
-            case 1:
-                requestId();
-                break;
-
-            case 2:
-                requestAttention();
-                break;
-
-            case 3:
-                System.out.println(" ");
-                break;
-        }
-
-    }
-
-    public void requestId() throws IOException {
-
-        Scanner input = new Scanner(System.in);
-        File file = new File("Requests.csv");
-        System.out.println("Are you an old student? (O)");
-        System.out.println("Are you a new student? (N)");
-        System.out.print("Old(O) or New(N): ");
-        char answer1 = input.next().charAt(0);
-        input.nextLine();
-
-        if (answer1 == 'O' || answer1 == 'o') {
-            try {
-                FileWriter write = new FileWriter(file, true);
-                PrintWriter line = new PrintWriter(write);
-
-                System.out.print("Enter your id: ");
-                id = input.nextLine();
-                System.out.print("Enter your name: ");
-                name = input.nextLine();
-                System.out.print("Enter your age: ");
-                age = input.nextInt();
-                input.nextLine();
-                System.out.print("Enter your email: ");
-                email = input.nextLine();
-                System.out.print("Enter your address: ");
-                address = input.nextLine();
-                System.out.print("Enter your phone: ");
-                phone = input.nextInt();
-                input.nextLine();
-                System.out.print("Enter your career: ");
-                career = input.nextLine();
-                System.out.println("===========================================================");
-                System.out.println("Your request has been successfully saved!!");
-                System.out.println("This request has to be read and added to the database by the "
-                        + "administrator");
-                System.out.println("  BE PATTIENT ;) ");
-                System.out.println("===========================================================");
-
-                System.out.println(" ");
-                String saveData = (id + "," + name + "," + age + "," + email + "," + address + ","
-                        + phone + "," + career);
-                line.println(saveData);
-                line.close();
-                write.close();
-
-            } catch (IOException e) {
-                System.out.println("Enter any character to continue");
-            }
-
-        }
-
-        if (answer1 == 'N' || answer1 == 'n') {
-            System.out.println("You need to approach the career director to add your request");
-            System.out.println(" ");
-        }
-    }
-
-    public void requestAttention() throws IOException {
-        MedicalCheck check = new MedicalCheck();
-        check.addAppointment();
     }
 
     /**

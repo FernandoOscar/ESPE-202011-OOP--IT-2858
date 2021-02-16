@@ -10,11 +10,40 @@ package ec.edu.espe.simulador.model;
  * @author Group2
  */
 public class ControlBooth {
-    String name;
-    int id;
+    private String name;
+    private int id;
     
     public void check(){
         
     }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     
 }

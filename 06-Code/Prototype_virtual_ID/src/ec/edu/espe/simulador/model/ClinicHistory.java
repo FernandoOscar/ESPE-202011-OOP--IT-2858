@@ -5,6 +5,8 @@
  */
 package ec.edu.espe.simulador.model;
 
+import ec.edu.espe.filemanager.utils.Data;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -13,12 +15,74 @@ import java.util.ArrayList;
  */
 public class ClinicHistory {
 
-    String reasonConsult;
-    ArrayList<GeneralMedicine> prescription;
+    private String name;
+    private String reason;
+    private String medicinePrescribe;
 
-    public ClinicHistory(String reasonConsult, ArrayList<GeneralMedicine> prescription) {
-        this.reasonConsult = reasonConsult;
-        this.prescription = prescription;
+    
+    
+    
+    public void saveClinicHistory(String fileName, String record) throws IOException{
+        Data.save("fileName", record);
+        
     }
 
+    public ClinicHistory(String name, String reason, String medicinePrescribe) {
+        this.name = name;
+        this.reason = reason;
+        this.medicinePrescribe = medicinePrescribe;
+    }
+    
+    
+    
+    
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the reason
+     */
+    public String getReason() {
+        return reason;
+    }
+
+    /**
+     * @param reason the reason to set
+     */
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    /**
+     * @return the medicinePrescribe
+     */
+    public String getMedicinePrescribe() {
+        return medicinePrescribe;
+    }
+
+    /**
+     * @param medicinePrescribe the medicinePrescribe to set
+     */
+    public void setMedicinePrescribe(String medicinePrescribe) {
+        this.medicinePrescribe = medicinePrescribe;
+    }
+
+   
+    
+    
+    
+
+    
 }

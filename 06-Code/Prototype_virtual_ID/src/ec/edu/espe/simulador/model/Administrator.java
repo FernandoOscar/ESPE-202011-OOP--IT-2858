@@ -5,7 +5,6 @@
  */
 package ec.edu.espe.simulador.model;
 
-import java.util.Scanner;
 
 /**
  *
@@ -16,31 +15,7 @@ public class Administrator {
     private String name;
     private Student student;
     private String saveData;
-    
-    
-    public void addRequest(){
-        
-        Scanner sn = new Scanner(System.in);
-        System.out.println("Enter the name: ");
-        String name = sn.nextLine();
-        System.out.println("Enter the id: ");
-        String id = sn.nextLine();
-        System.out.println("Enter the age: ");
-        int age = sn.nextInt();
-        sn.nextLine();
-        System.out.println("Enter the email: ");
-        String email = sn.nextLine();
-        System.out.println("Enter the addrees: ");
-        String address = sn.nextLine();
-        System.out.println("Enter the phone: ");
-        int phone = sn.nextInt();
-        sn.nextLine();
-        System.out.println("Enter the career: ");
-        String career = sn.nextLine();    
-        
-        setSaveData(id + "," + name + "," + age + "," + email + "," + address + ","
-                + phone + "," + career);
-    }
+  
 
     
     public Administrator(String name) {

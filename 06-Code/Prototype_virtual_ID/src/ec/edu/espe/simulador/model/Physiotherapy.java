@@ -29,9 +29,7 @@ public class Physiotherapy {
             getFile().createNewFile();
             FileWriter write = new FileWriter(getFile(), true);
             PrintWriter line = new PrintWriter(write);
-            System.out.print("Enter your name of medicament: ");
             setMedicine(getSc1().nextLine());
-            System.out.println("Your medication was added correctly!!");
         
             line.println(getMedicine());
             line.close();

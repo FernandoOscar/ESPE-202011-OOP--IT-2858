@@ -21,7 +21,6 @@ public class VirtualCard {
 
     public boolean showIdentification(int dataID) {
         if (dataID != 8) {
-            System.out.println("\tWrong ID!!");
             return true;
         }
         return false;

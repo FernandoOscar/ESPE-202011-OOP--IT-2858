@@ -1,8 +1,6 @@
 package ec.edu.espe.simulador.model;
 
 
-import java.util.Scanner;
-
 /**
  *
  * @author Developers
@@ -14,6 +12,20 @@ public class Director extends Administrator{
     private int password = 1234;
     private String id;
     private Student student;
+    
+    
+    
+    public boolean approveMotion(char answer){
+        if (answer == 'Y' || answer == 'y') {
+            return true;
+        }
+
+        else if (answer == 'N' || answer == 'n') {
+            return false;
+        }
+        return false;
+        
+    }
 
     
 public Director(String career, String faculty, String id, Student student, String name) {
@@ -23,36 +35,13 @@ public Director(String career, String faculty, String id, Student student, Strin
         this.id = id;
         this.student = student;
     }
+
+
     
     
     public Director(){
         
     }
-    
-    
-    
-    
-    
-    public void approveMotion() {
-
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("\tAre you a student of the Universidad de las Fuerzas Armadas: ");
-        System.out.println(" ");
-        System.out.print("Yes(Y) or No(N): ");
-        char answer1 = input.next().charAt(0);
-        input.nextLine();
-
-        if (answer1 == 'Y' || answer1 == 'y') {
-            System.out.println("You can acces to benefit");
-        }
-
-        if (answer1 == 'N' || answer1 == 'n') {
-            System.out.println("Only students can acces");
-        }
-
-    }
-
     
 
     /**
@@ -114,6 +103,7 @@ public Director(String career, String faculty, String id, Student student, Strin
     /**
      * @return the student
      */
+    @Override
     public Student getStudent() {
         return student;
     }
@@ -121,6 +111,7 @@ public Director(String career, String faculty, String id, Student student, Strin
     /**
      * @param student the student to set
      */
+    @Override
     public void setStudent(Student student) {
         this.student = student;
     }
