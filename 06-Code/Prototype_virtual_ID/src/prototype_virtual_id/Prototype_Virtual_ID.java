@@ -48,18 +48,31 @@ public class Prototype_Virtual_ID {
                     case 2:
                         Director direc = new Director();
                         Scanner input = new Scanner(System.in);
-                        System.out.print("The solicitor are a student of the Universidad de las Fuerzas Armadas: \n");
-                        System.out.print("Yes(Y) or No(N): ");
-                        char answer = input.next().charAt(0);
-                        input.nextLine();
-                        direc.approveMotion(answer);
-
-                        if (direc.approveMotion(answer) == false) {
-                            System.out.println("You are not a Student\n");
-
+                        int password;
+                        System.out.println("Enter code Director (Only the director can enter): ");
+                        password = sn.nextInt();
+                        //Director direc = new Director(password);
+                        direc.verifyDirector(password);
+                        System.out.println(direc.verifyDirector(password));
+                        if (direc.verifyDirector(password) == false) {
+                            System.out.println("You are not a Director");
                         } else {
-                            enterDataStudent();
+                            System.out.println("Welcome Again");
+
+                            System.out.print("The solicitor are a student of the Universidad de las Fuerzas Armadas: \n");
+                            System.out.print("Yes(Y) or No(N): ");
+                            char answer = input.next().charAt(0);
+                            input.nextLine();
+                            direc.approveMotion(answer);
+
+                            if (direc.approveMotion(answer) == false) {
+                                System.out.println("You are not a Student\n");
+
+                            } else {
+                                enterDataStudent();
+                            }
                         }
+
                         break;
 
                     case 3:
@@ -199,7 +212,7 @@ public class Prototype_Virtual_ID {
                         System.out.println("======================");
                         System.out.println("Paracetamol \nOmeprazole \nSimvastatina \nAspirin");
                         String medicinePrescribe = ans.nextLine();
-                        
+
                         ClinicHistory clinic = new ClinicHistory(name, reason, medicinePrescribe);
 
                         Gson gson = new Gson();
@@ -320,7 +333,7 @@ public class Prototype_Virtual_ID {
             id = input.nextLine();
             int size = id.length();
             permission = card.giveWay(size);
-        }while(permission);
+        } while (permission);
         System.out.print("Enter your name: ");
         String name = input.nextLine();
         System.out.print("Enter your age: ");

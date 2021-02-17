@@ -23,6 +23,16 @@ public class Polyclinic {
     private ArrayList<GeneralMedicine> gMedicines;
     private ArrayList<Odontology> Odont;
 
+    public Polyclinic(int virtualid, boolean qrcode, String treatment, String infection, ArrayList<GeneralMedicine> gMedicines, ArrayList<Odontology> Odont) {
+        this.virtualid = virtualid;
+        this.qrcode = qrcode;
+        this.treatment = treatment;
+        this.infection = infection;
+        this.gMedicines = gMedicines;
+        this.Odont = Odont;
+    }
+
+    
     /**
      * @return the virtualid
      */

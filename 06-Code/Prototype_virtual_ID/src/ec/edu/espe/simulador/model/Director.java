@@ -43,6 +43,24 @@ public Director(String career, String faculty, String id, Student student, Strin
         
     }
     
+    public void addRequest(){
+        
+    }
+    
+    public boolean verifyDirector(int code) {
+
+        int pass = 1234;
+        boolean temp;
+
+        if (pass == code) {
+            temp = true;
+
+        } else {
+            temp = false;
+        }
+
+        return temp;
+    }
 
     /**
      * @return the career
