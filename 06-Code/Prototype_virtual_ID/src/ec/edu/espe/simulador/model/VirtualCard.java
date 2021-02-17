@@ -15,21 +15,14 @@ public class VirtualCard {
     private int id;
     private String name;
 
-    public void giveWay() {
-        
-    }
-
-    public boolean showIdentification(int dataID) {
-        if (dataID != 8) {
-            return true;
+    public boolean giveWay(int dataID) {
+        boolean permission;
+        if (dataID != 9) {
+            permission = true;
+        } else {
+            permission = false;
         }
-        return false;
-    }
-
-    public VirtualCard(String department, int id, String name) {
-        this.department = department;
-        this.id = id;
-        this.name = name;
+        return permission;
     }
 
     /**
@@ -73,5 +66,5 @@ public class VirtualCard {
     public void setName(String name) {
         this.name = name;
     }
-    
+
 }

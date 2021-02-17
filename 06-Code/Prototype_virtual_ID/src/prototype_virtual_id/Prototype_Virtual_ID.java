@@ -6,7 +6,9 @@ import ec.edu.espe.simulador.model.ClinicHistory;
 import ec.edu.espe.simulador.model.Director;
 import ec.edu.espe.simulador.model.Doctor;
 import ec.edu.espe.simulador.model.MedicalCheck;
+import ec.edu.espe.simulador.model.QR;
 import ec.edu.espe.simulador.model.Student;
+import ec.edu.espe.simulador.model.VirtualCard;
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -103,19 +105,12 @@ public class Prototype_Virtual_ID {
                 break;
 
             case 2:
-                int random;
-                int codeID[] = new int[8];
-                for (int i = 0; i < 8; i++) {
-                    random = (int) (Math.random() * 9);
-                    codeID[i] = random;
-                }
-                System.out.print("Your ID are -> ");
-
-                for (int i = 0; i < 8; i++) {
-                    System.out.print(codeID[i]);
-                }
+                System.out.println("verb");
+                QR qr = new QR();
                 System.out.println("\n");
-
+                System.out.print("Su ID es -> ");
+                qr.showIdentification();
+                System.out.println("\n");
                 break;
 
             default:
@@ -317,8 +312,15 @@ public class Prototype_Virtual_ID {
 
     private static void enterDataStudent() {
         Scanner input = new Scanner(System.in);
-        System.out.print("Enter your id: ");
-        String id = input.nextLine();
+        VirtualCard card = new VirtualCard();
+        boolean permission;
+        String id;
+        do {
+            System.out.print("Enter your ID (Form LXXXXXXXX) : ");
+            id = input.nextLine();
+            int size = id.length();
+            permission = card.giveWay(size);
+        }while(permission);
         System.out.print("Enter your name: ");
         String name = input.nextLine();
         System.out.print("Enter your age: ");

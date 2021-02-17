@@ -10,17 +10,19 @@ package ec.edu.espe.simulador.model;
  * @author JOHNY
  */
 public class QR {
+
     private int id;
     private boolean security;
 
-    public QR(int id, boolean security) {
-        this.id = id;
-        this.security = security;
-    }
 
-    @Override
-    public String toString() {
-        return "QR{" + "id=" + getId() + ", security=" + isSecurity() + '}';
+    public void showIdentification() {
+        int random;
+        int codeID[] = new int[8];
+        for (int i = 0; i < 8; i++) {
+            random = (int) (Math.random() * 9);
+            codeID[i] = random;
+            System.out.print(codeID[i]);
+        }  
     }
 
     /**
@@ -52,4 +54,5 @@ public class QR {
     }
 
     
+
 }
