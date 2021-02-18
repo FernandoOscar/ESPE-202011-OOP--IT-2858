@@ -5,9 +5,9 @@
  */
 package ec.edu.espe.simulador.model;
 
+import ec.edu.espe.filemanager.utils.Data;
+import java.io.File;
 
-import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  *
@@ -17,19 +17,18 @@ public class Polyclinic {
 
     private int virtualid;
     private boolean qrcode;
-    private Scanner vr = new Scanner(System.in);
     private String treatment;
     private String infection;
-    private ArrayList<GeneralMedicine> gMedicines;
-    private ArrayList<Odontology> Odont;
 
-    public Polyclinic(int virtualid, boolean qrcode, String treatment, String infection, ArrayList<GeneralMedicine> gMedicines, ArrayList<Odontology> Odont) {
+    public Polyclinic(int virtualid, boolean qrcode, String treatment, String infection) {
         this.virtualid = virtualid;
         this.qrcode = qrcode;
         this.treatment = treatment;
         this.infection = infection;
-        this.gMedicines = gMedicines;
-        this.Odont = Odont;
+    }
+    
+    public void showMedicaments(File fileName, String record){
+        Data.find(fileName, treatment);
     }
 
     
@@ -62,20 +61,6 @@ public class Polyclinic {
     }
 
     /**
-     * @return the vr
-     */
-    public Scanner getVr() {
-        return vr;
-    }
-
-    /**
-     * @param vr the vr to set
-     */
-    public void setVr(Scanner vr) {
-        this.vr = vr;
-    }
-
-    /**
      * @return the treatment
      */
     public String getTreatment() {
@@ -103,34 +88,5 @@ public class Polyclinic {
         this.infection = infection;
     }
 
-    /**
-     * @return the gMedicines
-     */
-    public ArrayList<GeneralMedicine> getgMedicines() {
-        return gMedicines;
-    }
-
-    /**
-     * @param gMedicines the gMedicines to set
-     */
-    public void setgMedicines(ArrayList<GeneralMedicine> gMedicines) {
-        this.gMedicines = gMedicines;
-    }
-
-    /**
-     * @return the Odont
-     */
-    public ArrayList<Odontology> getOdont() {
-        return Odont;
-    }
-
-    /**
-     * @param Odont the Odont to set
-     */
-    public void setOdont(ArrayList<Odontology> Odont) {
-        this.Odont = Odont;
-    }
-
-    
 
 }

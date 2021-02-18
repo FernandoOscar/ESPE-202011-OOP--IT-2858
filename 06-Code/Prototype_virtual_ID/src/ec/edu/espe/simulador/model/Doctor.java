@@ -22,6 +22,7 @@ public class Doctor {
     public void addHistory(String ClinicHistory, String reason) throws IOException{
         Data.save(ClinicHistory, reason);
     }
+    
 
     public Doctor(String name, String area, String schedule) {
         this.name = name;

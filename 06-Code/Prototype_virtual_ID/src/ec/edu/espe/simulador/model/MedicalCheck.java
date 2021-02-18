@@ -16,8 +16,8 @@ import java.util.logging.Logger;
  */
 public class MedicalCheck {
 
-    private String date;
-    private String time;
+    private String dateAppoinment;
+    private String timeAppoinment;
     
     
     public void addAppoinment(String fileName, String date){
@@ -31,8 +31,8 @@ public class MedicalCheck {
     
 
     public MedicalCheck(String date, String time) {
-        this.date = date;
-        this.time = time;
+        this.dateAppoinment = date;
+        this.timeAppoinment = time;
     }
 
     public MedicalCheck() {
@@ -42,28 +42,28 @@ public class MedicalCheck {
      * @return the date
      */
     public String getDate() {
-        return date;
+        return dateAppoinment;
     }
 
     /**
      * @param date the date to set
      */
     public void setDate(String date) {
-        this.date = date;
+        this.dateAppoinment = date;
     }
 
     /**
      * @return the time
      */
     public String getTime() {
-        return time;
+        return timeAppoinment;
     }
 
     /**
      * @param time the time to set
      */
     public void setTime(String time) {
-        this.time = time;
+        this.timeAppoinment = time;
     }
 
     

@@ -7,19 +7,16 @@ package ec.edu.espe.simulador.model;
 
 import ec.edu.espe.filemanager.utils.Data;
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  *
  * @author LENOVO
  */
-public class ClinicHistory {
+public class Diagnosis {
 
     private String name;
-    private String reason;
+    private String reasonConsult;
     private String medicinePrescribe;
-
-    
     
     
     public void saveClinicHistory(String fileName, String record) throws IOException{
@@ -27,15 +24,11 @@ public class ClinicHistory {
         
     }
 
-    public ClinicHistory(String name, String reason, String medicinePrescribe) {
+    public Diagnosis(String name, String reason, String medicinePrescribe) {
         this.name = name;
-        this.reason = reason;
+        this.reasonConsult = reason;
         this.medicinePrescribe = medicinePrescribe;
     }
-    
-    
-    
-    
 
     /**
      * @return the name
@@ -55,14 +48,14 @@ public class ClinicHistory {
      * @return the reason
      */
     public String getReason() {
-        return reason;
+        return reasonConsult;
     }
 
     /**
      * @param reason the reason to set
      */
     public void setReason(String reason) {
-        this.reason = reason;
+        this.reasonConsult = reason;
     }
 
     /**

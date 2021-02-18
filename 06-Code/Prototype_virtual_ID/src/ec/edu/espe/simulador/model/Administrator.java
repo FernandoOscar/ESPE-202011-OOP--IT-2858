@@ -5,6 +5,11 @@
  */
 package ec.edu.espe.simulador.model;
 
+import ec.edu.espe.filemanager.utils.Data;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -16,11 +21,19 @@ public class Administrator {
     private Student student;
     private String saveData;
   
-
+    public void addDatabase(String fileName, String record){
+        try {
+            Data.save(fileName, record);
+        } catch (IOException ex) {
+            Logger.getLogger(Administrator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     
     public Administrator(String name) {
         this.name = name;
     }
+    
     
     
     public Administrator(){

@@ -2,18 +2,15 @@ package prototype_virtual_id;
 
 import com.google.gson.Gson;
 import ec.edu.espe.filemanager.utils.Data;
-import ec.edu.espe.simulador.model.ClinicHistory;
+import ec.edu.espe.simulador.model.Diagnosis;
 import ec.edu.espe.simulador.model.Director;
 import ec.edu.espe.simulador.model.Doctor;
 import ec.edu.espe.simulador.model.MedicalCheck;
-import ec.edu.espe.simulador.model.QR;
 import ec.edu.espe.simulador.model.Student;
 import ec.edu.espe.simulador.model.VirtualCard;
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Prototype_Virtual_ID {
 
@@ -51,7 +48,6 @@ public class Prototype_Virtual_ID {
                         int password;
                         System.out.println("Enter code Director (Only the director can enter): ");
                         password = sn.nextInt();
-                        //Director direc = new Director(password);
                         direc.verifyDirector(password);
                         System.out.println(direc.verifyDirector(password));
                         if (direc.verifyDirector(password) == false) {
@@ -119,7 +115,7 @@ public class Prototype_Virtual_ID {
 
             case 2:
                 System.out.println("verb");
-                QR qr = new QR();
+                VirtualCard qr = new VirtualCard();
                 System.out.println("\n");
                 System.out.print("Su ID es -> ");
                 qr.showIdentification();
@@ -132,43 +128,8 @@ public class Prototype_Virtual_ID {
         }
     }
 
-    public static void doctorData() {
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("Do you want to add a new doctor to the polyclinic?");
-        System.out.println("Yes(Y) or No(N): ");
-        char answer1 = input.next().charAt(0);
-        input.nextLine();
-
-        if (answer1 == 'Y' || answer1 == 'y') {
-            try {
-                System.out.println("Please enter your data");
-                System.out.print("Enter your name: ");
-                String name = input.nextLine();
-                System.out.print("Enter your area: ");
-                String area = input.nextLine();
-                System.out.print("Enter your schedule: ");
-                String schedule = input.nextLine();
-                Doctor doc = new Doctor(name, area, schedule);
-                Gson gson = new Gson();
-                String saveData = gson.toJson(doc);
-
-                for (int i = 0; i < 1; i++) {
-                    Data.save("DoctorData.json", saveData);
-                }
-
-            } catch (IOException ex) {
-                Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-
-        if (answer1 == 'N' || answer1 == 'n') {
-            System.out.println("Ok!");
-            System.out.println(" ");
-        }
-    }
-
-    public static void attendeStudent() throws IOException {
+public static void attendeStudent() throws IOException {
 
         Scanner ans = new Scanner(System.in);
         Doctor doc = new Doctor();
@@ -176,99 +137,41 @@ public class Prototype_Virtual_ID {
         System.out.println("========================");
         System.out.println("WELCOME AT POLYCLINIC");
         System.out.println("=======================");
-        System.out.println("1) Add new Doctor");
-        System.out.println("2) Attend Student");
-        System.out.println("3) Exit");
+        System.out.println("1) Attend Student");
+        System.out.println("2) Exit");
         int option = ans.nextInt();
 
         switch (option) {
-
+            
             case 1:
-                doctorData();
-                attendeStudent();
-                break;
-
-            case 2:
-                ans = new Scanner(System.in);
-                int option2 = 0;
-                System.out.println("Please go to the area you want to be served");
-                System.out.println("");
-                System.out.println("What are should it be understood?");
-                System.out.println("\t1. General Medicine");
-                System.out.println("\t2. Odontology");
-                System.out.println("\t3. Clinical Laboratory");
-                System.out.println(" ");
-                option2 = ans.nextInt();
-
-                switch (option2) {
-                    case 1:
-                        ans.nextLine();
-                        System.out.println("What is your Name: ");
-                        String name = ans.nextLine();
-                        System.out.println("What is the reason for your visit?");
-                        String reason = ans.nextLine();
-                        System.out.println("\nPrescribe a medicine for the patient!");
-                        System.out.println("---Available Medicines");
-                        System.out.println("======================");
-                        System.out.println("Paracetamol \nOmeprazole \nSimvastatina \nAspirin");
-                        String medicinePrescribe = ans.nextLine();
-
-                        ClinicHistory clinic = new ClinicHistory(name, reason, medicinePrescribe);
-
-                        Gson gson = new Gson();
-                        String saveData = gson.toJson(clinic);
-
-                        for (int i = 0; i < 1; i++) {
-                            doc.addHistory("ClinicHistory.json", saveData);
-                        }
-                        break;
-
-                    case 2:
-                        System.out.println("----------Doctors available for Odontology");
-                        ans.nextLine();
-                        System.out.println("What is the reason for your visit?");
-                        String treatment = ans.nextLine();
-
-                        System.out.println("Did you have an infection?");
-                        String infection = ans.nextLine();
-
-                        System.out.println("Available Treatments");
-                        System.out.println("======================");
-                        System.out.println("Root canals \nExtraction \nOrthodontics \nProphylaxis");
-                        System.out.println(" ");
-
-                        System.out.println("The treatment that the patient had is: " + treatment
-                                + "   Infeccion: " + infection);
-
-                        String treat = ("The treatment that the patient had is: " + treatment
-                                + "   Infection: " + infection);
-                        doc.addHistory("ClinicHistory.csv", treat);
-
-                        break;
-
-                    case 3:
-                        System.out.println(" ");
-                        System.out.println("----------Doctors available for General medicine");
-                        ans.nextLine();
-                        System.out.println("Available Samples");
-                        System.out.println("Hemogram \nUroanalysis \nSARS-CoV-2 COVID19 \nCoproanalysis");
-                        System.out.println("======================");
-                        System.out.println(" ");
-                        break;
-
-                    default:
-                        System.out.println("Only numbers between  1 - 3");
-                        System.out.println(" ");
+                System.out.println("What is your Name: ");
+                String name = ans.nextLine();
+                System.out.println("What is the reason for your visit?");
+                String reason = ans.nextLine();
+                System.out.println("\nPrescribe a medicine for the patient!");
+                System.out.println("---Available Medicines");
+                System.out.println("======================");
+                System.out.println("Paracetamol \nOmeprazole \nSimvastatina \nAspirin");
+                String medicinePrescribe = ans.nextLine();
+                
+                Diagnosis clinic = new Diagnosis(name, reason, medicinePrescribe);
+                
+                Gson gson = new Gson();
+                String saveData = gson.toJson(clinic);
+                
+                for (int i = 0; i < 1; i++) {
+                    doc.addHistory("ClinicHistory.json", saveData);
                 }
                 break;
 
-            case 3:
+            case 2:
                 System.out.println("Thanks for coming");
                 break;
 
         }
 
     }
+
 
     public static void menu() throws IOException {
 
@@ -324,38 +227,15 @@ public class Prototype_Virtual_ID {
     }
 
     private static void enterDataStudent() {
-        Scanner input = new Scanner(System.in);
-        VirtualCard card = new VirtualCard();
-        boolean permission;
-        String id;
-        do {
-            System.out.print("Enter your ID (Form LXXXXXXXX) : ");
-            id = input.nextLine();
-            int size = id.length();
-            permission = card.giveWay(size);
-        } while (permission);
-        System.out.print("Enter your name: ");
-        String name = input.nextLine();
-        System.out.print("Enter your age: ");
-        int age = input.nextInt();
-        input.nextLine();
-        System.out.print("Enter your email: ");
-        String email = input.nextLine();
-        System.out.print("Enter your address: ");
-        String address = input.nextLine();
-        System.out.print("Enter your phone: ");
-        int phone = input.nextInt();
-        input.nextLine();
-        System.out.print("Enter your career: ");
-        String career = input.nextLine();
+        Student student = new Student();
+        student.requestId();
         System.out.println("===========================================================");
         System.out.println("Your request has been successfully saved!!");
-        System.out.println("This request has to be read and added to the database by the "
-                + "administrator");
-        System.out.println("  BE PATTIENT ;) ");
         System.out.println("===========================================================");
 
-        Student student = new Student(id, name, age, email, address, phone, career);
+        student = new Student(student.getId(), student.getName(), 
+                student.getAge(), student.getEmail(), student.getAddress(), 
+                student.getPhone(), student.getCareer());
 
         Gson gson = new Gson();
         String saveData = gson.toJson(student);

@@ -14,6 +14,7 @@ public class VirtualCard {
     private String department;
     private int id;
     private String name;
+    private int QrCode;
 
     public boolean giveWay(int dataID) {
         boolean permission;
@@ -23,6 +24,16 @@ public class VirtualCard {
             permission = false;
         }
         return permission;
+    }
+    
+    public void showIdentification() {
+        int random;
+        int codeID[] = new int[8];
+        for (int i = 0; i < 8; i++) {
+            random = (int) (Math.random() * 9);
+            codeID[i] = random;
+            System.out.print(codeID[i]);
+        }  
     }
 
     /**
@@ -66,5 +77,21 @@ public class VirtualCard {
     public void setName(String name) {
         this.name = name;
     }
+
+    /**
+     * @return the QrCode
+     */
+    public int getQrCode() {
+        return QrCode;
+    }
+
+    /**
+     * @param QrCode the QrCode to set
+     */
+    public void setQrCode(int QrCode) {
+        this.QrCode = QrCode;
+    }
+    
+    
 
 }
