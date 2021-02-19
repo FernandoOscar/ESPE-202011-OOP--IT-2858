@@ -1,6 +1,7 @@
 package ec.edu.espe.simulador.model;
 
 import ec.edu.espe.filemanager.utils.Data;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,13 +12,15 @@ import java.util.Scanner;
  * @author group2
  */
 public class Inventory {
-    
-    
+      
     private String location;
     private boolean availability;
     private String area;
+    File file = new File("medicines"); 
     
-    
+    public void showAvailable(File fileName, String record){
+        Data.find(file, record);
+    }
     
     
     /**

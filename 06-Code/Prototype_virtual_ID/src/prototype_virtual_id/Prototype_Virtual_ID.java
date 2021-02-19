@@ -5,9 +5,11 @@ import ec.edu.espe.filemanager.utils.Data;
 import ec.edu.espe.simulador.model.Diagnosis;
 import ec.edu.espe.simulador.model.Director;
 import ec.edu.espe.simulador.model.Doctor;
+import ec.edu.espe.simulador.model.Inventory;
 import ec.edu.espe.simulador.model.MedicalCheck;
 import ec.edu.espe.simulador.model.Student;
 import ec.edu.espe.simulador.model.VirtualCard;
+import java.io.File;
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -146,6 +148,7 @@ public static void attendeStudent() throws IOException {
             case 1:
                 System.out.println("What is your Name: ");
                 String name = ans.nextLine();
+                ans.nextLine();
                 System.out.println("What is the reason for your visit?");
                 String reason = ans.nextLine();
                 System.out.println("\nPrescribe a medicine for the patient!");
@@ -153,6 +156,9 @@ public static void attendeStudent() throws IOException {
                 System.out.println("======================");
                 System.out.println("Paracetamol \nOmeprazole \nSimvastatina \nAspirin");
                 String medicinePrescribe = ans.nextLine();
+                Inventory medicine = new Inventory();
+                File file = new File("Medicines");
+                medicine.showAvailable(file, ",");
                 
                 Diagnosis clinic = new Diagnosis(name, reason, medicinePrescribe);
                 
