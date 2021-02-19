@@ -130,8 +130,7 @@ public class Prototype_Virtual_ID {
         }
     }
 
-
-public static void attendeStudent() throws IOException {
+    public static void attendeStudent() throws IOException {
 
         Scanner ans = new Scanner(System.in);
         Doctor doc = new Doctor();
@@ -144,7 +143,7 @@ public static void attendeStudent() throws IOException {
         int option = ans.nextInt();
 
         switch (option) {
-            
+
             case 1:
                 System.out.println("What is your Name: ");
                 String name = ans.nextLine();
@@ -156,15 +155,17 @@ public static void attendeStudent() throws IOException {
                 System.out.println("======================");
                 System.out.println("Paracetamol \nOmeprazole \nSimvastatina \nAspirin");
                 String medicinePrescribe = ans.nextLine();
-                Inventory medicine = new Inventory();
-                File file = new File("Medicines");
-                medicine.showAvailable(file, ",");
-                
+                File file = new File("medicine.csv");
+                Scanner keyboard = new Scanner(System.in);
+                System.out.print("Write the word to search in the file: ");
+                String data = keyboard.nextLine();
+                Data.find(file, data);
+
                 Diagnosis clinic = new Diagnosis(name, reason, medicinePrescribe);
-                
+
                 Gson gson = new Gson();
                 String saveData = gson.toJson(clinic);
-                
+
                 for (int i = 0; i < 1; i++) {
                     doc.addHistory("ClinicHistory.json", saveData);
                 }
@@ -177,7 +178,6 @@ public static void attendeStudent() throws IOException {
         }
 
     }
-
 
     public static void menu() throws IOException {
 
@@ -239,8 +239,8 @@ public static void attendeStudent() throws IOException {
         System.out.println("Your request has been successfully saved!!");
         System.out.println("===========================================================");
 
-        student = new Student(student.getId(), student.getName(), 
-                student.getAge(), student.getEmail(), student.getAddress(), 
+        student = new Student(student.getId(), student.getName(),
+                student.getAge(), student.getEmail(), student.getAddress(),
                 student.getPhone(), student.getCareer());
 
         Gson gson = new Gson();
