@@ -1,11 +1,11 @@
-package prototype_virtual_id;
+package ec.edu.espe.prototypevirtualid.view;
 
 import com.google.gson.Gson;
 import ec.edu.espe.filemanager.utils.Data;
 import ec.edu.espe.simulador.model.Diagnosis;
 import ec.edu.espe.simulador.model.Director;
 import ec.edu.espe.simulador.model.Doctor;
-import ec.edu.espe.simulador.model.Inventory;
+import ec.edu.espe.simulador.model.Area;
 import ec.edu.espe.simulador.model.MedicalCheck;
 import ec.edu.espe.simulador.model.Student;
 import ec.edu.espe.simulador.model.VirtualCard;
@@ -13,11 +13,13 @@ import java.io.File;
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Prototype_Virtual_ID {
 
-    public static void main(String[] args) throws IOException {
-
+    public static void main(String[] args) {
+        
         System.out.println("\t================================");
         System.out.println("\tWelcome to the Virtual ID System");
         System.out.println("\t================================");
@@ -45,39 +47,10 @@ public class Prototype_Virtual_ID {
                         break;
 
                     case 2:
-                        Director direc = new Director();
-                        Scanner input = new Scanner(System.in);
-                        int password;
-                        System.out.println("Enter code Director (Only the director can enter): ");
-                        password = sn.nextInt();
-                        direc.verifyDirector(password);
-                        System.out.println(direc.verifyDirector(password));
-                        if (direc.verifyDirector(password) == false) {
-                            System.out.println("You are not a Director");
-                        } else {
-                            System.out.println("Welcome Again");
-
-                            System.out.print("The solicitor are a student of the Universidad de las Fuerzas Armadas: \n");
-                            System.out.print("Yes(Y) or No(N): ");
-                            char answer = input.next().charAt(0);
-                            input.nextLine();
-                            direc.approveMotion(answer);
-
-                            if (direc.approveMotion(answer) == false) {
-                                System.out.println("You are not a Student\n");
-
-                            } else {
-                                enterDataStudent();
-                            }
-                        }
-
-                        break;
-
-                    case 3:
                         menuAdmin();
                         break;
 
-                    case 4:
+                    case 3:
                         System.out.println("Thanks!!!");
                         exit = true;
                         System.out.println(" ");
@@ -97,40 +70,48 @@ public class Prototype_Virtual_ID {
         }
     }
 
-    private static void menuAdmin() throws IOException {
+    private static void menuAdmin() {
         Scanner valid = new Scanner(System.in);
         int answer2;
-        System.out.println("\n\t1) Add to Database");
-        System.out.println("\t2) Create ID");
-        System.out.println("\t3) Exit");
-        answer2 = valid.nextInt();
 
-        switch (answer2) {
+        Director direc = new Director();
+        direc.validId();
 
-            case 1:
-                System.out.println("The data to be entered now will be stored in the "
-                        + "database, please be careful.");
-                enterDataStudent();
-                System.out.println("CONGRATULATIONS, NOW YOU CAN ACCESS THE "
-                        + "SERVICES AND BENEFITS OFFERED BY THE UNIVERSITY!!");
-                break;
+        if (direc.validId() == false) {
+            System.out.println("You are not a Director");
+        } else {
 
-            case 2:
-                System.out.println("verb");
-                VirtualCard qr = new VirtualCard();
-                System.out.println("\n");
-                System.out.print("Su ID es -> ");
-                qr.showIdentification();
-                System.out.println("\n");
-                break;
-
-            default:
-                System.out.println("Only numbers between  1 - 2");
-                System.out.println(" ");
+            System.out.println("\n\t1) Add to Database");
+            System.out.println("\t2) Create ID");
+            System.out.println("\t3) Exit");
+            answer2 = valid.nextInt();
+            switch (answer2) {
+                
+                case 1:
+                    System.out.println("The data to be entered now will be stored in the "
+                            + "database, please be careful.");
+                    enterDataStudent();
+                    System.out.println("CONGRATULATIONS, NOW YOU CAN ACCESS THE "
+                            + "SERVICES AND BENEFITS OFFERED BY THE UNIVERSITY!!");
+                    break;
+                    
+                case 2:
+                    System.out.println("verb");
+                    VirtualCard qr = new VirtualCard();
+                    System.out.println("\n");
+                    System.out.print("Su ID es -> ");
+                    qr.showIdentification();
+                    System.out.println("\n");
+                    break;
+                    
+                default:
+                    System.out.println("Only numbers between  1 - 2");
+                    System.out.println(" ");
+            }
         }
     }
 
-    public static void attendeStudent() throws IOException {
+    public static void attendeStudent() {
 
         Scanner ans = new Scanner(System.in);
         Doctor doc = new Doctor();
@@ -167,7 +148,11 @@ public class Prototype_Virtual_ID {
                 String saveData = gson.toJson(clinic);
 
                 for (int i = 0; i < 1; i++) {
-                    doc.addHistory("ClinicHistory.json", saveData);
+            try {
+                Data.save("ClinicHistory.json", saveData);
+            } catch (IOException ex) {
+                Logger.getLogger(Prototype_Virtual_ID.class.getName()).log(Level.SEVERE, null, ex);
+            }
                 }
                 break;
 
@@ -179,20 +164,19 @@ public class Prototype_Virtual_ID {
 
     }
 
-    public static void menu() throws IOException {
+    public static void menu(){
 
         Scanner sn = new Scanner(System.in);
         System.out.println("\t1. Request Id");
         System.out.println("\t2. Request Attention at Polyclinic");
         System.out.println("\t3. Exit");
         int option = sn.nextInt();
-
         switch (option) {
-
+            
             case 1:
                 enterDataStudent();
                 break;
-
+                
             case 2:
                 Scanner as = new Scanner(System.in);
                 System.out.println("\t\tDo you want to make an appointment? (A)");
@@ -200,9 +184,9 @@ public class Prototype_Virtual_ID {
                 System.out.println("\t\tAppoinment(A) or Now(N)");
                 char elect = as.next().charAt(0);
                 as.nextLine();
-
+                
                 if (elect == 'A' || elect == 'a') {
-
+                    
                     System.out.println("\nFor what day do you need the appointment?");
                     System.out.println("Enter date in format dd/mm/yyyy: ");
                     String date = as.nextLine();
@@ -218,13 +202,13 @@ public class Prototype_Virtual_ID {
                     for (int i = 0; i < 1; i++) {
                         check.addAppoinment("MedicalCheck.json", saveData1);
                     }
-
+                    
                 }
                 if (elect == 'N' || elect == 'n') {
                     attendeStudent();
                 }
                 break;
-
+                
             case 3:
                 System.out.println(" ");
                 break;
@@ -232,22 +216,25 @@ public class Prototype_Virtual_ID {
 
     }
 
-    private static void enterDataStudent() {
+    private static void enterDataStudent(){
         Student student = new Student();
         student.requestId();
         System.out.println("===========================================================");
         System.out.println("Your request has been successfully saved!!");
         System.out.println("===========================================================");
 
-        student = new Student(student.getId(), student.getName(),
-                student.getAge(), student.getEmail(), student.getAddress(),
-                student.getPhone(), student.getCareer());
+        student = new Student(student.getCareer(), student.getName(), student.getEmail(), 
+                student.getAddress(), student.getAge(), student.getId());
 
         Gson gson = new Gson();
         String saveData = gson.toJson(student);
 
         for (int i = 0; i < 1; i++) {
-            student.requestId("Requests.json", saveData);
+            try {
+                Data.save("Request.json", saveData);
+            } catch (IOException ex) {
+                Logger.getLogger(Prototype_Virtual_ID.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }

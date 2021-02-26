@@ -1,88 +1,60 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ec.edu.espe.simulador.model;
 
-import ec.edu.espe.filemanager.utils.Data;
-import java.io.IOException;
+import ec.edu.espe.verify.security;
+import java.util.Scanner;
 
-/**
- *
- * @author LENOVO
- */
-public class Doctor {
+public class Doctor extends Person{
     
-    private String name;
-    private String area;
+    private String specialty;
     private String schedule;
-    
-    
-    public void addHistory(String ClinicHistory, String reason) throws IOException{
-        Data.save(ClinicHistory, reason);
-    }
-    
-
-    public Doctor(String name, String area, String schedule) {
-        this.name = name;
-        this.area = area;
-        this.schedule = schedule;
-    }
 
     public Doctor() {
     }
-    
-    
-    
-    
-    public void checkHistory(){
-        Data.findAll("", name);
+
+   
+
+    public void addHistory(){
+        
     }
     
+    public void removeHistory(){
+        
+    }
     
-
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
+    @Override
+    public boolean validId() {
+        Scanner valid = new Scanner(System.in);
+        System.out.println("Enter your number of cedula: ");
+        String id = valid.nextLine();
+        return security.validId(id);        
     }
 
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
+    public Doctor(String specialty, String schedule, String name, String email, String address, int age, String id) {
+        super(name, email, address, age, id);
+        this.specialty = specialty;
+        this.schedule = schedule;
+    }
+     
+
+    
+    public String getSpecialty() {
+        return specialty;
     }
 
-    /**
-     * @return the area
-     */
-    public String getArea() {
-        return area;
+    
+    public void setSpecialty(String specialty) {
+        this.specialty = specialty;
     }
 
-    /**
-     * @param area the area to set
-     */
-    public void setArea(String area) {
-        this.area = area;
-    }
-
-    /**
-     * @return the schedule
-     */
+    
     public String getSchedule() {
         return schedule;
     }
 
-    /**
-     * @param schedule the schedule to set
-     */
+
     public void setSchedule(String schedule) {
         this.schedule = schedule;
     }
-    
     
 }

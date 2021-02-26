@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author group2
  */
-public class Inventory {
+public class Area {
       
     private String location;
     private boolean availability;

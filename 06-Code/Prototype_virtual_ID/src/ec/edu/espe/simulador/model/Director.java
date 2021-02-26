@@ -1,19 +1,18 @@
 package ec.edu.espe.simulador.model;
 
+import ec.edu.espe.verify.security;
+import java.util.Scanner;
 
-/**
- *
- * @author Developers
- */
+
 public class Director extends Administrator{
 
     private String career;
-    private String faculty;
-    private int password = 1234;
-    private String id;
-    private Student student;
-    
-    
+
+
+    public Director() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
     public boolean approveMotion(char answer){
         if (answer == 'Y' || answer == 'y') {
@@ -27,112 +26,43 @@ public class Director extends Administrator{
         
     }
 
-    
-public Director(String career, String faculty, String id, Student student, String name) {
-        super(name);
+    @Override
+    public void addDatabase() {
+   }
+
+    @Override
+    public void createId() {
+        
+    }
+
+    @Override
+    public void removeStudent() {
+    }
+
+    @Override
+    public boolean validId() {
+        Scanner valid = new Scanner(System.in);
+        System.out.println("Enter your number of cedula: ");
+        String id = valid.nextLine();
+        return security.validId(id);
+   }
+
+    public Director(String career, String deparment, String name, String email, String address, int age, String id) {
+        super(deparment, name, email, address, age, id);
         this.career = career;
-        this.faculty = faculty;
-        this.id = id;
-        this.student = student;
     }
 
 
-    
-    
-    public Director(){
-        
-    }
-    
-    public void addRequest(){
-        
-    }
-    
-    public boolean verifyDirector(int code) {
-
-        int pass = 1234;
-        boolean temp;
-
-        if (pass == code) {
-            temp = true;
-
-        } else {
-            temp = false;
-        }
-
-        return temp;
-    }
-
-    /**
-     * @return the career
-     */
     public String getCareer() {
         return career;
     }
-
-    /**
-     * @param career the career to set
-     */
+    
     public void setCareer(String career) {
         this.career = career;
     }
 
-    /**
-     * @return the faculty
-     */
-    public String getFaculty() {
-        return faculty;
-    }
-
-    /**
-     * @param faculty the faculty to set
-     */
-    public void setFaculty(String faculty) {
-        this.faculty = faculty;
-    }
-
-    /**
-     * @return the password
-     */
-    public int getPassword() {
-        return password;
-    }
-
-    /**
-     * @param password the password to set
-     */
-    public void setPassword(int password) {
-        this.password = password;
-    }
-
-    /**
-     * @return the id
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    /**
-     * @return the student
-     */
-    @Override
-    public Student getStudent() {
-        return student;
-    }
-
-    /**
-     * @param student the student to set
-     */
-    @Override
-    public void setStudent(Student student) {
-        this.student = student;
-    }
+    
+    
 
     
     
