@@ -14,25 +14,21 @@ public class Student extends Person {
 
     private String career;
 
-    public Student(String career, String name, String email, String address, int age, String id) {
-        super(name, email, address, age, id);
+    public Student() {       
+    }
+
+    public Student(String career) {
         this.career = career;
     }
 
-    public Student() {
-//        try {
-//            DB BaseData;
-//            DBCollection collection;
-//            BasicDBObject document = new BasicDBObject();
-//            
-//            Mongo mongo = new Mongo("localhost", 27017);
-//            BaseData = mongo.getDB("Virtual_Id");
-//            collection = BaseData.getCollection("Name");
-//        } catch (UnknownHostException ex) {
-//            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        
+    public Student(String career, String name, String email, String address, int age, String id, String gender) {
+        super(name, email, address, age, id, gender);
+        this.career = career;
     }
+
+    
+
+    
 
     public void requestId() {
         Scanner scan = new Scanner(System.in);
@@ -49,6 +45,7 @@ public class Student extends Person {
         setAddress(scan.nextLine());
         System.out.print("Enter your career: ");
         setCareer(scan.nextLine());
+        
     }
 
     @Override

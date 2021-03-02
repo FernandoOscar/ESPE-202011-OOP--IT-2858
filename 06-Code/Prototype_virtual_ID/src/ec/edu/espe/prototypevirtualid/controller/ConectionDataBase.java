@@ -12,6 +12,7 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
+import com.mongodb.WriteResult;
 import ec.edu.espe.simulador.model.Student;
 
 /**
@@ -20,15 +21,12 @@ import ec.edu.espe.simulador.model.Student;
  */
 public class ConectionDataBase {
     
-    
-    Student user = createUser();
-    DBObject doc = createDBObject(user);
-    BasicDBObject document = new BasicDBObject();
+    private BasicDBObject document = new BasicDBObject();
 
-    MongoClient mongoC;
-    MongoClientURI mongoCUri;
-    DB BaseData;
-    DBCollection collections;
+    private MongoClient mongoC;
+    private MongoClientURI mongoCUri;
+    private DB BaseData;
+    private DBCollection collections;
 
     public ConectionDataBase() {
         mongoCUri = new MongoClientURI("mongodb+srv://Admin1:admin1234@cluster0.ctg8x.mongodb.net/PrototypeVirtualID?retryWrites=true&w=majority");
@@ -37,27 +35,20 @@ public class ConectionDataBase {
         collections = BaseData.getCollection("Name");
     }
     
-    private static Student createUser() {
-        Student u = new Student();
-        u.setId("L00354835");
-        u.setName("Bryan");
-        u.setCareer("TI");
-        return u;
-    }
-    
-    private static DBObject createDBObject(Student user) {
-        BasicDBObjectBuilder docBuilder = BasicDBObjectBuilder.start();
-
-        docBuilder.append("_id", user.getId());
-        docBuilder.append("name", user.getName());
-        docBuilder.append("role", user.getCareer());
-        return docBuilder.get();
-    }
-    
-    public boolean create(String action){
-            document.put("Name", action);
+  
+    public boolean create(String name, String id, String career, String email, String address, int age, String gender){
+            document.put("Name", name);
+            document.put("ID", id);
+            document.put("Career", career);
+            document.put("email", email);
+            document.put("Address", address);
+            document.put("Age", age);
+            document.put("Gender", gender);
             collections.insert(document);
             return true;
         }
+
+   
+  
     
 }

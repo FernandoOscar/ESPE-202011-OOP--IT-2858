@@ -10,7 +10,11 @@ public class Doctor extends Person{
     private String schedule;
 
     public Doctor() {
+        
+        
     }
+    
+    
 
    
 
@@ -30,12 +34,13 @@ public class Doctor extends Person{
         return security.validId(id);        
     }
 
-    public Doctor(String specialty, String schedule, String name, String email, String address, int age, String id) {
-        super(name, email, address, age, id);
+    public Doctor(String specialty, String schedule) {
         this.specialty = specialty;
         this.schedule = schedule;
     }
-     
+
+    
+    
 
     
     public String getSpecialty() {

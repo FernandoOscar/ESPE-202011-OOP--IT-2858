@@ -8,6 +8,7 @@ public abstract class Person {
     private String address;
     private int age;
     private String id;
+    private String gender;
     
     /**
      *
@@ -18,14 +19,17 @@ public abstract class Person {
     public Person() {
     }
 
-    public Person(String name, String email, String address, int age, String id) {
+    public Person(String name, String email, String address, int age, String id, String gender) {
         this.name = name;
         this.email = email;
         this.address = address;
         this.age = age;
         this.id = id;
+        this.gender = gender;
     }
 
+    
+      
 
     public String getName() {
         return name;
@@ -67,7 +71,7 @@ public abstract class Person {
         this.id = id;
     }
 
-
+ 
     
 
     

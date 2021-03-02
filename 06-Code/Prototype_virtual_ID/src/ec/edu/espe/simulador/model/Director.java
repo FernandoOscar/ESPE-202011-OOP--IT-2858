@@ -12,6 +12,20 @@ public class Director extends Administrator{
     public Director() {
     }
 
+    public Director(String career, String deparment) {
+        super(deparment);
+        this.career = career;
+    }
+
+    
+
+    public Director(String career) {
+        this.career = career;
+    }
+    
+    
+    
+
     
     public boolean approveMotion(char answer){
         if (answer == 'Y' || answer == 'y') {
@@ -46,10 +60,7 @@ public class Director extends Administrator{
         return security.validId(id);
    }
 
-    public Director(String career, String deparment, String name, String email, String address, int age, String id) {
-        super(deparment, name, email, address, age, id);
-        this.career = career;
-    }
+    
 
 
     public String getCareer() {

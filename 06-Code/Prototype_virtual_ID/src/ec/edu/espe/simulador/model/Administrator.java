@@ -10,10 +10,13 @@ public abstract class  Administrator extends Person{
     
     private String deparment;
 
-    public Administrator(String deparment, String name, String email, String address, int age, String id) {
-        super(name, email, address, age, id);
+    public Administrator(String deparment) {
         this.deparment = deparment;
-    }  
+    }
+
+    
+
+     
 
     public Administrator() {
     }
