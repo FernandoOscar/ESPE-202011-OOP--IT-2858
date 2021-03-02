@@ -228,26 +228,19 @@ public class Prototype_Virtual_ID {
     }
 
     private static void enterDataStudent() {
-
-        
-        //student = new Student(student.getCareer(), student.getName(), student.getEmail(), 
-        //        student.getAddress(), student.getAge(), student.getId(), student.getGender());
-        //Gson gson = new Gson();
-        // String saveData = gson.toJson(student);
+ 
+        ConectionDataBase obj1 = new ConectionDataBase();
+        Student student = new Student();
+        student.requestId();
+        obj1.ConectionDataBase();
+        obj1.create(student.getName(), student.getId(), student.getCareer(), student.getEmail(), student.getAddress(), student.getAge(), student.getGender());
         
         System.out.println("===========================================================");
         System.out.println("Your request has been successfully saved!!");
         System.out.println("===========================================================");
 
-//        for (int i = 0; i < 1; i++) {
-//            try {
-//                
-//               // Data.save("Request.json", saveData);
-//            } catch (IOException ex) {
-//                Logger.getLogger(Prototype_Virtual_ID.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
     }
+    
     
     
  

@@ -45,6 +45,8 @@ public class Student extends Person {
         setAddress(scan.nextLine());
         System.out.print("Enter your career: ");
         setCareer(scan.nextLine());
+        System.out.print("Enter your gender: ");
+        setGender(scan.nextLine());
         
     }
 
@@ -63,6 +65,7 @@ public class Student extends Person {
     public void setCareer(String career) {
         this.career = career;
     }
+    
 
     
 }
