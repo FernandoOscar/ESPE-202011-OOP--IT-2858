@@ -2,6 +2,7 @@ package ec.edu.espe.prototypevirtualid.view;
 
 import com.google.gson.Gson;
 import ec.edu.espe.filemanager.utils.Data;
+import ec.edu.espe.prototypevirtualid.controller.ConectionDataBase;
 import ec.edu.espe.simulador.model.Diagnosis;
 import ec.edu.espe.simulador.model.Director;
 import ec.edu.espe.simulador.model.Doctor;
@@ -19,6 +20,9 @@ import java.util.logging.Logger;
 public class Prototype_Virtual_ID {
 
     public static void main(String[] args) {
+        
+        
+        
         
         System.out.println("\t================================");
         System.out.println("\tWelcome to the Virtual ID System");
@@ -43,6 +47,7 @@ public class Prototype_Virtual_ID {
 
                     case 1:
                         menu();
+                        
                         System.out.println("\n");
                         break;
 
@@ -91,6 +96,7 @@ public class Prototype_Virtual_ID {
                     System.out.println("The data to be entered now will be stored in the "
                             + "database, please be careful.");
                     enterDataStudent();
+                    
                     System.out.println("CONGRATULATIONS, NOW YOU CAN ACCESS THE "
                             + "SERVICES AND BENEFITS OFFERED BY THE UNIVERSITY!!");
                     break;
@@ -217,6 +223,7 @@ public class Prototype_Virtual_ID {
     }
 
     private static void enterDataStudent(){
+        ConectionDataBase cloud = new ConectionDataBase();
         Student student = new Student();
         student.requestId();
         System.out.println("===========================================================");
@@ -228,9 +235,13 @@ public class Prototype_Virtual_ID {
 
         Gson gson = new Gson();
         String saveData = gson.toJson(student);
+        
+        cloud.create(saveData);
+        
 
         for (int i = 0; i < 1; i++) {
             try {
+                
                 Data.save("Request.json", saveData);
             } catch (IOException ex) {
                 Logger.getLogger(Prototype_Virtual_ID.class.getName()).log(Level.SEVERE, null, ex);
