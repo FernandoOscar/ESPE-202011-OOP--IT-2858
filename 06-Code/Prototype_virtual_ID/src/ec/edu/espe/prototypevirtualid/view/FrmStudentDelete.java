@@ -257,7 +257,7 @@ public class FrmStudentDelete extends javax.swing.JFrame {
         txtAge.setText("");
         txtCareer.setText("");
         cmbGender.setSelectedItem("");
-    }
+    
     }//GEN-LAST:event_bntDeleteActionPerformed
 
     /**

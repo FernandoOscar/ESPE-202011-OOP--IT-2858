@@ -9,23 +9,20 @@ package ec.edu.espe.simulador.model;
 public abstract class  Administrator extends Person{
     
     private String deparment;
+    public abstract void addDatabase();
+    public abstract void createId();
+    public abstract void removeStudent();
 
     public Administrator(String deparment) {
         this.deparment = deparment;
     }
-
-    
-
-     
 
     public Administrator() {
     }
     
     
      
-    public abstract void addDatabase();
-    public abstract void createId();
-    public abstract void removeStudent();
+    
 
     public String getDeparment() {
         return deparment;

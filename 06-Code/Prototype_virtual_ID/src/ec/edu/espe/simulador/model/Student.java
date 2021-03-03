@@ -1,20 +1,14 @@
 package ec.edu.espe.simulador.model;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.Mongo;
+import ec.edu.espe.prototypevirtualid.controller.Login;
 import ec.edu.espe.verify.security;
-import java.net.UnknownHostException;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Student extends Person {
 
     private String career;
 
-    public Student() {       
+    public Student() {
     }
 
     public Student(String career) {
@@ -26,9 +20,18 @@ public class Student extends Person {
         this.career = career;
     }
 
-    
+    @Override
+    public boolean validUser(String user, String password) {
+        Login log = new Login();
+        log.validate(user, password);
 
-    
+        if (user.equals(user) && password.equals(password)) {
+            System.out.println("Welcome Again " + user);
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public void requestId() {
         Scanner scan = new Scanner(System.in);
@@ -47,15 +50,7 @@ public class Student extends Person {
         setCareer(scan.nextLine());
         System.out.print("Enter your gender: ");
         setGender(scan.nextLine());
-        
-    }
 
-    @Override
-    public boolean validId() {
-        Scanner valid = new Scanner(System.in);
-        System.out.println("Enter your number of cedula: ");
-        String id = valid.nextLine();
-        return security.validId(id);
     }
 
     public String getCareer() {
@@ -65,7 +60,5 @@ public class Student extends Person {
     public void setCareer(String career) {
         this.career = career;
     }
-    
 
-    
 }

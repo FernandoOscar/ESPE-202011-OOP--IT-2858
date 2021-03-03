@@ -1,19 +1,12 @@
 package ec.edu.espe.prototypevirtualid.view;
 
 import com.google.gson.Gson;
-import com.mongodb.BasicDBObjectBuilder;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.DBObject;
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
-import com.mongodb.WriteResult;
 import ec.edu.espe.filemanager.utils.Data;
 import ec.edu.espe.prototypevirtualid.controller.ConectionDataBase;
+import ec.edu.espe.prototypevirtualid.controller.Login;
 import ec.edu.espe.simulador.model.Diagnosis;
 import ec.edu.espe.simulador.model.Director;
 import ec.edu.espe.simulador.model.Doctor;
-import ec.edu.espe.simulador.model.Area;
 import ec.edu.espe.simulador.model.MedicalCheck;
 import ec.edu.espe.simulador.model.Student;
 import ec.edu.espe.simulador.model.VirtualCard;
@@ -23,6 +16,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.json.simple.parser.ParseException;
 
 public class Prototype_Virtual_ID {
 
@@ -41,9 +35,8 @@ public class Prototype_Virtual_ID {
             try {
 
                 System.out.println("1) Login as Student");
-                System.out.println("2) Login as Director");
-                System.out.println("3) Login as Administrator");
-                System.out.println("4) Exit");
+                System.out.println("2) Login as Administrator");
+                System.out.println("3) Exit");
                 System.out.println("Write one of the options: ");
                 option = sn.nextInt();
 
@@ -51,7 +44,6 @@ public class Prototype_Virtual_ID {
 
                     case 1:
                         menu();
-
                         System.out.println("\n");
                         break;
 
@@ -84,11 +76,15 @@ public class Prototype_Virtual_ID {
         int answer2;
 
         Director direc = new Director();
-        direc.validId();
+        System.out.println("User: ");
+        String user = valid.nextLine();
+        System.out.println("Password: ");
+        String password = valid.nextLine();
+        direc.validUser(user, password);
 
-        if (direc.validId() == false) {
+        if (direc.validUser(user, password) == false) {
             System.out.println("You are not a Director");
-        } else {
+        } else if(direc.validUser(user, password) == true) {
 
             System.out.println("\n\t1) Add to Database");
             System.out.println("\t2) Create ID");

@@ -14,7 +14,7 @@ public abstract class Person {
      *
      * @return
      */
-    public abstract boolean validId();
+    public abstract boolean validUser(String user, String password);
 
     public Person() {
     }

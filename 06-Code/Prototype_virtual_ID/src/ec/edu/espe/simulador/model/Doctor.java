@@ -1,37 +1,37 @@
-
 package ec.edu.espe.simulador.model;
 
+import ec.edu.espe.prototypevirtualid.controller.Login;
 import ec.edu.espe.verify.security;
 import java.util.Scanner;
 
-public class Doctor extends Person{
-    
+public class Doctor extends Person {
+
     private String specialty;
     private String schedule;
 
     public Doctor() {
-        
-        
-    }
-    
-    
 
-   
+    }
 
-    public void addHistory(){
-        
-    }
-    
-    public void removeHistory(){
-        
-    }
-    
     @Override
-    public boolean validId() {
-        Scanner valid = new Scanner(System.in);
-        System.out.println("Enter your number of cedula: ");
-        String id = valid.nextLine();
-        return security.validId(id);        
+    public boolean validUser(String user, String password) {
+        Login log = new Login();
+        log.validate(user, password);
+
+        if (user.equals(user) && password.equals(password)) {
+            System.out.println("Welcome Again " + user);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void addHistory() {
+
+    }
+
+    public void removeHistory() {
+
     }
 
     public Doctor(String specialty, String schedule) {
@@ -39,27 +39,20 @@ public class Doctor extends Person{
         this.schedule = schedule;
     }
 
-    
-    
-
-    
     public String getSpecialty() {
         return specialty;
     }
 
-    
     public void setSpecialty(String specialty) {
         this.specialty = specialty;
     }
 
-    
     public String getSchedule() {
         return schedule;
     }
 
-
     public void setSchedule(String schedule) {
         this.schedule = schedule;
     }
-    
+
 }
