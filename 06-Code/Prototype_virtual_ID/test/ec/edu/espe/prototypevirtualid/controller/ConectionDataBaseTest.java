@@ -71,7 +71,6 @@ public class ConectionDataBaseTest {
         String collection = "FJOC1";
         ConectionDataBase instance = new ConectionDataBase();
         instance.ConectionDataBase(collection);
-        
     }
 
     /**
@@ -82,10 +81,8 @@ public class ConectionDataBaseTest {
         System.out.println("ConectionDataBaseDoctor");
         String collection = "Lili";
         ConectionDataBase instance = new ConectionDataBase();
-        instance.ConectionDataBaseDoctor(collection);
-        
+        instance.ConectionDataBaseDoctor(collection);        
     }
-
     /**
      * Test of ConectionDataBaseDiagnosis method, of class ConectionDataBase.
      */
@@ -94,10 +91,8 @@ public class ConectionDataBaseTest {
         System.out.println("ConectionDataBaseDiagnosis");
         String collection = "";
         ConectionDataBase instance = new ConectionDataBase();
-        instance.ConectionDataBaseDiagnosis(collection);
-        
+        instance.ConectionDataBaseDiagnosis(collection);        
     }
-
     /**
      * Test of ConectionDataBaseAppointment method, of class ConectionDataBase.
      */
@@ -106,10 +101,8 @@ public class ConectionDataBaseTest {
         System.out.println("ConectionDataBaseAppointment");
         String collection = "Mishu";
         ConectionDataBase instance = new ConectionDataBase();
-        instance.ConectionDataBaseAppointment(collection);
-        
+        instance.ConectionDataBaseAppointment(collection);        
     }
-
     /**
      * Test of create method, of class ConectionDataBase.
      */
@@ -130,7 +123,6 @@ public class ConectionDataBaseTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
     /**
      * Test of create method, of class ConectionDataBase.
      */
@@ -147,7 +139,6 @@ public class ConectionDataBaseTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
     @Test
     public void testCreate_3args1() {
         System.out.println("create");
