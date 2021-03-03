@@ -7,6 +7,7 @@ package ec.edu.espe.simulador.model;
 
 import ec.edu.espe.filemanager.utils.Data;
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  *
@@ -14,68 +15,78 @@ import java.io.IOException;
  */
 public class Diagnosis {
 
-    private String name;
-    private String reasonConsult;
-    private String medicinePrescribe;
+    private String patientName;
+    private String symptom;
+    private String medicine;
     
     
     public void saveClinicHistory(String fileName, String record) throws IOException{
         Data.save("fileName", record);
         
     }
-
-    public Diagnosis(String name, String reason, String medicinePrescribe) {
-        this.name = name;
-        this.reasonConsult = reason;
-        this.medicinePrescribe = medicinePrescribe;
-    }
-
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * @return the reason
-     */
-    public String getReason() {
-        return reasonConsult;
-    }
-
-    /**
-     * @param reason the reason to set
-     */
-    public void setReason(String reason) {
-        this.reasonConsult = reason;
-    }
-
-    /**
-     * @return the medicinePrescribe
-     */
-    public String getMedicinePrescribe() {
-        return medicinePrescribe;
-    }
-
-    /**
-     * @param medicinePrescribe the medicinePrescribe to set
-     */
-    public void setMedicinePrescribe(String medicinePrescribe) {
-        this.medicinePrescribe = medicinePrescribe;
-    }
-
-   
+    public Diagnosis(){
     
+    }
     
+    public void addHistory() {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter name patient: ");
+        setPatientName(scan.nextLine());
+        System.out.print("Enter your symptom: ");
+        setSymptom(scan.nextLine());
+        System.out.print("Enter the needs medicine: ");
+        setMedicine(scan.nextLine());
+    }
     
 
+    public Diagnosis(String patientName, String symptom, String medicine) {
+        this.patientName = patientName;
+        this.symptom = symptom;
+        this.medicine = medicine;
+    }
     
+
+    /**
+     * @return the patientName
+     */
+    public String getPatientName() {
+        return patientName;
+    }
+
+    /**
+     * @param patientName the patientName to set
+     */
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
+    }
+
+    /**
+     * @return the symptom
+     */
+    public String getSymptom() {
+        return symptom;
+    }
+
+    /**
+     * @param symptom the symptom to set
+     */
+    public void setSymptom(String symptom) {
+        this.symptom = symptom;
+    }
+
+    /**
+     * @return the medicine
+     */
+    public String getMedicine() {
+        return medicine;
+    }
+
+    /**
+     * @param medicine the medicine to set
+     */
+    public void setMedicine(String medicine) {
+        this.medicine = medicine;
+    }
+
+  
 }

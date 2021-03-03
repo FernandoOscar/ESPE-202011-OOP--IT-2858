@@ -7,6 +7,7 @@ package ec.edu.espe.simulador.model;
 
 import ec.edu.espe.filemanager.utils.Data;
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,12 +21,12 @@ public class MedicalCheck {
     private String timeAppoinment;
     
     
-    public void addAppoinment(String fileName, String date){
-        try {
-            Data.save(fileName, date);
-        } catch (IOException ex) {
-            Logger.getLogger(MedicalCheck.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void addAppoinment(){
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter the day medical appointment: ");
+        setTime(scan.nextLine());
+        System.out.print("Enter the time medical appointment: ");
+        setDate(scan.nextLine());
     }
 
     

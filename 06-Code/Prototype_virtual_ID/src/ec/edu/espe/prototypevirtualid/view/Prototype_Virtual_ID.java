@@ -113,11 +113,9 @@ public class Prototype_Virtual_ID {
                     String dataDelete = data.nextLine();
                     delete.ConectionDataBase("Name");
                     delete.delete(dataDelete);
-                    
+
                     break;
-                
-                
-                
+
                 case 4:
                     System.out.println("verb");
                     VirtualCard qr = new VirtualCard();
@@ -126,8 +124,6 @@ public class Prototype_Virtual_ID {
                     qr.showIdentification();
                     System.out.println("\n");
                     break;
-
-                
 
                 default:
                     System.out.println("Only numbers between  1 - 2");
@@ -147,45 +143,18 @@ public class Prototype_Virtual_ID {
         System.out.println("2) Add Doctor");
         System.out.println("2) Exit");
         int option = ans.nextInt();
+        ConectionDataBase cloud = new ConectionDataBase();
 
         switch (option) {
 
             case 1:
-
-                //MANDAR A LA NUBE
-                //METODO EN CLASE DIAGNOSIS
-                System.out.println("What is your Name: ");
-                String name = ans.nextLine();
-                ans.nextLine();
-                System.out.println("What is the reason for your visit?");
-                String reason = ans.nextLine();
-                System.out.println("\nPrescribe a medicine for the patient!");
-                System.out.println("---Available Medicines");
-                System.out.println("======================");
-                System.out.println("Paracetamol \nOmeprazole \nSimvastatina \nAspirin");
-                String medicinePrescribe = ans.nextLine();
-                File file = new File("medicine.csv");
-                Scanner keyboard = new Scanner(System.in);
-                System.out.print("Write the word to search in the file: ");
-                String data = keyboard.nextLine();
-                Data.find(file, data);
-
-                Diagnosis clinic = new Diagnosis(name, reason, medicinePrescribe);
-
-                Gson gson = new Gson();
-                String saveData = gson.toJson(clinic);
-
-                for (int i = 0; i < 1; i++) {
-                    try {
-                        Data.save("ClinicHistory.json", saveData);
-                    } catch (IOException ex) {
-                        Logger.getLogger(Prototype_Virtual_ID.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
+                Diagnosis diagnosis = new Diagnosis();
+                diagnosis.addHistory();
+                cloud.ConectionDataBase("Diagnosis");
+                cloud.create(diagnosis.getPatientName(), diagnosis.getSymptom(), diagnosis.getMedicine());
                 break;
 
             case 2:
-                ConectionDataBase cloud = new ConectionDataBase();
                 Doctor doctor = new Doctor();
                 doctor.addDoctor();
                 cloud.ConectionDataBase("Doctor");
@@ -222,30 +191,17 @@ public class Prototype_Virtual_ID {
                 as.nextLine();
 
                 if (elect == 'A' || elect == 'a') {
-
-                    //MANDAR A LA NUBE
-                    //CLASE MEDICAL CHECK
-                    System.out.println("\nFor what day do you need the appointment?");
-                    System.out.println("Enter date in format dd/mm/yyyy: ");
-                    String date = as.nextLine();
-                    System.out.println("What time do you need the appointment?");
-                    System.out.println("Enter time in format hh:mm: ");
-                    String time = as.nextLine();
-                    MedicalCheck check = new MedicalCheck(date, time);
-                    String appo = ("\nAppointment scheduled for " + date + " at " + time + " hours");
-                    System.out.println(appo);
-                    System.out.println("=====================================\n");
-                    Gson gson1 = new Gson();
-                    String saveData1 = gson1.toJson(check);
-                    for (int i = 0; i < 1; i++) {
-                        check.addAppoinment("MedicalCheck.json", saveData1);
-                    }
-
+                    MedicalCheck medicalCheck = new MedicalCheck();
+                    medicalCheck.addAppoinment();
+                    ConectionDataBase cloud = new ConectionDataBase();
+                    cloud.ConectionDataBase("Medical Appoinment");
+                    cloud.create(medicalCheck.getTime(), medicalCheck.getDate());
                 }
                 if (elect == 'N' || elect == 'n') {
                     attendeStudent();
                 }
                 break;
+                
 
             case 3:
                 System.out.println(" ");
