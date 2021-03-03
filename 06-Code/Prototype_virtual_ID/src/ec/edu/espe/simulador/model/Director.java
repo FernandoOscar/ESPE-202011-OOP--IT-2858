@@ -19,14 +19,14 @@ public class Director extends Administrator {
         Login log = new Login();
         log.validate(user , password);        
         
-        if (user.equals(user) && password.equals(password)) {
-            System.out.println("Welcome Again " + user);
+        if (log.validate(user, password)== true){
             return true;
-        } else {
+        }
+        else{
             return false;
         }
-        
     }
+    
 
     public Director(String career) {
         this.career = career;
