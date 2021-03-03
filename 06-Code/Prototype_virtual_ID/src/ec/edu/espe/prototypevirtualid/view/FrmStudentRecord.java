@@ -5,17 +5,7 @@
  */
 package ec.edu.espe.prototypevirtualid.view;
 
-import com.google.gson.Gson;
-import com.mongodb.BasicDBObjectBuilder;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.DBObject;
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
-import com.mongodb.WriteResult;
 import ec.edu.espe.prototypevirtualid.controller.ConectionDataBase;
-import ec.edu.espe.simulador.model.Student;
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
@@ -272,7 +262,7 @@ public class FrmStudentRecord extends javax.swing.JFrame {
             System.out.println("===========================================================");
             System.out.println("Your request has been successfully saved!!");
             System.out.println("===========================================================");
-            cloud.ConectionDataBase();
+            cloud.ConectionDataBase("Name");
 
             cloud.create(name, id, career, email, address, age, gender);
             FrmGeneralMenu frmGeneral = new FrmGeneralMenu();

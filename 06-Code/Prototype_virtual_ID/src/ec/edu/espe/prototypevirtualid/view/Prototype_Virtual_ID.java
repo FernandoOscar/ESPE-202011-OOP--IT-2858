@@ -84,11 +84,13 @@ public class Prototype_Virtual_ID {
 
         if (direc.validUser(user, password) == false) {
             System.out.println("You are not a Director");
-        } else if(direc.validUser(user, password) == true) {
+        } else if (direc.validUser(user, password) == true) {
 
             System.out.println("\n\t1) Add to Database");
-            System.out.println("\t2) Create ID");
-            System.out.println("\t3) Exit");
+            System.out.println("\t2) Read Database");
+            System.out.println("\t3) Delete Data");
+            System.out.println("\t4) Create ID");
+            System.out.println("\t5) Exit");
             answer2 = valid.nextInt();
             switch (answer2) {
 
@@ -96,12 +98,27 @@ public class Prototype_Virtual_ID {
                     System.out.println("The data to be entered now will be stored in the "
                             + "database, please be careful.");
                     enterDataStudent();
-
-                    System.out.println("CONGRATULATIONS, NOW YOU CAN ACCESS THE "
-                            + "SERVICES AND BENEFITS OFFERED BY THE UNIVERSITY!!");
                     break;
 
                 case 2:
+                    ConectionDataBase cloud = new ConectionDataBase();
+                    cloud.ConectionDataBase("Name");
+                    cloud.read();
+                    break;
+
+                case 3:
+                    ConectionDataBase delete = new ConectionDataBase();
+                    Scanner data = new Scanner(System.in);
+                    System.out.println("Enter data will be Deleted");
+                    String dataDelete = data.nextLine();
+                    delete.ConectionDataBase("Name");
+                    delete.delete(dataDelete);
+                    
+                    break;
+                
+                
+                
+                case 4:
                     System.out.println("verb");
                     VirtualCard qr = new VirtualCard();
                     System.out.println("\n");
@@ -109,6 +126,8 @@ public class Prototype_Virtual_ID {
                     qr.showIdentification();
                     System.out.println("\n");
                     break;
+
+                
 
                 default:
                     System.out.println("Only numbers between  1 - 2");
@@ -120,18 +139,21 @@ public class Prototype_Virtual_ID {
     public static void attendeStudent() {
 
         Scanner ans = new Scanner(System.in);
-        Doctor doc = new Doctor();
         System.out.println("\n");
         System.out.println("========================");
         System.out.println("WELCOME AT POLYCLINIC");
         System.out.println("=======================");
         System.out.println("1) Attend Student");
+        System.out.println("2) Add Doctor");
         System.out.println("2) Exit");
         int option = ans.nextInt();
 
         switch (option) {
 
             case 1:
+
+                //MANDAR A LA NUBE
+                //METODO EN CLASE DIAGNOSIS
                 System.out.println("What is your Name: ");
                 String name = ans.nextLine();
                 ans.nextLine();
@@ -163,6 +185,12 @@ public class Prototype_Virtual_ID {
                 break;
 
             case 2:
+                //AGREGAR DOCTORES
+                //MANDAR A LA NUBE
+                //METODO CLASE DOCTOR
+                break;
+
+            case 3:
                 System.out.println("Thanks for coming");
                 break;
 
@@ -175,13 +203,12 @@ public class Prototype_Virtual_ID {
         Scanner sn = new Scanner(System.in);
         System.out.println("\t1. Request Id");
         System.out.println("\t2. Request Attention at Polyclinic");
-        System.out.println("\t3. Exit");
+        System.out.println("\t4. Exit");
         int option = sn.nextInt();
         switch (option) {
 
             case 1:
                 enterDataStudent();
-
                 break;
 
             case 2:
@@ -194,6 +221,8 @@ public class Prototype_Virtual_ID {
 
                 if (elect == 'A' || elect == 'a') {
 
+                    //MANDAR A LA NUBE
+                    //CLASE MEDICAL CHECK
                     System.out.println("\nFor what day do you need the appointment?");
                     System.out.println("Enter date in format dd/mm/yyyy: ");
                     String date = as.nextLine();
@@ -224,21 +253,18 @@ public class Prototype_Virtual_ID {
     }
 
     private static void enterDataStudent() {
- 
-        ConectionDataBase obj1 = new ConectionDataBase();
+
+        ConectionDataBase cloud = new ConectionDataBase();
         Student student = new Student();
         student.requestId();
-        obj1.ConectionDataBase();
-        obj1.create(student.getName(), student.getId(), student.getCareer(), student.getEmail(), student.getAddress(), student.getAge(), student.getGender());
-        
+        cloud.ConectionDataBase("Name");
+        cloud.create(student.getName(), student.getId(), student.getCareer(), student.getEmail(), student.getAddress(), student.getAge(), student.getGender());
         System.out.println("===========================================================");
         System.out.println("Your request has been successfully saved!!");
+        System.out.println("CONGRATULATIONS, NOW YOU CAN ACCESS THE "
+                + "SERVICES AND BENEFITS OFFERED BY THE UNIVERSITY!!");
         System.out.println("===========================================================");
 
     }
-    
-    
-    
- 
 
 }

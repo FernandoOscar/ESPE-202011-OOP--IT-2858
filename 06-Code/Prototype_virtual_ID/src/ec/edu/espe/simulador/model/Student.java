@@ -1,10 +1,16 @@
 package ec.edu.espe.simulador.model;
 
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import ec.edu.espe.prototypevirtualid.controller.ConectionDataBase;
 import ec.edu.espe.prototypevirtualid.controller.Login;
 import ec.edu.espe.verify.security;
 import java.util.Scanner;
 
 public class Student extends Person {
+    
+    DBCollection collection;
 
     private String career;
 
@@ -23,12 +29,11 @@ public class Student extends Person {
     @Override
     public boolean validUser(String user, String password) {
         Login log = new Login();
-        log.validate(user , password);        
-        
-        if (log.validate(user, password)== true){
+        log.validate(user, password);
+
+        if (log.validate(user, password) == true) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     }
