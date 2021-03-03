@@ -5,59 +5,39 @@
  */
 package ec.edu.espe.simulador.model;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
  *
- * @author FRANCISCO
+ * @author LENOVO
  */
-public class StudentTest {
+public class DoctorTest {
     
-    public StudentTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
+    public DoctorTest() {
     }
 
     /**
-     * Test of validUser method, of class Student.
+     * Test of validUser method, of class Doctor.
      */
-    @Test
+    @org.junit.Test
     public void testValidUser() {
         System.out.println("validUser");
         String user = "";
         String password = "";
-        Student instance = new Student();
+        Doctor instance = new Doctor();
         boolean expResult = false;
         boolean result = instance.validUser(user, password);
         assertEquals(expResult, result);
-    
+     
     }
     
     @Test
     public void testValidUser1() {
         System.out.println("validUser");
-        String user = "fds";
-        String password = "****";
-        Student instance = new Student();
+        String user = "Mlb";
+        String password = "125";
+        Doctor instance = new Doctor();
         boolean expResult = true;
         boolean result = instance.validUser(user, password);
         assertEquals(expResult, result);
@@ -67,22 +47,21 @@ public class StudentTest {
     @Test
     public void testValidUser2() {
         System.out.println("validUser");
-        String user = "qwer";
-        String password = "12345";
-        Student instance = new Student();
+        String user = "M....OF";
+        String password = "¿¿¿45";
+        Doctor instance = new Doctor();
         boolean expResult = true;
         boolean result = instance.validUser(user, password);
         assertEquals(expResult, result);
         
     }
     
-    
     @Test
     public void testValidUser3() {
         System.out.println("validUser");
-        String user = "frf";
-        String password = "@@@@";
-        Student instance = new Student();
+        String user = "MIIF";
+        String password = "145";
+        Doctor instance = new Doctor();
         boolean expResult = true;
         boolean result = instance.validUser(user, password);
         assertEquals(expResult, result);
@@ -92,9 +71,9 @@ public class StudentTest {
     @Test
     public void testValidUser4() {
         System.out.println("validUser");
-        String user = "deded";
-        String password = "1111";
-        Student instance = new Student();
+        String user = "MAJOoooF";
+        String password = "56uf5";
+        Doctor instance = new Doctor();
         boolean expResult = true;
         boolean result = instance.validUser(user, password);
         assertEquals(expResult, result);
@@ -104,9 +83,9 @@ public class StudentTest {
     @Test
     public void testValidUser5() {
         System.out.println("validUser");
-        String user = "MAJOF";
-        String password = "3454";
-        Student instance = new Student();
+        String user = "MAJOFFF";
+        String password = "12345";
+        Doctor instance = new Doctor();
         boolean expResult = true;
         boolean result = instance.validUser(user, password);
         assertEquals(expResult, result);
@@ -116,9 +95,9 @@ public class StudentTest {
     @Test
     public void testValidUser6() {
         System.out.println("validUser");
-        String user = "12345";
-        String password = "MAJOF";
-        Student instance = new Student();
+        String user = "MAAAJOF";
+        String password = "8345";
+        Doctor instance = new Doctor();
         boolean expResult = true;
         boolean result = instance.validUser(user, password);
         assertEquals(expResult, result);
@@ -128,9 +107,9 @@ public class StudentTest {
     @Test
     public void testValidUser7() {
         System.out.println("validUser");
-        String user = "sssss";
-        String password = "1111";
-        Student instance = new Student();
+        String user = "MAJOmkjF";
+        String password = "1234$5";
+        Doctor instance = new Doctor();
         boolean expResult = true;
         boolean result = instance.validUser(user, password);
         assertEquals(expResult, result);
@@ -140,9 +119,9 @@ public class StudentTest {
     @Test
     public void testValidUser8() {
         System.out.println("validUser");
-        String user = ",,,,,";
-        String password = ".....";
-        Student instance = new Student();
+        String user = "MAJO##F";
+        String password = "123hi45";
+        Doctor instance = new Doctor();
         boolean expResult = true;
         boolean result = instance.validUser(user, password);
         assertEquals(expResult, result);
@@ -152,9 +131,9 @@ public class StudentTest {
     @Test
     public void testValidUser9() {
         System.out.println("validUser");
-        String user = "azsx";
-        String password = "qaws";
-        Student instance = new Student();
+        String user = "MJIOP";
+        String password = "###";
+        Doctor instance = new Doctor();
         boolean expResult = true;
         boolean result = instance.validUser(user, password);
         assertEquals(expResult, result);
@@ -164,9 +143,9 @@ public class StudentTest {
     @Test
     public void testValidUser10() {
         System.out.println("validUser");
-        String user = "ww";
-        String password = "";
-        Student instance = new Student();
+        String user = "M";
+        String password = "45";
+        Doctor instance = new Doctor();
         boolean expResult = true;
         boolean result = instance.validUser(user, password);
         assertEquals(expResult, result);
@@ -176,9 +155,9 @@ public class StudentTest {
     @Test
     public void testValidUser11() {
         System.out.println("validUser");
-        String user = "";
-        String password = "12";
-        Student instance = new Student();
+        String user = "MAbhhh";
+        String password = "098";
+        Doctor instance = new Doctor();
         boolean expResult = true;
         boolean result = instance.validUser(user, password);
         assertEquals(expResult, result);
@@ -188,9 +167,9 @@ public class StudentTest {
     @Test
     public void testValidUser12() {
         System.out.println("validUser");
-        String user = "06";
-        String password = "rk";
-        Student instance = new Student();
+        String user = "MQWR";
+        String password = "12m945";
+        Doctor instance = new Doctor();
         boolean expResult = true;
         boolean result = instance.validUser(user, password);
         assertEquals(expResult, result);
@@ -200,9 +179,9 @@ public class StudentTest {
     @Test
     public void testValidUser13() {
         System.out.println("validUser");
-        String user = "rmc";
-        String password = ",,,";
-        Student instance = new Student();
+        String user = "MAJPP";
+        String password = "12#%5";
+        Doctor instance = new Doctor();
         boolean expResult = true;
         boolean result = instance.validUser(user, password);
         assertEquals(expResult, result);
@@ -212,9 +191,9 @@ public class StudentTest {
     @Test
     public void testValidUser14() {
         System.out.println("validUser");
-        String user = "vrv";
-        String password = "094";
-        Student instance = new Student();
+        String user = "M";
+        String password = "1#5";
+        Doctor instance = new Doctor();
         boolean expResult = true;
         boolean result = instance.validUser(user, password);
         assertEquals(expResult, result);
@@ -224,9 +203,9 @@ public class StudentTest {
     @Test
     public void testValidUser15() {
         System.out.println("validUser");
-        String user = "11";
+        String user = "M&&F";
         String password = "";
-        Student instance = new Student();
+        Doctor instance = new Doctor();
         boolean expResult = true;
         boolean result = instance.validUser(user, password);
         assertEquals(expResult, result);
@@ -236,9 +215,9 @@ public class StudentTest {
     @Test
     public void testValidUser16() {
         System.out.println("validUser");
-        String user = "";
-        String password = "";
-        Student instance = new Student();
+        String user = "MMM";
+        String password = "1234";
+        Doctor instance = new Doctor();
         boolean expResult = true;
         boolean result = instance.validUser(user, password);
         assertEquals(expResult, result);
@@ -248,9 +227,9 @@ public class StudentTest {
     @Test
     public void testValidUser17() {
         System.out.println("validUser");
-        String user = "oorr";
-        String password = "oorr";
-        Student instance = new Student();
+        String user = "POLK";
+        String password = "098";
+        Doctor instance = new Doctor();
         boolean expResult = true;
         boolean result = instance.validUser(user, password);
         assertEquals(expResult, result);
@@ -260,9 +239,9 @@ public class StudentTest {
     @Test
     public void testValidUser18() {
         System.out.println("validUser");
-        String user = "MAJOF";
-        String password = "MAJOF";
-        Student instance = new Student();
+        String user = "QAZ";
+        String password = "1****";
+        Doctor instance = new Doctor();
         boolean expResult = true;
         boolean result = instance.validUser(user, password);
         assertEquals(expResult, result);
@@ -272,10 +251,10 @@ public class StudentTest {
     @Test
     public void testValidUser19() {
         System.out.println("validUser");
-        String user = "12345";
-        String password = "12345";
-        Student instance = new Student();
-        boolean expResult = false;
+        String user = "";
+        String password = "****";
+        Doctor instance = new Doctor();
+        boolean expResult = true;
         boolean result = instance.validUser(user, password);
         assertEquals(expResult, result);
         
@@ -284,9 +263,9 @@ public class StudentTest {
     @Test
     public void testValidUser20() {
         System.out.println("validUser");
-        String user = ".";
-        String password = ".";
-        Student instance = new Student();
+        String user = "MAF";
+        String password = "####";
+        Doctor instance = new Doctor();
         boolean expResult = true;
         boolean result = instance.validUser(user, password);
         assertEquals(expResult, result);
@@ -294,41 +273,96 @@ public class StudentTest {
     }
 
     /**
-     * Test of requestId method, of class Student.
+     * Test of addDoctor method, of class Doctor.
      */
-    @Test
-    public void testRequestId() {
-        System.out.println("requestId");
-        Student instance = new Student();
-        instance.requestId();
+    @org.junit.Test
+    public void testAddDoctor() {
+        System.out.println("addDoctor");
+        Doctor instance = new Doctor();
+        instance.addDoctor();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getCareer method, of class Student.
+     * Test of getSpecialty method, of class Doctor.
      */
-    @Test
-    public void testGetCareer() {
-        System.out.println("getCareer");
-        Student instance = new Student();
+    @org.junit.Test
+    public void testGetSpecialty() {
+        System.out.println("getSpecialty");
+        Doctor instance = new Doctor();
         String expResult = "";
-        String result = instance.getCareer();
+        String result = instance.getSpecialty();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of setCareer method, of class Student.
+     * Test of setSpecialty method, of class Doctor.
      */
-    @Test
-    public void testSetCareer() {
-        System.out.println("setCareer");
-        String career = "";
-        Student instance = new Student();
-        instance.setCareer(career);
-       
+    @org.junit.Test
+    public void testSetSpecialty() {
+        System.out.println("setSpecialty");
+        String specialty = "";
+        Doctor instance = new Doctor();
+        instance.setSpecialty(specialty);
+    }
+    
+    
+
+    /**
+     * Test of getNameDoctor method, of class Doctor.
+     */
+    @org.junit.Test
+    public void testGetNameDoctor() {
+        System.out.println("getNameDoctor");
+        Doctor instance = new Doctor();
+        String expResult = "";
+        String result = instance.getNameDoctor();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setNameDoctor method, of class Doctor.
+     */
+    @org.junit.Test
+    public void testSetNameDoctor() {
+        System.out.println("setNameDoctor");
+        String nameDoctor = "";
+        Doctor instance = new Doctor();
+        instance.setNameDoctor(nameDoctor);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getWorkingHour method, of class Doctor.
+     */
+    @org.junit.Test
+    public void testGetWorkingHour() {
+        System.out.println("getWorkingHour");
+        Doctor instance = new Doctor();
+        String expResult = "";
+        String result = instance.getWorkingHour();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setWorkingHour method, of class Doctor.
+     */
+    @org.junit.Test
+    public void testSetWorkingHour() {
+        System.out.println("setWorkingHour");
+        String workingHour = "";
+        Doctor instance = new Doctor();
+        instance.setWorkingHour(workingHour);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
     
 }
