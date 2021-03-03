@@ -40,6 +40,7 @@ public class FrmDoctorRecord extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
+        btnExitAddDoctor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,6 +107,13 @@ public class FrmDoctorRecord extends javax.swing.JFrame {
             }
         });
 
+        btnExitAddDoctor.setText("Exit");
+        btnExitAddDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitAddDoctorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -113,13 +121,17 @@ public class FrmDoctorRecord extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnSave)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnExitAddDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSave)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSave)
+                    .addComponent(btnExitAddDoctor))
                 .addContainerGap())
         );
 
@@ -212,6 +224,12 @@ public class FrmDoctorRecord extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameDoctorActionPerformed
 
+    private void btnExitAddDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitAddDoctorActionPerformed
+        FrmGeneralMenu frmGeneral = new FrmGeneralMenu();
+        this.setVisible(false);
+        frmGeneral.setVisible(true);
+    }//GEN-LAST:event_btnExitAddDoctorActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -248,6 +266,7 @@ public class FrmDoctorRecord extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnExitAddDoctor;
     private javax.swing.JButton btnSave;
     private javax.swing.JComboBox<String> cmbSpeciality;
     private javax.swing.JLabel jLabel1;
