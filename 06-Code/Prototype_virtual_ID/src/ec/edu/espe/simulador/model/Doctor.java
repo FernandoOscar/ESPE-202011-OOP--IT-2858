@@ -7,8 +7,8 @@ import java.util.Scanner;
 public class Doctor extends Person {
 
     private String specialty;
-    private String schedule;
-
+    private String workingHour;
+    private String nameDoctor;
     public Doctor() {
 
     }
@@ -26,17 +26,21 @@ public class Doctor extends Person {
         }
     }
 
-    public void addHistory() {
+    public void addDoctor() {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter your name Doctor: ");
+        setNameDoctor(scan.nextLine());
+        System.out.print("Enter your working hour: ");
+        setWorkingHour(scan.nextLine());
+        System.out.print("Enter your specialty: ");
+        setSpecialty(scan.nextLine());
 
     }
 
-    public void removeHistory() {
-
-    }
-
-    public Doctor(String specialty, String schedule) {
+    public Doctor(String specialty, String workingHour, String nameDoctor) {
         this.specialty = specialty;
-        this.schedule = schedule;
+        this.workingHour = workingHour;
+        this.nameDoctor = nameDoctor;
     }
 
     public String getSpecialty() {
@@ -47,12 +51,32 @@ public class Doctor extends Person {
         this.specialty = specialty;
     }
 
-    public String getSchedule() {
-        return schedule;
+    /**
+     * @return the nameDoctor
+     */
+    public String getNameDoctor() {
+        return nameDoctor;
     }
 
-    public void setSchedule(String schedule) {
-        this.schedule = schedule;
+    /**
+     * @param nameDoctor the nameDoctor to set
+     */
+    public void setNameDoctor(String nameDoctor) {
+        this.nameDoctor = nameDoctor;
+    }
+
+    /**
+     * @return the workingHour
+     */
+    public String getWorkingHour() {
+        return workingHour;
+    }
+
+    /**
+     * @param workingHour the workingHour to set
+     */
+    public void setWorkingHour(String workingHour) {
+        this.workingHour = workingHour;
     }
 
 }

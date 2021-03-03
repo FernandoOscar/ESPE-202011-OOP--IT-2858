@@ -185,9 +185,11 @@ public class Prototype_Virtual_ID {
                 break;
 
             case 2:
-                //AGREGAR DOCTORES
-                //MANDAR A LA NUBE
-                //METODO CLASE DOCTOR
+                ConectionDataBase cloud = new ConectionDataBase();
+                Doctor doctor = new Doctor();
+                doctor.addDoctor();
+                cloud.ConectionDataBase("Doctor");
+                cloud.create(doctor.getNameDoctor(), doctor.getWorkingHour(), doctor.getSpecialty());
                 break;
 
             case 3:

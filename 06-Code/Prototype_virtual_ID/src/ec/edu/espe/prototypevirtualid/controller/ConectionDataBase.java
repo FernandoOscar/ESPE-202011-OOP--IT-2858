@@ -33,7 +33,12 @@ public class ConectionDataBase {
         BaseData = mongoC.getDB("PrototypeVirtualID");
         collections = BaseData.getCollection(collection);
     }
-
+    public void ConectionDataBaseDoctor(String collection) {
+        mongoCUri = new MongoClientURI("mongodb+srv://Admin1:admin1234@cluster0.ctg8x.mongodb.net/PrototypeVirtualID?retryWrites=true&w=majority");
+        mongoC = new MongoClient(mongoCUri);
+        BaseData = mongoC.getDB("PrototypeVirtualID");
+        collections = BaseData.getCollection(collection);
+    }
     public boolean create(String name, String id, String career, String email, String address, int age, String gender) {
         document.put("Name", name);
         document.put("ID", id);
@@ -42,6 +47,14 @@ public class ConectionDataBase {
         document.put("Address", address);
         document.put("Age", age);
         document.put("Gender", gender);
+        collections.insert(document);
+        return true;
+    }
+    
+      public boolean create(String nameDoctor, String workingHour, String specialty) {
+        document.put("Name Doctor", nameDoctor);
+        document.put("Working Hour", workingHour);
+        document.put("Specialty", specialty);
         collections.insert(document);
         return true;
     }
