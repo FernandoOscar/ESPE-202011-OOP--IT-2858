@@ -81,7 +81,7 @@ public class ConectionDataBaseTest {
         System.out.println("ConectionDataBaseDoctor");
         String collection = "Lili";
         ConectionDataBase instance = new ConectionDataBase();
-        instance.ConectionDataBaseDoctor(collection);        
+        instance.ConectionDataBase(collection);        
     }
     /**
      * Test of ConectionDataBaseDiagnosis method, of class ConectionDataBase.
@@ -91,7 +91,7 @@ public class ConectionDataBaseTest {
         System.out.println("ConectionDataBaseDiagnosis");
         String collection = "";
         ConectionDataBase instance = new ConectionDataBase();
-        instance.ConectionDataBaseDiagnosis(collection);        
+        instance.ConectionDataBase(collection);        
     }
     /**
      * Test of ConectionDataBaseAppointment method, of class ConectionDataBase.
@@ -101,7 +101,7 @@ public class ConectionDataBaseTest {
         System.out.println("ConectionDataBaseAppointment");
         String collection = "Mishu";
         ConectionDataBase instance = new ConectionDataBase();
-        instance.ConectionDataBaseAppointment(collection);        
+        instance.ConectionDataBase(collection);        
     }
     /**
      * Test of create method, of class ConectionDataBase.

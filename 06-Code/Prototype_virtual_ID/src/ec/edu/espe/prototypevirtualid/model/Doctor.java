@@ -1,4 +1,4 @@
-package ec.edu.espe.simulador.model;
+package ec.edu.espe.prototypevirtualid.model;
 
 import ec.edu.espe.prototypevirtualid.controller.Login;
 import ec.edu.espe.verify.security;

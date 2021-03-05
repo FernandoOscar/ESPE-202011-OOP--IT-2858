@@ -33,27 +33,7 @@ public class ConectionDataBase {
         BaseData = mongoC.getDB("PrototypeVirtualID");
         collections = BaseData.getCollection(collection);
     }
-    public void ConectionDataBaseDoctor(String collection) {
-        mongoCUri = new MongoClientURI("mongodb+srv://Admin1:admin1234@cluster0.ctg8x.mongodb.net/PrototypeVirtualID?retryWrites=true&w=majority");
-        mongoC = new MongoClient(mongoCUri);
-        BaseData = mongoC.getDB("PrototypeVirtualID");
-        collections = BaseData.getCollection(collection);
-    }
-    
-    public void ConectionDataBaseDiagnosis(String collection) {
-        mongoCUri = new MongoClientURI("mongodb+srv://Admin1:admin1234@cluster0.ctg8x.mongodb.net/PrototypeVirtualID?retryWrites=true&w=majority");
-        mongoC = new MongoClient(mongoCUri);
-        BaseData = mongoC.getDB("PrototypeVirtualID");
-        collections = BaseData.getCollection(collection);
-    }
-    
-    public void ConectionDataBaseAppointment(String collection) {
-        mongoCUri = new MongoClientURI("mongodb+srv://Admin1:admin1234@cluster0.ctg8x.mongodb.net/PrototypeVirtualID?retryWrites=true&w=majority");
-        mongoC = new MongoClient(mongoCUri);
-        BaseData = mongoC.getDB("PrototypeVirtualID");
-        collections = BaseData.getCollection(collection);
-    }
-    
+        
     public boolean create(String name, String id, String career, String email, String address, int age, String gender) {
         document.put("Name", name);
         document.put("ID", id);

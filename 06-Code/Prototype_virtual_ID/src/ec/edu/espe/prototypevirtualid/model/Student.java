@@ -1,4 +1,4 @@
-package ec.edu.espe.simulador.model;
+package ec.edu.espe.prototypevirtualid.model;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;

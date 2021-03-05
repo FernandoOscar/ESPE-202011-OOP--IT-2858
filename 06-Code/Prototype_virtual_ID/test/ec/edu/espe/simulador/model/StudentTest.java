@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.simulador.model;
 
+import ec.edu.espe.prototypevirtualid.model.Student;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

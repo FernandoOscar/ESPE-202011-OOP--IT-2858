@@ -1,5 +1,5 @@
 
-package ec.edu.espe.simulador.model;
+package ec.edu.espe.prototypevirtualid.model;
 
 public abstract class Person {
     

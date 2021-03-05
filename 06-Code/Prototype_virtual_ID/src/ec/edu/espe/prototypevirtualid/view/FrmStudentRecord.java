@@ -6,8 +6,8 @@
 package ec.edu.espe.prototypevirtualid.view;
 
 import ec.edu.espe.prototypevirtualid.controller.ConectionDataBase;
-import ec.edu.espe.simulador.model.Student;
-import ec.edu.espe.simulador.model.TMStudent;
+import ec.edu.espe.prototypevirtualid.model.Student;
+import ec.edu.espe.prototypevirtualid.model.TMStudent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;

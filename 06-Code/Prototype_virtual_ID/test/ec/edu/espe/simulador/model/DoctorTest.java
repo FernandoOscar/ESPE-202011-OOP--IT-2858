@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.simulador.model;
 
+import ec.edu.espe.prototypevirtualid.model.Doctor;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
