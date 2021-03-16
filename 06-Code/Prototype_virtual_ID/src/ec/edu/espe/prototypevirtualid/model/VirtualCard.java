@@ -16,26 +16,7 @@ public class VirtualCard {
     private String name;
     private int QrCode;
 
-    public boolean giveWay(int dataID) {
-        boolean permission;
-        if (dataID != 9) {
-            permission = true;
-        } else {
-            permission = false;
-        }
-        return permission;
-    }
     
-    public void showIdentification() {
-        int random;
-        int codeID[] = new int[8];
-        for (int i = 0; i < 8; i++) {
-            random = (int) (Math.random() * 9);
-            codeID[i] = random;
-            System.out.print(codeID[i]);
-        }  
-    }
-
     /**
      * @return the department
      */

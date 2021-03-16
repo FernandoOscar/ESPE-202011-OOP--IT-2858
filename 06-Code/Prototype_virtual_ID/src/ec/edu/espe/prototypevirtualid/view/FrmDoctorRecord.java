@@ -5,7 +5,8 @@
  */
 package ec.edu.espe.prototypevirtualid.view;
 
-import ec.edu.espe.prototypevirtualid.controller.ConectionDataBase;
+import ec.edu.espe.conection.utils.MongoOperation;
+import ec.edu.espe.prototypevirtualid.model.Doctor;
 import javax.swing.JOptionPane;
 
 /**
@@ -162,58 +163,51 @@ public class FrmDoctorRecord extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        
+
         System.out.println("Name Doctor -> " + txtNameDoctor.getText());
         System.out.println("Working Hour -> " + txtWorkingHour.getText());
         System.out.println("Speciality -> " + cmbSpeciality.getSelectedItem());
-        try{
-        
-        String dataToSave = "The next Data will be save \n"
-                + txtNameDoctor.getText() + "\n"
-                + txtWorkingHour.getText() + "\n"               
-                + cmbSpeciality.getSelectedItem() + "\n";
+        try {
 
-        String NameDoctor = txtNameDoctor.getText();
-        String WorkingHour = txtWorkingHour.getText();               
-        String Speciality = cmbSpeciality.getName();
+            String dataToSave = "The next Data will be save \n"
+                    + txtNameDoctor.getText() + "\n"
+                    + txtWorkingHour.getText() + "\n"
+                    + cmbSpeciality.getSelectedItem() + "\n";
 
-        int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Students Saving", JOptionPane.YES_NO_CANCEL_OPTION);
+            Doctor doctor = new Doctor();
+            doctor.setNameDoctor(txtNameDoctor.getText());
+            doctor.setWorkingHour(txtWorkingHour.getText());
+            doctor.setSpecialty(cmbSpeciality.getSelectedItem().toString());
 
-        if (selection == 0) {
-            
-            
-            JOptionPane.showMessageDialog(null, "Information was saved", txtNameDoctor.getText() + "Saved", JOptionPane.INFORMATION_MESSAGE);
-            emptyFields();
-            ConectionDataBase cloud = new ConectionDataBase();
+            int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Students Saving", JOptionPane.YES_NO_CANCEL_OPTION);
 
-            System.out.println("===========================================================");
-            System.out.println("Your request has been successfully saved!!");
-            System.out.println("===========================================================");
-            cloud.ConectionDataBase("Doctor");
+            if (selection == 0) {
 
-            cloud.create(NameDoctor, WorkingHour, Speciality);
-            FrmGeneralMenu frmGeneral = new FrmGeneralMenu();
-            this.setVisible(false);
-            frmGeneral.setVisible(true);
-            
+                JOptionPane.showMessageDialog(null, "Information was saved", txtNameDoctor.getText() + "Saved", JOptionPane.INFORMATION_MESSAGE);
+                emptyFields();
+                System.out.println("===========================================================");
+                System.out.println("Your request has been successfully saved!!");
+                System.out.println("===========================================================");
+                MongoOperation.ConectionDataBase("Doctor");
+                MongoOperation.createDoctor(doctor.getNameDoctor(), doctor.getWorkingHour(), doctor.getSpecialty());
 
-        } else if (selection == 1) {
-            JOptionPane.showMessageDialog(null, "Information was not saved", txtNameDoctor.getText() + "Not saved", JOptionPane.ERROR_MESSAGE);
-            emptyFields();
-        } else {
-            JOptionPane.showMessageDialog(null, "Action was canceled", txtNameDoctor.getText() + "Canceled", JOptionPane.WARNING_MESSAGE);
-        }
-        }catch(Exception e){
-                JOptionPane.showMessageDialog(null, "No data has been entered, please try again", txtNameDoctor.getText() + "ERROR", JOptionPane.WARNING_MESSAGE);
+            } else if (selection == 1) {
+                JOptionPane.showMessageDialog(null, "Information was not saved", txtNameDoctor.getText() + "Not saved", JOptionPane.ERROR_MESSAGE);
+                emptyFields();
+            } else {
+                JOptionPane.showMessageDialog(null, "Action was canceled", txtNameDoctor.getText() + "Canceled", JOptionPane.WARNING_MESSAGE);
             }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No data has been entered, please try again", txtNameDoctor.getText() + "ERROR", JOptionPane.WARNING_MESSAGE);
+        }
 
-    }                                           
+    }
 
     public void emptyFields() {
         txtNameDoctor.setText("");
-        txtWorkingHour.setText("");       
+        txtWorkingHour.setText("");
         cmbSpeciality.setSelectedItem("");
-    
+
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void cmbSpecialityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSpecialityActionPerformed
@@ -225,7 +219,7 @@ public class FrmDoctorRecord extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNameDoctorActionPerformed
 
     private void btnExitAddDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitAddDoctorActionPerformed
-        FrmGeneralMenu frmGeneral = new FrmGeneralMenu();
+        FrmMainMenu frmGeneral = new FrmMainMenu();
         this.setVisible(false);
         frmGeneral.setVisible(true);
     }//GEN-LAST:event_btnExitAddDoctorActionPerformed

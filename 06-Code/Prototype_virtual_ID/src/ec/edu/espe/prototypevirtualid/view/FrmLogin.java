@@ -188,7 +188,7 @@ public class FrmLogin extends javax.swing.JFrame {
         } 
 
         if (txtUser.getText().equalsIgnoreCase(user) && txtPassword.getText().equals(pass)) {
-            FrmGeneralMenu menu = new FrmGeneralMenu();            
+            FrmMainMenu menu = new FrmMainMenu();            
             System.out.println("Welcome Again " + user);
             this.setVisible(false);
             menu.setVisible(true);

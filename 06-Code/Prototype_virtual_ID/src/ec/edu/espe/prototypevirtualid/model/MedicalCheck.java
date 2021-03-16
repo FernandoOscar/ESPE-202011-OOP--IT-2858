@@ -5,12 +5,6 @@
  */
 package ec.edu.espe.prototypevirtualid.model;
 
-import ec.edu.espe.filemanager.utils.Data;
-import java.io.IOException;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author LENOVO
@@ -20,17 +14,6 @@ public class MedicalCheck {
     private String dateAppoinment;
     private String timeAppoinment;
     
-    
-    public void addAppoinment(){
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter the day medical appointment: ");
-        setTime(scan.nextLine());
-        System.out.print("Enter the time medical appointment: ");
-        setDate(scan.nextLine());
-    }
-
-    
-
     public MedicalCheck(String date, String time) {
         this.dateAppoinment = date;
         this.timeAppoinment = time;

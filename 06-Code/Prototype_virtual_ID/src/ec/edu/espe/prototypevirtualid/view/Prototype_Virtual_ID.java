@@ -1,22 +1,15 @@
 package ec.edu.espe.prototypevirtualid.view;
 
-import com.google.gson.Gson;
-import ec.edu.espe.filemanager.utils.Data;
-import ec.edu.espe.prototypevirtualid.controller.ConectionDataBase;
-import ec.edu.espe.prototypevirtualid.controller.Login;
+import ec.edu.espe.conection.utils.MongoOperation;
+import ec.edu.espe.prototypevirtualid.controller.VirtualCardController;
 import ec.edu.espe.prototypevirtualid.model.Diagnosis;
 import ec.edu.espe.prototypevirtualid.model.Director;
 import ec.edu.espe.prototypevirtualid.model.Doctor;
 import ec.edu.espe.prototypevirtualid.model.MedicalCheck;
 import ec.edu.espe.prototypevirtualid.model.Student;
 import ec.edu.espe.prototypevirtualid.model.VirtualCard;
-import java.io.File;
-import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.json.simple.parser.ParseException;
 
 public class Prototype_Virtual_ID {
 
@@ -71,6 +64,99 @@ public class Prototype_Virtual_ID {
         }
     }
 
+    public static void menu() {
+
+        Scanner sn = new Scanner(System.in);
+        System.out.println("\t1. Request Id");
+        System.out.println("\t2. Request Attention at Polyclinic");
+        System.out.println("\t4. Exit");
+        int option = sn.nextInt();
+        switch (option) {
+
+            case 1:
+                enterDataStudent();
+                break;
+
+            case 2:
+                Scanner as = new Scanner(System.in);
+                System.out.println("\t\tDo you want to make an appointment? (A)");
+                System.out.println("\t\tDo you need immediate attention? (N)");
+                System.out.println("\t\tAppoinment(A) or Now(N)");
+                char elect = as.next().charAt(0);
+                as.nextLine();
+                
+                if (elect == 'A' || elect == 'a') {
+                    MedicalCheck medicalCheck = new MedicalCheck();
+                    Scanner scan = new Scanner(System.in);
+                    System.out.print("Enter the day medical appointment: ");
+                    medicalCheck.setTime(scan.nextLine());
+                    System.out.print("Enter the time medical appointment: ");
+                    medicalCheck.setDate(scan.nextLine());
+                    MongoOperation.ConectionDataBase("Medical Appoinment");
+                    MongoOperation.createAppoinment(medicalCheck.getTime(), medicalCheck.getDate());
+                }
+                
+                if (elect == 'N' || elect == 'n') {
+                    menuPolyclinic();
+                }
+                
+                break;
+
+            case 3:
+                System.out.println(" ");
+                break;
+        }
+
+    }
+
+    public static void menuPolyclinic() {
+
+        Scanner ans = new Scanner(System.in);
+        System.out.println("\n");
+        System.out.println("========================");
+        System.out.println("WELCOME AT POLYCLINIC");
+        System.out.println("=======================");
+        System.out.println("1) Attend Student");
+        System.out.println("2) Add Doctor");
+        System.out.println("2) Exit");
+        int option = ans.nextInt();
+
+        switch (option) {
+
+            case 1:
+                Diagnosis diagnosis = new Diagnosis();
+                Scanner scan = new Scanner(System.in);
+                System.out.print("Enter name patient: ");
+                diagnosis.setPatientName(scan.nextLine());
+                System.out.print("Enter your symptom: ");
+                diagnosis.setSymptom(scan.nextLine());
+                System.out.print("Enter the needs medicine: ");
+                diagnosis.setMedicine(scan.nextLine());
+                MongoOperation.ConectionDataBase("Diagnosis");
+                MongoOperation.createDiagnosis(diagnosis.getPatientName(), diagnosis.getSymptom(), diagnosis.getMedicine());
+                break;
+
+            case 2:
+                Doctor doctor = new Doctor();
+                Scanner addD = new Scanner(System.in);
+                System.out.print("Enter your name Doctor: ");
+                doctor.setNameDoctor(addD.nextLine());
+                System.out.print("Enter your working hour: ");
+                doctor.setWorkingHour(addD.nextLine());
+                System.out.print("Enter your specialty: ");
+                doctor.setSpecialty(addD.nextLine());
+                MongoOperation.ConectionDataBase("Doctor");
+                MongoOperation.createDoctor(doctor.getNameDoctor(), doctor.getWorkingHour(), doctor.getSpecialty());
+                break;
+
+            case 3:
+                System.out.println("Thanks for coming");
+                break;
+
+        }
+
+    }
+
     private static void menuAdmin() {
         Scanner valid = new Scanner(System.in);
         int answer2;
@@ -101,24 +187,21 @@ public class Prototype_Virtual_ID {
                     break;
 
                 case 2:
-                    ConectionDataBase cloud = new ConectionDataBase();
-                    cloud.ConectionDataBase("Name");
-                    cloud.read();
+                    MongoOperation.ConectionDataBase("Name");
+                    MongoOperation.read();
                     break;
 
                 case 3:
-                    ConectionDataBase delete = new ConectionDataBase();
                     Scanner data = new Scanner(System.in);
                     System.out.println("Enter data will be Deleted");
                     String dataDelete = data.nextLine();
-                    delete.ConectionDataBase("Name");
-                    delete.delete(dataDelete);
-
+                    MongoOperation.ConectionDataBase("Name");
+                    MongoOperation.delete(dataDelete);
                     break;
 
                 case 4:
                     System.out.println("verb");
-                    VirtualCard qr = new VirtualCard();
+                    VirtualCardController qr = new VirtualCardController();
                     System.out.println("\n");
                     System.out.print("Su ID es -> ");
                     qr.showIdentification();
@@ -132,97 +215,31 @@ public class Prototype_Virtual_ID {
         }
     }
 
-    public static void attendeStudent() {
-
-        Scanner ans = new Scanner(System.in);
-        System.out.println("\n");
-        System.out.println("========================");
-        System.out.println("WELCOME AT POLYCLINIC");
-        System.out.println("=======================");
-        System.out.println("1) Attend Student");
-        System.out.println("2) Add Doctor");
-        System.out.println("2) Exit");
-        int option = ans.nextInt();
-        ConectionDataBase cloud = new ConectionDataBase();
-
-        switch (option) {
-
-            case 1:
-                Diagnosis diagnosis = new Diagnosis();
-                diagnosis.addHistory();
-                cloud.ConectionDataBase("Diagnosis");
-                cloud.create(diagnosis.getPatientName(), diagnosis.getSymptom(), diagnosis.getMedicine());
-                break;
-
-            case 2:
-                Doctor doctor = new Doctor();
-                doctor.addDoctor();
-                cloud.ConectionDataBase("Doctor");
-                cloud.create(doctor.getNameDoctor(), doctor.getWorkingHour(), doctor.getSpecialty());
-                break;
-
-            case 3:
-                System.out.println("Thanks for coming");
-                break;
-
-        }
-
-    }
-
-    public static void menu() {
-
-        Scanner sn = new Scanner(System.in);
-        System.out.println("\t1. Request Id");
-        System.out.println("\t2. Request Attention at Polyclinic");
-        System.out.println("\t4. Exit");
-        int option = sn.nextInt();
-        switch (option) {
-
-            case 1:
-                enterDataStudent();
-                break;
-
-            case 2:
-                Scanner as = new Scanner(System.in);
-                System.out.println("\t\tDo you want to make an appointment? (A)");
-                System.out.println("\t\tDo you need immediate attention? (N)");
-                System.out.println("\t\tAppoinment(A) or Now(N)");
-                char elect = as.next().charAt(0);
-                as.nextLine();
-
-                if (elect == 'A' || elect == 'a') {
-                    MedicalCheck medicalCheck = new MedicalCheck();
-                    medicalCheck.addAppoinment();
-                    ConectionDataBase cloud = new ConectionDataBase();
-                    cloud.ConectionDataBase("Medical Appoinment");
-                    cloud.create(medicalCheck.getTime(), medicalCheck.getDate());
-                }
-                if (elect == 'N' || elect == 'n') {
-                    attendeStudent();
-                }
-                break;
-                
-
-            case 3:
-                System.out.println(" ");
-                break;
-        }
-
-    }
-
     private static void enterDataStudent() {
 
-        ConectionDataBase cloud = new ConectionDataBase();
         Student student = new Student();
-        student.requestId();
-        cloud.ConectionDataBase("Name");
-        cloud.create(student.getName(), student.getId(), student.getCareer(), student.getEmail(), student.getAddress(), student.getAge(), student.getGender());
-        System.out.println("===========================================================");
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter your Id: ");
+        student.setId(scan.nextLine());
+        System.out.print("Enter your name: ");
+        student.setName(scan.nextLine());
+        System.out.print("Enter your age: ");
+        student.setAge(scan.nextInt());
+        scan.nextLine();
+        System.out.print("Enter your email: ");
+        student.setEmail(scan.nextLine());
+        System.out.print("Enter your address: ");
+        student.setAddress(scan.nextLine());
+        System.out.print("Enter your career: ");
+        student.setCareer(scan.nextLine());
+        System.out.print("Enter your gender: ");
+        student.setGender(scan.nextLine());
+        MongoOperation.ConectionDataBase("Name");
+        MongoOperation.createRequest(student.getName(), student.getId(), student.getCareer(), student.getEmail(), student.getAddress(), student.getAge(), student.getGender());
+        System.out.println("===============================================");
         System.out.println("Your request has been successfully saved!!");
         System.out.println("CONGRATULATIONS, NOW YOU CAN ACCESS THE "
                 + "SERVICES AND BENEFITS OFFERED BY THE UNIVERSITY!!");
-        System.out.println("===========================================================");
-
+        System.out.println("===============================================");
     }
-
 }

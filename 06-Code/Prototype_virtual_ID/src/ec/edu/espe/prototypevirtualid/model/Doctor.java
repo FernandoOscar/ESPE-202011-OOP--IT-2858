@@ -26,16 +26,7 @@ public class Doctor extends Person {
         }
     }
 
-    public void addDoctor() {
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter your name Doctor: ");
-        setNameDoctor(scan.nextLine());
-        System.out.print("Enter your working hour: ");
-        setWorkingHour(scan.nextLine());
-        System.out.print("Enter your specialty: ");
-        setSpecialty(scan.nextLine());
-
-    }
+    
 
     public Doctor(String specialty, String workingHour, String nameDoctor) {
         this.specialty = specialty;

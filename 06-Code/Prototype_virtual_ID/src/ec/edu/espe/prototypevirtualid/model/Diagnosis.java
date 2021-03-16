@@ -5,10 +5,6 @@
  */
 package ec.edu.espe.prototypevirtualid.model;
 
-import ec.edu.espe.filemanager.utils.Data;
-import java.io.IOException;
-import java.util.Scanner;
-
 /**
  *
  * @author LENOVO
@@ -20,22 +16,8 @@ public class Diagnosis {
     private String medicine;
     
     
-    public void saveClinicHistory(String fileName, String record) throws IOException{
-        Data.save("fileName", record);
-        
-    }
-    public Diagnosis(){
-    
-    }
-    
-    public void addHistory() {
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter name patient: ");
-        setPatientName(scan.nextLine());
-        System.out.print("Enter your symptom: ");
-        setSymptom(scan.nextLine());
-        System.out.print("Enter the needs medicine: ");
-        setMedicine(scan.nextLine());
+    public Diagnosis() {
+
     }
     
 

@@ -297,14 +297,7 @@ public class StudentTest {
     /**
      * Test of requestId method, of class Student.
      */
-    @Test
-    public void testRequestId() {
-        System.out.println("requestId");
-        Student instance = new Student();
-        instance.requestId();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    
 
     /**
      * Test of getCareer method, of class Student.

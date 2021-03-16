@@ -7,14 +7,14 @@ package ec.edu.espe.prototypevirtualid.view;
 
 /**
  *
- * @author User
+ * @author BryanPC
  */
-public class FrmGeneralMenu extends javax.swing.JFrame {
+public class FrmMainMenu extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmGeneralMenu
+     * Creates new form FrmMainMenu
      */
-    public FrmGeneralMenu() {
+    public FrmMainMenu() {
         initComponents();
     }
 
@@ -30,18 +30,18 @@ public class FrmGeneralMenu extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jPopupMenu1 = new javax.swing.JPopupMenu();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
+        mnuRequestId = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        mnuStudentDelete = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        mnuAttention = new javax.swing.JMenu();
+        menuInmediateAttention = new javax.swing.JMenuItem();
+        mnuMakeAppo = new javax.swing.JMenuItem();
+        jMenu7 = new javax.swing.JMenu();
+        mnuAddDoctor = new javax.swing.JMenuItem();
 
         jMenu3.setText("File");
         jMenuBar2.add(jMenu3);
@@ -49,59 +49,64 @@ public class FrmGeneralMenu extends javax.swing.JFrame {
         jMenu4.setText("Edit");
         jMenuBar2.add(jMenu4);
 
-        jMenuItem7.setText("jMenuItem7");
-
-        jMenuItem9.setText("jMenuItem9");
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu1.setText("Student");
 
-        jMenuItem1.setText("RequestID");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mnuRequestId.setText("RequestID");
+        mnuRequestId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mnuRequestIdActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
-
-        jMenu6.setText("RequestAttentionAtPolyclinic");
-
-        jMenu5.setText("Immediate Attention");
-
-        jMenuItem5.setText("Attent Student");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu5.add(jMenuItem5);
-
-        jMenuItem10.setText("Add Doctor");
-        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem10ActionPerformed(evt);
-            }
-        });
-        jMenu5.add(jMenuItem10);
-
-        jMenu6.add(jMenu5);
-
-        jMenu1.add(jMenu6);
+        jMenu1.add(mnuRequestId);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Director");
 
-        jMenuItem4.setText("DeleteStudent");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        mnuStudentDelete.setText("Delete Student");
+        mnuStudentDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                mnuStudentDeleteActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem4);
+        jMenu2.add(mnuStudentDelete);
 
         jMenuBar1.add(jMenu2);
+
+        jMenu5.setText("Polyclinic");
+
+        mnuAttention.setText("Attention");
+
+        menuInmediateAttention.setText("Inmediate Attention");
+        menuInmediateAttention.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuInmediateAttentionActionPerformed(evt);
+            }
+        });
+        mnuAttention.add(menuInmediateAttention);
+
+        mnuMakeAppo.setText("Make Appointment");
+        mnuAttention.add(mnuMakeAppo);
+
+        jMenu5.add(mnuAttention);
+
+        jMenu7.setText("Doctor");
+
+        mnuAddDoctor.setText("Add New Doctor");
+        mnuAddDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuAddDoctorActionPerformed(evt);
+            }
+        });
+        jMenu7.add(mnuAddDoctor);
+
+        jMenu5.add(jMenu7);
+
+        jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
 
@@ -109,39 +114,39 @@ public class FrmGeneralMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 749, Short.MAX_VALUE)
+            .addGap(0, 632, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 409, Short.MAX_VALUE)
+            .addGap(0, 401, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void mnuRequestIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRequestIdActionPerformed
         FrmStudentRecord frmStudent = new FrmStudentRecord();
         this.setVisible(false);
         frmStudent.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_mnuRequestIdActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void mnuStudentDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuStudentDeleteActionPerformed
         FrmStudentDelete frmstudentdelete = new FrmStudentDelete();
         this.setVisible(false);
         frmstudentdelete.setVisible(true);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_mnuStudentDeleteActionPerformed
 
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        FrmDoctorRecord frmdoctorrecord = new FrmDoctorRecord();
+    private void menuInmediateAttentionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuInmediateAttentionActionPerformed
+        FrmDiagnosisRecord inmediate = new FrmDiagnosisRecord();
         this.setVisible(false);
-        frmdoctorrecord.setVisible(true);
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
+        inmediate.setVisible(true);
+    }//GEN-LAST:event_menuInmediateAttentionActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        FrmDiagnosisRecord frmdiagnosisRecord = new FrmDiagnosisRecord();
+    private void mnuAddDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAddDoctorActionPerformed
+        FrmDoctorRecord doctor = new FrmDoctorRecord();
         this.setVisible(false);
-        frmdiagnosisRecord.setVisible(true);
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+        doctor.setVisible(true);
+    }//GEN-LAST:event_mnuAddDoctorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,20 +165,20 @@ public class FrmGeneralMenu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmGeneralMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmGeneralMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmGeneralMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmGeneralMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmGeneralMenu().setVisible(true);
+                new FrmMainMenu().setVisible(true);
             }
         });
     }
@@ -184,15 +189,15 @@ public class FrmGeneralMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem9;
-    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JMenuItem menuInmediateAttention;
+    private javax.swing.JMenuItem mnuAddDoctor;
+    private javax.swing.JMenu mnuAttention;
+    private javax.swing.JMenuItem mnuMakeAppo;
+    private javax.swing.JMenuItem mnuRequestId;
+    private javax.swing.JMenuItem mnuStudentDelete;
     // End of variables declaration//GEN-END:variables
 }

@@ -19,10 +19,6 @@ public abstract class  Administrator extends Person{
 
     public Administrator() {
     }
-    
-    
-     
-    
 
     public String getDeparment() {
         return deparment;

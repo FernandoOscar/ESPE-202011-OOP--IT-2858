@@ -20,17 +20,15 @@ public class Polyclinic {
     private String treatment;
     private String infection;
 
+    public Polyclinic() {
+    }
+    
     public Polyclinic(int virtualid, boolean qrcode, String treatment, String infection) {
         this.virtualid = virtualid;
         this.qrcode = qrcode;
         this.treatment = treatment;
         this.infection = infection;
     }
-    
-    public void showMedicaments(File fileName, String record){
-        Data.find(fileName, treatment);
-    }
-
     
     /**
      * @return the virtualid

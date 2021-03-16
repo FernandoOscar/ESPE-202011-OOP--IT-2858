@@ -276,14 +276,7 @@ public class DoctorTest {
     /**
      * Test of addDoctor method, of class Doctor.
      */
-    @org.junit.Test
-    public void testAddDoctor() {
-        System.out.println("addDoctor");
-        Doctor instance = new Doctor();
-        instance.addDoctor();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+
 
     /**
      * Test of getSpecialty method, of class Doctor.
