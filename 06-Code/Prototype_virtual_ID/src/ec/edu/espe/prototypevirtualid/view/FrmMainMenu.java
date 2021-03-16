@@ -34,6 +34,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mnuRequestId = new javax.swing.JMenuItem();
+        mnuUpdateStudnt = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mnuStudentDelete = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
@@ -62,6 +63,14 @@ public class FrmMainMenu extends javax.swing.JFrame {
             }
         });
         jMenu1.add(mnuRequestId);
+
+        mnuUpdateStudnt.setText("Update Data");
+        mnuUpdateStudnt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuUpdateStudntActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnuUpdateStudnt);
 
         jMenuBar1.add(jMenu1);
 
@@ -148,6 +157,12 @@ public class FrmMainMenu extends javax.swing.JFrame {
         doctor.setVisible(true);
     }//GEN-LAST:event_mnuAddDoctorActionPerformed
 
+    private void mnuUpdateStudntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuUpdateStudntActionPerformed
+        FrmUpdateStudent update = new FrmUpdateStudent();
+        this.setVisible(false);
+        update.setVisible(true);
+    }//GEN-LAST:event_mnuUpdateStudntActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -199,5 +214,6 @@ public class FrmMainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuMakeAppo;
     private javax.swing.JMenuItem mnuRequestId;
     private javax.swing.JMenuItem mnuStudentDelete;
+    private javax.swing.JMenuItem mnuUpdateStudnt;
     // End of variables declaration//GEN-END:variables
 }

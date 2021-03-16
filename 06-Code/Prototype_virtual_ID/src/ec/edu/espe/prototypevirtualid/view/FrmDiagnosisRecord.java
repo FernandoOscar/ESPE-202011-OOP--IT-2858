@@ -195,7 +195,7 @@ public class FrmDiagnosisRecord extends javax.swing.JFrame {
                 System.out.println("===========================================================");
                 System.out.println("Your request has been successfully saved!!");
                 System.out.println("===========================================================");
-                MongoOperation.ConectionDataBase("Diagnosis");
+                MongoOperation.DatabaseConection("Diagnosis");
 
                 MongoOperation.createDiagnosis(diagnosis.getPatientName(), diagnosis.getSymptom(), diagnosis.getMedicine());
 

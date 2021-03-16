@@ -92,7 +92,7 @@ public class Prototype_Virtual_ID {
                     medicalCheck.setTime(scan.nextLine());
                     System.out.print("Enter the time medical appointment: ");
                     medicalCheck.setDate(scan.nextLine());
-                    MongoOperation.ConectionDataBase("Medical Appoinment");
+                    MongoOperation.DatabaseConection("Medical Appoinment");
                     MongoOperation.createAppoinment(medicalCheck.getTime(), medicalCheck.getDate());
                 }
                 
@@ -132,7 +132,7 @@ public class Prototype_Virtual_ID {
                 diagnosis.setSymptom(scan.nextLine());
                 System.out.print("Enter the needs medicine: ");
                 diagnosis.setMedicine(scan.nextLine());
-                MongoOperation.ConectionDataBase("Diagnosis");
+                MongoOperation.DatabaseConection("Diagnosis");
                 MongoOperation.createDiagnosis(diagnosis.getPatientName(), diagnosis.getSymptom(), diagnosis.getMedicine());
                 break;
 
@@ -145,7 +145,7 @@ public class Prototype_Virtual_ID {
                 doctor.setWorkingHour(addD.nextLine());
                 System.out.print("Enter your specialty: ");
                 doctor.setSpecialty(addD.nextLine());
-                MongoOperation.ConectionDataBase("Doctor");
+                MongoOperation.DatabaseConection("Doctor");
                 MongoOperation.createDoctor(doctor.getNameDoctor(), doctor.getWorkingHour(), doctor.getSpecialty());
                 break;
 
@@ -187,7 +187,7 @@ public class Prototype_Virtual_ID {
                     break;
 
                 case 2:
-                    MongoOperation.ConectionDataBase("Name");
+                    MongoOperation.DatabaseConection("Name");
                     MongoOperation.read();
                     break;
 
@@ -195,7 +195,7 @@ public class Prototype_Virtual_ID {
                     Scanner data = new Scanner(System.in);
                     System.out.println("Enter data will be Deleted");
                     String dataDelete = data.nextLine();
-                    MongoOperation.ConectionDataBase("Name");
+                    MongoOperation.DatabaseConection("Name");
                     MongoOperation.delete(dataDelete);
                     break;
 
@@ -234,7 +234,7 @@ public class Prototype_Virtual_ID {
         student.setCareer(scan.nextLine());
         System.out.print("Enter your gender: ");
         student.setGender(scan.nextLine());
-        MongoOperation.ConectionDataBase("Name");
+        MongoOperation.DatabaseConection("Name");
         MongoOperation.createRequest(student.getName(), student.getId(), student.getCareer(), student.getEmail(), student.getAddress(), student.getAge(), student.getGender());
         System.out.println("===============================================");
         System.out.println("Your request has been successfully saved!!");

@@ -188,7 +188,7 @@ public class FrmDoctorRecord extends javax.swing.JFrame {
                 System.out.println("===========================================================");
                 System.out.println("Your request has been successfully saved!!");
                 System.out.println("===========================================================");
-                MongoOperation.ConectionDataBase("Doctor");
+                MongoOperation.DatabaseConection("Doctor");
                 MongoOperation.createDoctor(doctor.getNameDoctor(), doctor.getWorkingHour(), doctor.getSpecialty());
 
             } else if (selection == 1) {

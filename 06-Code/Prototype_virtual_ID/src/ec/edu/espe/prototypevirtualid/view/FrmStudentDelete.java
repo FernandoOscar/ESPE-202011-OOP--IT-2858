@@ -202,7 +202,7 @@ public class FrmStudentDelete extends javax.swing.JFrame {
             if (selection == 0) {
 
                 JOptionPane.showMessageDialog(null, "Information was Delete", txtIdDelete.getText() + "Saved", JOptionPane.INFORMATION_MESSAGE);
-                MongoOperation.ConectionDataBase("Name");
+                MongoOperation.DatabaseConection("Name");
                 MongoOperation.delete(st.getId());
                 emptyFields();
 

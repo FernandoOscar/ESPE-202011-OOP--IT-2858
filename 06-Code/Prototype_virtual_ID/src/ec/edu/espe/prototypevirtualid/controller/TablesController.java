@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 public class TablesController {
 
     public DefaultTableModel tableStudent() {
-        MongoOperation.ConectionDataBase("Name");
+        MongoOperation.DatabaseConection("Name");
         DB BaseData = MongoOperation.getMongoC().getDB("PrototypeVirtualID");
         DBCollection collections = BaseData.getCollection("Name");
         DBCursor cursor = collections.find();

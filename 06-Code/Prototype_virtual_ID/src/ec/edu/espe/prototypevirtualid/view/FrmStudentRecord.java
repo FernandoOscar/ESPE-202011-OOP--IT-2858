@@ -309,7 +309,7 @@ public class FrmStudentRecord extends javax.swing.JFrame {
                 System.out.println("===========================================================");
                 System.out.println("Your request has been successfully saved!!");
                 System.out.println("===========================================================");
-                MongoOperation.ConectionDataBase("Name");
+                MongoOperation.DatabaseConection("Name");
                 MongoOperation.createRequest(st.getName(), st.getId(), st.getCareer(), st.getEmail(),
                          st.getAddress(), st.getAge(), st.getGender());
 
