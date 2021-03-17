@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author jhonn_000
  */
-public class LoginTest {
+public class VirtualCardControllerTest {
     
-    public LoginTest() {
+    public VirtualCardControllerTest() {
     }
     
     @BeforeClass
@@ -38,18 +38,28 @@ public class LoginTest {
     }
 
     /**
-     * Test of validate method, of class Login.
+     * Test of giveWay method, of class VirtualCardController.
      */
     @Test
-    public void testValidate() {
-        System.out.println("validate");
-        String user = "user";
-        String password = "password";
-        Login instance = new Login();
+    public void testGiveWay() {
+        System.out.println("giveWay");
+        int dataID = 9;
+        VirtualCardController instance = new VirtualCardController();
         boolean expResult = false;
-        boolean result = instance.validate(user, password);
+        boolean result = instance.giveWay(dataID);
         assertEquals(expResult, result);
-       
+        
+    }
+
+    /**
+     * Test of showIdentification method, of class VirtualCardController.
+     */
+    @Test
+    public void testShowIdentification() {
+        System.out.println("showIdentification");
+        VirtualCardController instance = new VirtualCardController();
+        instance.showIdentification();
+        
     }
     
 }

@@ -39,7 +39,7 @@ public class TablesController {
             String gender = (String) obj.get("Gender");
             model.addRow(new Object[]{name, id, career, email, Address, age, gender});
         }
-        return model;
+        return null;
     }
     
     

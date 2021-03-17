@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.prototypevirtualid.controller;
 
+import java.io.File;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author jhonn_000
  */
-public class LoginTest {
+public class PolyclinicControllerTest {
     
-    public LoginTest() {
+    public PolyclinicControllerTest() {
     }
     
     @BeforeClass
@@ -38,18 +39,15 @@ public class LoginTest {
     }
 
     /**
-     * Test of validate method, of class Login.
+     * Test of showMedicaments method, of class PolyclinicController.
      */
     @Test
-    public void testValidate() {
-        System.out.println("validate");
-        String user = "user";
-        String password = "password";
-        Login instance = new Login();
-        boolean expResult = false;
-        boolean result = instance.validate(user, password);
-        assertEquals(expResult, result);
-       
+    public void testShowMedicaments() {
+        System.out.println("showMedicaments");
+        File fileName = null;
+        String record = "General medicine";
+        PolyclinicController instance = new PolyclinicController();
+        instance.showMedicaments(fileName, record);
     }
     
 }

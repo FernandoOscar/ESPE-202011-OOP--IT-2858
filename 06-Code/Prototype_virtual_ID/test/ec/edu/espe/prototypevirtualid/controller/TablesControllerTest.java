@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.prototypevirtualid.controller;
 
+import javax.swing.table.DefaultTableModel;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author jhonn_000
  */
-public class LoginTest {
+public class TablesControllerTest {
     
-    public LoginTest() {
+    public TablesControllerTest() {
     }
     
     @BeforeClass
@@ -38,18 +39,16 @@ public class LoginTest {
     }
 
     /**
-     * Test of validate method, of class Login.
+     * Test of tableStudent method, of class TablesController.
      */
     @Test
-    public void testValidate() {
-        System.out.println("validate");
-        String user = "user";
-        String password = "password";
-        Login instance = new Login();
-        boolean expResult = false;
-        boolean result = instance.validate(user, password);
+    public void testTableStudent() {
+        System.out.println("tableStudent");
+        TablesController instance = new TablesController();
+        DefaultTableModel expResult = null;
+        DefaultTableModel result = instance.tableStudent();
         assertEquals(expResult, result);
-       
+        
     }
     
 }

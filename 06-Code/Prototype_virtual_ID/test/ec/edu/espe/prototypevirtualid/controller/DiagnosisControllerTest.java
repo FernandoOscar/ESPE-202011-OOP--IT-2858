@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author jhonn_000
  */
-public class LoginTest {
+public class DiagnosisControllerTest {
     
-    public LoginTest() {
+    public DiagnosisControllerTest() {
     }
     
     @BeforeClass
@@ -38,18 +38,15 @@ public class LoginTest {
     }
 
     /**
-     * Test of validate method, of class Login.
+     * Test of saveClinicHistory method, of class DiagnosisController.
      */
     @Test
-    public void testValidate() {
-        System.out.println("validate");
-        String user = "user";
-        String password = "password";
-        Login instance = new Login();
-        boolean expResult = false;
-        boolean result = instance.validate(user, password);
-        assertEquals(expResult, result);
-       
+    public void testSaveClinicHistory() throws Exception {
+        System.out.println("saveClinicHistory");
+        String fileName = "Hector";
+        String record = "Psychology";
+        DiagnosisController instance = new DiagnosisController();
+        instance.saveClinicHistory(fileName, record);    
     }
     
 }
