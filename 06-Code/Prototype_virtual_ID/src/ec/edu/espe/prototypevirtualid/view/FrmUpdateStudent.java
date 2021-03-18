@@ -5,7 +5,9 @@
  */
 package ec.edu.espe.prototypevirtualid.view;
 
-import ec.edu.espe.conection.utils.MongoOperation;
+
+import ec.edu.espe.datamanager.utils.MongoOperation;
+import ec.edu.espe.datamanager.utils.NSQLDBManager;
 import ec.edu.espe.prototypevirtualid.controller.TablesController;
 
 /**
@@ -13,12 +15,14 @@ import ec.edu.espe.prototypevirtualid.controller.TablesController;
  * @author BryanPC
  */
 public class FrmUpdateStudent extends javax.swing.JFrame {
-
-    /**
-     * Creates new form FrmUpdateStudent
-     */
+        NSQLDBManager mongo;
+        
+    
     public FrmUpdateStudent() {
         initComponents();
+
+        
+        
     }
 
     /**
@@ -318,46 +322,53 @@ public class FrmUpdateStudent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNameUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNameUpdateActionPerformed
-        MongoOperation.DatabaseConection("Name");
-        MongoOperation.update("Name", txtOldName.getText(), txtNewName.getText());
+        mongo = new MongoOperation();
+        mongo.DatabaseConection("Name");
+        mongo.update("Name", txtOldName.getText(), txtNewName.getText());
         MongoOperation.getMongoC().close();
     }//GEN-LAST:event_btnNameUpdateActionPerformed
 
     private void btnIdUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIdUpdateActionPerformed
-        MongoOperation.DatabaseConection("Name");
-        MongoOperation.update("ID", txtOldID.getText(), txtNewID.getText());
+        mongo = new MongoOperation();
+        mongo.DatabaseConection("Name");
+        mongo.update("ID", txtOldID.getText(), txtNewID.getText());
         MongoOperation.getMongoC().close();
     }//GEN-LAST:event_btnIdUpdateActionPerformed
 
     private void btnCareerUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCareerUpdateActionPerformed
-        MongoOperation.DatabaseConection("Name");
-        MongoOperation.update("Career", txtOldCareer.getText(), txtNewCareer.getText());
+        mongo = new MongoOperation();
+        mongo.DatabaseConection("Name");
+        mongo.update("Career", txtOldCareer.getText(), txtNewCareer.getText());
         MongoOperation.getMongoC().close();
     }//GEN-LAST:event_btnCareerUpdateActionPerformed
 
     private void btnEmailUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmailUpdateActionPerformed
-        MongoOperation.DatabaseConection("Name");
-        MongoOperation.update("email", txtOldEmail.getText(), txtNewEmail.getText());
+        mongo = new MongoOperation();
+        mongo.DatabaseConection("Name");
+        mongo.update("email", txtOldEmail.getText(), txtNewEmail.getText());
         MongoOperation.getMongoC().close();
     }//GEN-LAST:event_btnEmailUpdateActionPerformed
 
     private void btnAddressUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddressUpdateActionPerformed
-        MongoOperation.DatabaseConection("Name");
-        MongoOperation.update("Address", txtOldAddress.getText(), txtNewAddress.getText());
+        mongo = new MongoOperation();
+        mongo.DatabaseConection("Name");
+        mongo.update("Address", txtOldAddress.getText(), txtNewAddress.getText());
         MongoOperation.getMongoC().close();
     }//GEN-LAST:event_btnAddressUpdateActionPerformed
 
     private void btnAgeUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgeUpdateActionPerformed
-        MongoOperation.DatabaseConection("Name");
+        mongo = new MongoOperation();
+        mongo.DatabaseConection("Name");
         String old = txtOldAge.getText();
         String newD = txtNewAge.getText();
-        MongoOperation.update("Age", old , newD);
+        mongo.update("Age", old, newD);
         MongoOperation.getMongoC().close();
     }//GEN-LAST:event_btnAgeUpdateActionPerformed
 
     private void btnGenderUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenderUpdateActionPerformed
-        MongoOperation.DatabaseConection("Name");
-        MongoOperation.update("Gender", txtOldGender.getText(), txtNewGender.getText());
+        mongo = new MongoOperation();
+        mongo.DatabaseConection("Name");
+        mongo.update("Gender", txtOldGender.getText(), txtNewGender.getText());
         MongoOperation.getMongoC().close();
     }//GEN-LAST:event_btnGenderUpdateActionPerformed
 

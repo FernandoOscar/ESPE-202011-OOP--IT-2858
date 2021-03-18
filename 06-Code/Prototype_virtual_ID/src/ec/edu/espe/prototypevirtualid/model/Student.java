@@ -4,7 +4,7 @@ package ec.edu.espe.prototypevirtualid.model;
 import ec.edu.espe.prototypevirtualid.controller.Login;
 
 
-public class Student extends Person {
+public class Student extends Person{
     
     private String career;
 
@@ -20,17 +20,6 @@ public class Student extends Person {
         this.career = career;
     }
 
-    @Override
-    public boolean validUser(String user, String password) {
-        Login log = new Login();
-        log.validate(user, password);
-
-        if (log.validate(user, password) == true) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
     public String getCareer() {
         return career;

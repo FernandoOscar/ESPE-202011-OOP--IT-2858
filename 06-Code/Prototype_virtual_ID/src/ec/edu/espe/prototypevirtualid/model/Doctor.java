@@ -13,18 +13,7 @@ public class Doctor extends Person {
 
     }
 
-    @Override
-    public boolean validUser(String user, String password) {
-        Login log = new Login();
-        log.validate(user , password);        
-        
-        if (log.validate(user, password)== true){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
+
 
     
 

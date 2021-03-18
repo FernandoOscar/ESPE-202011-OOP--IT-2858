@@ -1,6 +1,8 @@
 package ec.edu.espe.prototypevirtualid.view;
 
-import ec.edu.espe.conection.utils.MongoOperation;
+
+import ec.edu.espe.datamanager.utils.MongoOperation;
+import ec.edu.espe.datamanager.utils.NSQLDBManager;
 import ec.edu.espe.prototypevirtualid.controller.VirtualCardController;
 import ec.edu.espe.prototypevirtualid.model.Diagnosis;
 import ec.edu.espe.prototypevirtualid.model.Director;
@@ -12,8 +14,12 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Prototype_Virtual_ID {
+    
+    static NSQLDBManager mongo = new MongoOperation();
 
     public static void main(String[] args) {
+        
+        
 
         System.out.println("\t================================");
         System.out.println("\tWelcome to the Virtual ID System");
@@ -92,8 +98,9 @@ public class Prototype_Virtual_ID {
                     medicalCheck.setTime(scan.nextLine());
                     System.out.print("Enter the time medical appointment: ");
                     medicalCheck.setDate(scan.nextLine());
-                    MongoOperation.DatabaseConection("Medical Appoinment");
-                    MongoOperation.createAppoinment(medicalCheck.getTime(), medicalCheck.getDate());
+                    mongo.DatabaseConection("Medical Appoinment");
+                    
+                    //.createAppoinment(medicalCheck.getTime(), medicalCheck.getDate());
                 }
                 
                 if (elect == 'N' || elect == 'n') {
@@ -132,21 +139,16 @@ public class Prototype_Virtual_ID {
                 diagnosis.setSymptom(scan.nextLine());
                 System.out.print("Enter the needs medicine: ");
                 diagnosis.setMedicine(scan.nextLine());
-                MongoOperation.DatabaseConection("Diagnosis");
-                MongoOperation.createDiagnosis(diagnosis.getPatientName(), diagnosis.getSymptom(), diagnosis.getMedicine());
+                //MongoOperation.DatabaseConection("Diagnosis");
+                //MongoOperation.createDiagnosis(diagnosis.getPatientName(), diagnosis.getSymptom(), diagnosis.getMedicine());
                 break;
 
             case 2:
                 Doctor doctor = new Doctor();
                 Scanner addD = new Scanner(System.in);
-                System.out.print("Enter your name Doctor: ");
-                doctor.setNameDoctor(addD.nextLine());
-                System.out.print("Enter your working hour: ");
-                doctor.setWorkingHour(addD.nextLine());
-                System.out.print("Enter your specialty: ");
-                doctor.setSpecialty(addD.nextLine());
-                MongoOperation.DatabaseConection("Doctor");
-                MongoOperation.createDoctor(doctor.getNameDoctor(), doctor.getWorkingHour(), doctor.getSpecialty());
+                
+                //MongoOperation.DatabaseConection("Doctor");
+                //MongoOperation.createDoctor(doctor.getNameDoctor(), doctor.getWorkingHour(), doctor.getSpecialty());
                 break;
 
             case 3:
@@ -187,16 +189,16 @@ public class Prototype_Virtual_ID {
                     break;
 
                 case 2:
-                    MongoOperation.DatabaseConection("Name");
-                    MongoOperation.read();
+                    //MongoOperation.DatabaseConection("Name");
+                    //MongoOperation.read();
                     break;
 
                 case 3:
                     Scanner data = new Scanner(System.in);
                     System.out.println("Enter data will be Deleted");
                     String dataDelete = data.nextLine();
-                    MongoOperation.DatabaseConection("Name");
-                    MongoOperation.delete(dataDelete);
+                    //MongoOperation.DatabaseConection("Name");
+                    //MongoOperation.delete(dataDelete);
                     break;
 
                 case 4:
@@ -217,25 +219,8 @@ public class Prototype_Virtual_ID {
 
     private static void enterDataStudent() {
 
-        Student student = new Student();
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter your Id: ");
-        student.setId(scan.nextLine());
-        System.out.print("Enter your name: ");
-        student.setName(scan.nextLine());
-        System.out.print("Enter your age: ");
-        student.setAge(scan.nextInt());
-        scan.nextLine();
-        System.out.print("Enter your email: ");
-        student.setEmail(scan.nextLine());
-        System.out.print("Enter your address: ");
-        student.setAddress(scan.nextLine());
-        System.out.print("Enter your career: ");
-        student.setCareer(scan.nextLine());
-        System.out.print("Enter your gender: ");
-        student.setGender(scan.nextLine());
-        MongoOperation.DatabaseConection("Name");
-        MongoOperation.createRequest(student.getName(), student.getId(), student.getCareer(), student.getEmail(), student.getAddress(), student.getAge(), student.getGender());
+        
+        //MongoOperation.createRequest(student.getName(), student.getId(), student.getCareer(), student.getEmail(), student.getAddress(), student.getAge(), student.getGender());
         System.out.println("===============================================");
         System.out.println("Your request has been successfully saved!!");
         System.out.println("CONGRATULATIONS, NOW YOU CAN ACCESS THE "

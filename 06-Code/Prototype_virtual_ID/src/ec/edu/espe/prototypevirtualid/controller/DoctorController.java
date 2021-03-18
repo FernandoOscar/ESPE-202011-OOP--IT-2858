@@ -12,15 +12,15 @@ import com.mongodb.DBObject;
  *
  * @author BryanPC
  */
-public class DiagnosisController {
-
+public class DoctorController {
+    
     BasicDBObject document = new BasicDBObject();
 
-    public DBObject addDiagnosis(String patient, String sympton, String medicine) {
-        document.put("Patient Name", patient);
-        document.put("Symptom", sympton);
-        document.put("Medicine", medicine);
-
+    public DBObject addDoctor(String name, String working, String specialty) {
+                
+        document.put("Name", name);
+        document.put("Working Hour", working);
+        document.put("Specialty", specialty);
         return document;
     }
 

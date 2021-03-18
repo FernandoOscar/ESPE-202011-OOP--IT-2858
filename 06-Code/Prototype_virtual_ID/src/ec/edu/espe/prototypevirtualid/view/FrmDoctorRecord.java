@@ -5,7 +5,10 @@
  */
 package ec.edu.espe.prototypevirtualid.view;
 
-import ec.edu.espe.conection.utils.MongoOperation;
+
+import ec.edu.espe.datamanager.utils.MongoOperation;
+import ec.edu.espe.datamanager.utils.NSQLDBManager;
+import ec.edu.espe.prototypevirtualid.controller.DoctorController;
 import ec.edu.espe.prototypevirtualid.model.Doctor;
 import javax.swing.JOptionPane;
 
@@ -172,12 +175,13 @@ public class FrmDoctorRecord extends javax.swing.JFrame {
             String dataToSave = "The next Data will be save \n"
                     + txtNameDoctor.getText() + "\n"
                     + txtWorkingHour.getText() + "\n"
-                    + cmbSpeciality.getSelectedItem() + "\n";
+                    + cmbSpeciality.getSelectedItem().toString() + "\n";
+            
+            String name = txtNameDoctor.getText();
+            String working = txtWorkingHour.getText();
+            String specialty = cmbSpeciality.getSelectedItem().toString();
 
-            Doctor doctor = new Doctor();
-            doctor.setNameDoctor(txtNameDoctor.getText());
-            doctor.setWorkingHour(txtWorkingHour.getText());
-            doctor.setSpecialty(cmbSpeciality.getSelectedItem().toString());
+           
 
             int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Students Saving", JOptionPane.YES_NO_CANCEL_OPTION);
 
@@ -188,8 +192,13 @@ public class FrmDoctorRecord extends javax.swing.JFrame {
                 System.out.println("===========================================================");
                 System.out.println("Your request has been successfully saved!!");
                 System.out.println("===========================================================");
-                MongoOperation.DatabaseConection("Doctor");
-                MongoOperation.createDoctor(doctor.getNameDoctor(), doctor.getWorkingHour(), doctor.getSpecialty());
+                DoctorController doctor = new DoctorController();
+                NSQLDBManager mongo;
+                mongo = new MongoOperation();
+                mongo.DatabaseConection("Doctor");
+                
+                             
+                mongo.create(doctor.addDoctor(name, working, specialty));
 
             } else if (selection == 1) {
                 JOptionPane.showMessageDialog(null, "Information was not saved", txtNameDoctor.getText() + "Not saved", JOptionPane.ERROR_MESSAGE);

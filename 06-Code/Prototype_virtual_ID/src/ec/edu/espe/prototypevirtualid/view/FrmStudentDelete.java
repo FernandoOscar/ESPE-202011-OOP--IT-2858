@@ -5,15 +5,10 @@
  */
 package ec.edu.espe.prototypevirtualid.view;
 
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
-import ec.edu.espe.conection.utils.MongoOperation;
+import ec.edu.espe.datamanager.utils.MongoOperation;
+import ec.edu.espe.datamanager.utils.NSQLDBManager;
 import ec.edu.espe.prototypevirtualid.controller.TablesController;
-import ec.edu.espe.prototypevirtualid.model.Student;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -193,17 +188,17 @@ public class FrmStudentDelete extends javax.swing.JFrame {
 
             String dataToSave = "The next Data will be Delete \n"
                     + txtIdDelete.getText() + "\n";
-            Student st = new Student();
-            st.setId(txtIdDelete.getText());
-            System.out.println(dataToSave);
+            
 
             int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Students Saving", JOptionPane.YES_NO_CANCEL_OPTION);
 
             if (selection == 0) {
 
                 JOptionPane.showMessageDialog(null, "Information was Delete", txtIdDelete.getText() + "Saved", JOptionPane.INFORMATION_MESSAGE);
-                MongoOperation.DatabaseConection("Name");
-                MongoOperation.delete(st.getId());
+                NSQLDBManager mongo;
+                mongo = new MongoOperation();
+                mongo.DatabaseConection("Name");
+                mongo.delete(txtIdDelete.getText());
                 emptyFields();
 
             } else if (selection == 1) {

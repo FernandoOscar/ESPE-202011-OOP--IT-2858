@@ -5,7 +5,9 @@
  */
 package ec.edu.espe.prototypevirtualid.view;
 
-import ec.edu.espe.conection.utils.MongoOperation;
+import ec.edu.espe.datamanager.utils.MongoOperation;
+import ec.edu.espe.datamanager.utils.NSQLDBManager;
+import ec.edu.espe.prototypevirtualid.controller.DiagnosisController;
 import ec.edu.espe.prototypevirtualid.model.Diagnosis;
 import javax.swing.JOptionPane;
 
@@ -180,10 +182,9 @@ public class FrmDiagnosisRecord extends javax.swing.JFrame {
                     + txtSymtom.getText() + "\n"
                     + cmbMedicine.getSelectedItem() + "\n";
 
-            Diagnosis diagnosis = new Diagnosis();
-            diagnosis.setPatientName(txtNamePatient.getText());
-            diagnosis.setSymptom(txtSymtom.getText());
-            diagnosis.setMedicine(cmbMedicine.getSelectedItem().toString());
+            String patient = txtNamePatient.getText();
+            String sympton = txtSymtom.getText();
+            String medicine = cmbMedicine.getSelectedItem().toString();
 
             int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Students Saving", JOptionPane.YES_NO_CANCEL_OPTION);
 
@@ -195,9 +196,12 @@ public class FrmDiagnosisRecord extends javax.swing.JFrame {
                 System.out.println("===========================================================");
                 System.out.println("Your request has been successfully saved!!");
                 System.out.println("===========================================================");
-                MongoOperation.DatabaseConection("Diagnosis");
 
-                MongoOperation.createDiagnosis(diagnosis.getPatientName(), diagnosis.getSymptom(), diagnosis.getMedicine());
+                NSQLDBManager mongo;
+                DiagnosisController diag = new DiagnosisController();
+                mongo = new MongoOperation();
+                mongo.DatabaseConection("Diagnosis");
+                mongo.create(diag.addDiagnosis(patient, sympton, medicine));
 
             } else if (selection == 1) {
                 JOptionPane.showMessageDialog(null, "Information was not saved", txtNamePatient.getText() + "Not saved", JOptionPane.ERROR_MESSAGE);

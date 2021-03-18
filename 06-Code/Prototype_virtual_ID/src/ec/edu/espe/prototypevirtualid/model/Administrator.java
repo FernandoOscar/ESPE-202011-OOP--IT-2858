@@ -12,6 +12,8 @@ public abstract class  Administrator extends Person{
     public abstract void addDatabase();
     public abstract void createId();
     public abstract void removeStudent();
+    
+    public abstract boolean validUser(String user, String password);
 
     public Administrator(String deparment) {
         this.deparment = deparment;

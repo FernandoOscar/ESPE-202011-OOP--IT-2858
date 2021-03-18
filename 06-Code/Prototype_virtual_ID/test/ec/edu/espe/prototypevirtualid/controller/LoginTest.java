@@ -43,8 +43,8 @@ public class LoginTest {
     @Test
     public void testValidate() {
         System.out.println("validate");
-        String user = "user";
-        String password = "password";
+        String user = "MAJOF";
+        String password = "12345";
         Login instance = new Login();
         boolean expResult = false;
         boolean result = instance.validate(user, password);

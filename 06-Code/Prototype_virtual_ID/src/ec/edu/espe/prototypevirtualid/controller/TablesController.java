@@ -9,7 +9,8 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
-import ec.edu.espe.conection.utils.MongoOperation;
+import ec.edu.espe.datamanager.utils.MongoOperation;
+import ec.edu.espe.datamanager.utils.NSQLDBManager;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,7 +20,9 @@ import javax.swing.table.DefaultTableModel;
 public class TablesController {
 
     public DefaultTableModel tableStudent() {
-        MongoOperation.DatabaseConection("Name");
+        
+        NSQLDBManager mongo = new MongoOperation();
+        mongo.DatabaseConection("Name");
         DB BaseData = MongoOperation.getMongoC().getDB("PrototypeVirtualID");
         DBCollection collections = BaseData.getCollection("Name");
         DBCursor cursor = collections.find();
@@ -39,7 +42,7 @@ public class TablesController {
             String gender = (String) obj.get("Gender");
             model.addRow(new Object[]{name, id, career, email, Address, age, gender});
         }
-        return null;
+        return model;
     }
     
     

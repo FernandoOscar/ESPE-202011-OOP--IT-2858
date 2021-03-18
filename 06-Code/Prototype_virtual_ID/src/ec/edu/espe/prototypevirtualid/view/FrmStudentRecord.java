@@ -5,9 +5,13 @@
  */
 package ec.edu.espe.prototypevirtualid.view;
 
-import ec.edu.espe.conection.utils.MongoOperation;
+import com.mongodb.DBObject;
+import ec.edu.espe.datamanager.controller.Persistance;
+import ec.edu.espe.datamanager.utils.MongoOperation;
+import ec.edu.espe.datamanager.utils.NSQLDBManager;
+import ec.edu.espe.prototypevirtualid.controller.StudentController;
+import ec.edu.espe.prototypevirtualid.controller.TablesController;
 import ec.edu.espe.prototypevirtualid.model.Student;
-import ec.edu.espe.prototypevirtualid.model.TMStudent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -17,9 +21,6 @@ import javax.swing.JOptionPane;
  * @author User
  */
 public class FrmStudentRecord extends javax.swing.JFrame {
-
-    private List<Student> student;
-    private TMStudent model;
 
     public FrmStudentRecord() {
         initComponents();
@@ -290,16 +291,6 @@ public class FrmStudentRecord extends javax.swing.JFrame {
                     + txtID.getText() + "\n"
                     + cmbGender.getSelectedItem().toString() + "\n";
 
-            Student st = new Student();
-
-            st.setName(txtName.getText());
-            st.setCareer(txtCareer.getText());
-            st.setEmail(txtEmail.getText());
-            st.setAddress(txtAddress.getText());
-            st.setAge(Integer.parseInt(txtAge.getText()));
-            st.setId(txtID.getText());
-            st.setGender(cmbGender.getSelectedItem().toString());
-
             int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Students Saving", JOptionPane.YES_NO_CANCEL_OPTION);
 
             if (selection == 0) {
@@ -309,19 +300,23 @@ public class FrmStudentRecord extends javax.swing.JFrame {
                 System.out.println("===========================================================");
                 System.out.println("Your request has been successfully saved!!");
                 System.out.println("===========================================================");
-                MongoOperation.DatabaseConection("Name");
-                MongoOperation.createRequest(st.getName(), st.getId(), st.getCareer(), st.getEmail(),
-                         st.getAddress(), st.getAge(), st.getGender());
 
-                student = new ArrayList<>();
-//                student.add(new Student(st.getCareer(), st.getName(), st.getEmail(), st.getAddress(),
-//                         st.getAge(), st.getId(), st.getGender()));
+                StudentController student1 = new StudentController();
+                NSQLDBManager mongo;
+                mongo = new MongoOperation();
+                mongo.DatabaseConection("Name");
 
-                student.add(new Student(txtCareer.getText(), txtName.getText(), txtEmail.getText(),
-                         txtAddress.getText(), Integer.parseInt(txtAge.getText()), txtID.getText(),
-                        cmbGender.getSelectedItem().toString()));
-                model = new TMStudent(student);
-                tblStudent.setModel(model);
+                mongo.create(student1.request(txtName.getText(), txtID.getText(),
+                        txtCareer.getText(), txtAddress.getText(), Integer.parseInt(txtAge.getText()),
+                         txtEmail.getText(), cmbGender.getSelectedItem().toString()));
+
+                System.out.println(student1.request(txtName.getText(), txtID.getText(),
+                        txtCareer.getText(), txtAddress.getText(), Integer.parseInt(txtAge.getText()),
+                         txtEmail.getText(), cmbGender.getSelectedItem().toString()));
+
+                TablesController studentC = new TablesController();
+                tblStudent.setModel(studentC.tableStudent());
+                MongoOperation.getMongoC().close();
 
                 emptyFields();
 
@@ -389,4 +384,5 @@ public class FrmStudentRecord extends javax.swing.JFrame {
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
+
 }
