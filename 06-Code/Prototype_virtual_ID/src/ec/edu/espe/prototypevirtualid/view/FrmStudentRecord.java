@@ -5,9 +5,13 @@
  */
 package ec.edu.espe.prototypevirtualid.view;
 
-import ec.edu.espe.prototypevirtualid.controller.ConectionDataBase;
-import ec.edu.espe.simulador.model.Student;
-import ec.edu.espe.simulador.model.TMStudent;
+import com.mongodb.DBObject;
+import ec.edu.espe.datamanager.controller.Persistance;
+import ec.edu.espe.datamanager.utils.MongoOperation;
+import ec.edu.espe.datamanager.utils.NSQLDBManager;
+import ec.edu.espe.prototypevirtualid.controller.StudentController;
+import ec.edu.espe.prototypevirtualid.controller.TablesController;
+import ec.edu.espe.prototypevirtualid.model.Student;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -18,13 +22,10 @@ import javax.swing.JOptionPane;
  */
 public class FrmStudentRecord extends javax.swing.JFrame {
 
-    private List<Student> student;
-    private TMStudent model;
-    
     public FrmStudentRecord() {
         initComponents();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -279,70 +280,60 @@ public class FrmStudentRecord extends javax.swing.JFrame {
 
     private void btnSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveDataActionPerformed
 
-        try{
-        
-        String dataToSave = "The next Data will be save \n"
-                + txtCareer.getText() + "\n"
-                + txtName.getText() + "\n"
-                + txtEmail.getText() + "\n"
-                + txtAddress.getText() + "\n"
-                + Integer.parseInt(txtAge.getText()) + "\n"
-                + txtID.getText() + "\n"
-                + cmbGender.getSelectedIndex() + "\n";
+        try {
 
-        String name = txtName.getText();
-        String career = txtCareer.getText();
-        String email = txtEmail.getText();
-        String address = txtAddress.getText();
-        int age = txtName.getHeight();
-        String id = txtID.getText();
-        String gender = cmbGender.getName();
+            String dataToSave = "The next Data will be save \n"
+                    + txtCareer.getText() + "\n"
+                    + txtName.getText() + "\n"
+                    + txtEmail.getText() + "\n"
+                    + txtAddress.getText() + "\n"
+                    + Integer.parseInt(txtAge.getText()) + "\n"
+                    + txtID.getText() + "\n"
+                    + cmbGender.getSelectedItem().toString() + "\n";
 
-        int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Students Saving", JOptionPane.YES_NO_CANCEL_OPTION);
+            int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Students Saving", JOptionPane.YES_NO_CANCEL_OPTION);
 
-        if (selection == 0) {
-            
-            JOptionPane.showMessageDialog(null, "Information was saved", txtName.getText() + "Saved", JOptionPane.INFORMATION_MESSAGE);
+            if (selection == 0) {
 
-                ConectionDataBase cloud = new ConectionDataBase();
-                
+                JOptionPane.showMessageDialog(null, "Information was saved", txtName.getText() + "Saved", JOptionPane.INFORMATION_MESSAGE);
 
                 System.out.println("===========================================================");
                 System.out.println("Your request has been successfully saved!!");
                 System.out.println("===========================================================");
-                cloud.ConectionDataBase("Name");
 
-                Student st = new Student();
-                cloud.create(name, id, career, email, address, age, gender);
+                StudentController student1 = new StudentController();
+                NSQLDBManager mongo;
+                mongo = new MongoOperation();
+                mongo.DatabaseConection("Name");
 
-                student = new ArrayList<>();
-//                student.add(new Student(st.getCareer(), st.getName(), st.getEmail(), st.getAddress(),
-//                         st.getAge(), st.getId(), st.getGender()));
-       
-        student.add(new Student(txtCareer.getText(), txtName.getText(), txtEmail.getText()
-                , txtAddress.getText(),Integer.parseInt(txtAge.getText()), txtID.getText(),
-                cmbGender.getSelectedItem().toString()));
-                model = new TMStudent(student);
-                tblStudent.setModel(model);
+                mongo.create(student1.request(txtName.getText(), txtID.getText(),
+                        txtCareer.getText(), txtAddress.getText(), Integer.parseInt(txtAge.getText()),
+                         txtEmail.getText(), cmbGender.getSelectedItem().toString()));
 
-                
+                System.out.println(student1.request(txtName.getText(), txtID.getText(),
+                        txtCareer.getText(), txtAddress.getText(), Integer.parseInt(txtAge.getText()),
+                         txtEmail.getText(), cmbGender.getSelectedItem().toString()));
+
+                TablesController studentC = new TablesController();
+                tblStudent.setModel(studentC.tableStudent());
+                MongoOperation.getMongoC().close();
+
                 emptyFields();
-            
 
-        } else if (selection == 1) {
-            JOptionPane.showMessageDialog(null, "Information was not saved", txtName.getText() + "Not saved", JOptionPane.ERROR_MESSAGE);
-            emptyFields();
-        } else {
-            JOptionPane.showMessageDialog(null, "Action was canceled", txtName.getText() + "Canceled", JOptionPane.WARNING_MESSAGE);
-        }
-        }catch(Exception e){
-                JOptionPane.showMessageDialog(null, "No data has been entered, please try again", txtName.getText() + "ERROR", JOptionPane.WARNING_MESSAGE);
+            } else if (selection == 1) {
+                JOptionPane.showMessageDialog(null, "Information was not saved", txtName.getText() + "Not saved", JOptionPane.ERROR_MESSAGE);
+                emptyFields();
+            } else {
+                JOptionPane.showMessageDialog(null, "Action was canceled", txtName.getText() + "Canceled", JOptionPane.WARNING_MESSAGE);
             }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No data has been entered, please try again", txtName.getText() + "ERROR", JOptionPane.WARNING_MESSAGE);
+        }
 
     }//GEN-LAST:event_btnSaveDataActionPerformed
 
     private void txtExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtExitActionPerformed
-        FrmGeneralMenu frmGeneral = new FrmGeneralMenu();
+        FrmMainMenu frmGeneral = new FrmMainMenu();
         this.setVisible(false);
         frmGeneral.setVisible(true);
     }//GEN-LAST:event_txtExitActionPerformed
@@ -393,4 +384,5 @@ public class FrmStudentRecord extends javax.swing.JFrame {
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
+
 }

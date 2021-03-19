@@ -5,7 +5,9 @@
  */
 package ec.edu.espe.prototypevirtualid.view;
 
-import ec.edu.espe.prototypevirtualid.controller.ConectionDataBase;
+import ec.edu.espe.datamanager.utils.MongoOperation;
+import ec.edu.espe.datamanager.utils.NSQLDBManager;
+import ec.edu.espe.prototypevirtualid.controller.TablesController;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,12 +32,19 @@ public class FrmStudentDelete extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        button1 = new java.awt.Button();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         bntDelete = new javax.swing.JButton();
+        btnExit = new java.awt.Button();
         jPanel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        txtNameDelete = new javax.swing.JTextField();
+        txtIdDelete = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblRequest = new javax.swing.JTable();
+        btnShow = new java.awt.Button();
+
+        button1.setLabel("button1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Delete");
@@ -49,28 +58,62 @@ public class FrmStudentDelete extends javax.swing.JFrame {
             }
         });
 
+        btnExit.setLabel("Exit\n");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(175, 175, 175)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bntDelete)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addComponent(bntDelete)
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bntDelete))
                 .addContainerGap())
         );
 
-        jLabel9.setText(" Name of the student to be deleted");
+        jLabel9.setText("ID of the student to be deleted");
 
-        txtNameDelete.addActionListener(new java.awt.event.ActionListener() {
+        txtIdDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameDeleteActionPerformed(evt);
+                txtIdDeleteActionPerformed(evt);
+            }
+        });
+
+        tblRequest.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Name", "ID", "Career", "email", "Address", "Age", "Gender"
+            }
+        ));
+        jScrollPane1.setViewportView(tblRequest);
+
+        btnShow.setLabel("Show");
+        btnShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowActionPerformed(evt);
             }
         });
 
@@ -78,12 +121,21 @@ public class FrmStudentDelete extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtNameDelete))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtIdDelete))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE))
+                        .addGap(26, 26, 26))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,8 +143,12 @@ public class FrmStudentDelete extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNameDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(195, Short.MAX_VALUE))
+                .addComponent(txtIdDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -104,7 +160,7 @@ public class FrmStudentDelete extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(180, 180, 180)
                         .addComponent(jLabel1)
-                        .addGap(0, 182, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -116,13 +172,12 @@ public class FrmStudentDelete extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(10, 10, 10)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -132,45 +187,53 @@ public class FrmStudentDelete extends javax.swing.JFrame {
         try {
 
             String dataToSave = "The next Data will be Delete \n"
-                    + txtNameDelete.getText() + "\n";
-            String name = txtNameDelete.getText();
-
-            System.out.println(dataToSave);
+                    + txtIdDelete.getText() + "\n";
+            
 
             int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Students Saving", JOptionPane.YES_NO_CANCEL_OPTION);
 
             if (selection == 0) {
 
-                JOptionPane.showMessageDialog(null, "Information was Delete", txtNameDelete.getText() + "Saved", JOptionPane.INFORMATION_MESSAGE);
-                
-                ConectionDataBase cloud = new ConectionDataBase();
-                cloud.ConectionDataBase("Name");
-                String data = txtNameDelete.getText();
-                cloud.delete(data);
-                FrmGeneralMenu frmGeneral = new FrmGeneralMenu();
-                this.setVisible(false);
-                frmGeneral.setVisible(true);
+                JOptionPane.showMessageDialog(null, "Information was Delete", txtIdDelete.getText() + "Saved", JOptionPane.INFORMATION_MESSAGE);
+                NSQLDBManager mongo;
+                mongo = new MongoOperation();
+                mongo.DatabaseConection("Name");
+                mongo.delete(txtIdDelete.getText());
                 emptyFields();
 
             } else if (selection == 1) {
-                JOptionPane.showMessageDialog(null, "Information was not saved", txtNameDelete.getText() + "Not saved", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Information was not saved", txtIdDelete.getText() + "Not saved", JOptionPane.ERROR_MESSAGE);
                 emptyFields();
             } else {
-                JOptionPane.showMessageDialog(null, "Action was canceled", txtNameDelete.getText() + "Canceled", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Action was canceled", txtIdDelete.getText() + "Canceled", JOptionPane.WARNING_MESSAGE);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No data has been entered, please try again", txtNameDelete.getText() + "ERROR", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No data has been entered, please try again", txtIdDelete.getText() + "ERROR", JOptionPane.WARNING_MESSAGE);
         }
 
     }
 
     public void emptyFields() {
-        txtNameDelete.setText("");
+        txtIdDelete.setText("");
     }//GEN-LAST:event_bntDeleteActionPerformed
 
-    private void txtNameDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameDeleteActionPerformed
+    private void txtIdDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdDeleteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameDeleteActionPerformed
+    }//GEN-LAST:event_txtIdDeleteActionPerformed
+
+    private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
+
+        TablesController studentC = new TablesController();
+        tblRequest.setModel(studentC.tableStudent());
+        MongoOperation.getMongoC().close();
+
+    }//GEN-LAST:event_btnShowActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        FrmMainMenu frmGeneral = new FrmMainMenu();
+        this.setVisible(false);
+        frmGeneral.setVisible(true);
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,10 +272,15 @@ public class FrmStudentDelete extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntDelete;
+    private java.awt.Button btnExit;
+    private java.awt.Button btnShow;
+    private java.awt.Button button1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField txtNameDelete;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblRequest;
+    private javax.swing.JTextField txtIdDelete;
     // End of variables declaration//GEN-END:variables
 }

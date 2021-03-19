@@ -5,7 +5,10 @@
  */
 package ec.edu.espe.prototypevirtualid.view;
 
-import ec.edu.espe.prototypevirtualid.controller.ConectionDataBase;
+import ec.edu.espe.datamanager.utils.MongoOperation;
+import ec.edu.espe.datamanager.utils.NSQLDBManager;
+import ec.edu.espe.prototypevirtualid.controller.DiagnosisController;
+import ec.edu.espe.prototypevirtualid.model.Diagnosis;
 import javax.swing.JOptionPane;
 
 /**
@@ -172,54 +175,51 @@ public class FrmDiagnosisRecord extends javax.swing.JFrame {
         System.out.println("Name Patient -> " + txtNamePatient.getText());
         System.out.println("Symptom -> " + txtSymtom.getText());
         System.out.println("Medicine -> " + cmbMedicine.getSelectedItem());
-        try{
-        
-        String dataToSave = "The next Data will be save \n"
-                + txtNamePatient.getText() + "\n"
-                + txtSymtom.getText() + "\n"               
-                + cmbMedicine.getSelectedItem() + "\n";
+        try {
 
-        String patientName = txtNamePatient.getText();
-        String Symptom = txtSymtom.getText();               
-        String Medicine = cmbMedicine.getName();
+            String dataToSave = "The next Data will be save \n"
+                    + txtNamePatient.getText() + "\n"
+                    + txtSymtom.getText() + "\n"
+                    + cmbMedicine.getSelectedItem() + "\n";
 
-        int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Students Saving", JOptionPane.YES_NO_CANCEL_OPTION);
+            String patient = txtNamePatient.getText();
+            String sympton = txtSymtom.getText();
+            String medicine = cmbMedicine.getSelectedItem().toString();
 
-        if (selection == 0) {
-            
-            
-            JOptionPane.showMessageDialog(null, "Information was saved", txtNamePatient.getText() + "Saved", JOptionPane.INFORMATION_MESSAGE);
-            emptyFields();
-            ConectionDataBase cloud = new ConectionDataBase();
+            int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Students Saving", JOptionPane.YES_NO_CANCEL_OPTION);
 
-            System.out.println("===========================================================");
-            System.out.println("Your request has been successfully saved!!");
-            System.out.println("===========================================================");
-            cloud.ConectionDataBase("Diagnosis");
+            if (selection == 0) {
 
-            cloud.create(patientName, Symptom, Medicine);
-            FrmGeneralMenu frmGeneral = new FrmGeneralMenu();
-            this.setVisible(false);
-            frmGeneral.setVisible(true);
-            
+                JOptionPane.showMessageDialog(null, "Information was saved", txtNamePatient.getText() + "Saved", JOptionPane.INFORMATION_MESSAGE);
+                emptyFields();
 
-        } else if (selection == 1) {
-            JOptionPane.showMessageDialog(null, "Information was not saved", txtNamePatient.getText() + "Not saved", JOptionPane.ERROR_MESSAGE);
-            emptyFields();
-        } else {
-            JOptionPane.showMessageDialog(null, "Action was canceled", txtNamePatient.getText() + "Canceled", JOptionPane.WARNING_MESSAGE);
-        }
-        }catch(Exception e){
-                JOptionPane.showMessageDialog(null, "No data has been entered, please try again", txtNamePatient.getText() + "ERROR", JOptionPane.WARNING_MESSAGE);
+                System.out.println("===========================================================");
+                System.out.println("Your request has been successfully saved!!");
+                System.out.println("===========================================================");
+
+                NSQLDBManager mongo;
+                DiagnosisController diag = new DiagnosisController();
+                mongo = new MongoOperation();
+                mongo.DatabaseConection("Diagnosis");
+                mongo.create(diag.addDiagnosis(patient, sympton, medicine));
+
+            } else if (selection == 1) {
+                JOptionPane.showMessageDialog(null, "Information was not saved", txtNamePatient.getText() + "Not saved", JOptionPane.ERROR_MESSAGE);
+                emptyFields();
+            } else {
+                JOptionPane.showMessageDialog(null, "Action was canceled", txtNamePatient.getText() + "Canceled", JOptionPane.WARNING_MESSAGE);
             }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No data has been entered, please try again", txtNamePatient.getText() + "ERROR", JOptionPane.WARNING_MESSAGE);
+        }
 
-    }                                           
+    }
 
     public void emptyFields() {
-       txtNamePatient.setText("");
-        txtSymtom.setText("");       
+        txtNamePatient.setText("");
+        txtSymtom.setText("");
         cmbMedicine.setSelectedItem("");
-                                             
+
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtNamePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamePatientActionPerformed
@@ -227,7 +227,7 @@ public class FrmDiagnosisRecord extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNamePatientActionPerformed
 
     private void btnExitDiagnosisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitDiagnosisActionPerformed
-        FrmGeneralMenu frmGeneral = new FrmGeneralMenu();
+        FrmMainMenu frmGeneral = new FrmMainMenu();
         this.setVisible(false);
         frmGeneral.setVisible(true);
     }//GEN-LAST:event_btnExitDiagnosisActionPerformed

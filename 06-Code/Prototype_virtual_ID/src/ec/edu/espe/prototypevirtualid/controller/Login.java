@@ -31,7 +31,6 @@ public class Login {
         } catch (org.json.simple.parser.ParseException ex) {
             System.out.println(ex);
         }
-        
 
         if (user.equals(userData) || password.equals(passwordData)) {
             return true;
