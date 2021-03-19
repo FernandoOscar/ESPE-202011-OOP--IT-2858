@@ -100,7 +100,7 @@ public class TablesController {
         DBCollection collections = BaseData.getCollection("Diagnosis");
         DBCursor cursor = collections.find();
 
-        String[] columnNames = {"Name", "ID", "healthInsurance", "allergies"};
+        String[] columnNames = {"Patient Name ", "Symptom", "Medicine"};
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
 
         while (cursor.hasNext()) {
@@ -113,7 +113,28 @@ public class TablesController {
         return model;
     }
     
-    
+    public DefaultTableModel tableMedicalCheck() {
+        
+        NSQLDBManager mongo = new MongoOperation();
+        mongo.DatabaseConection("Medical Appoinment");
+        DB BaseData = MongoOperation.getMongoC().getDB("PrototypeVirtualID");
+        DBCollection collections = BaseData.getCollection("Medical Appoinment");
+        DBCursor cursor = collections.find();
+
+        String[] columnNames = {"Name", "ID", "Date",
+            "Time"};
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+
+        while (cursor.hasNext()) {
+            DBObject obj = cursor.next();
+            String name = (String) obj.get("Name");
+            String id = (String) obj.get("ID");
+            String date = (String) obj.get("Time");
+            String  time = (String) obj.get("Date");
+            model.addRow(new Object[]{name, id, time, date});
+        }
+        return model;
+    }
     
     
     

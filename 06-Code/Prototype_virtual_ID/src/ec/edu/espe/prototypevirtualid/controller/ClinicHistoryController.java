@@ -10,18 +10,20 @@ import com.mongodb.DBObject;
 
 /**
  *
- * @author LENOVO
+ * @author FRANCISCO
  */
-public class MedicalCheckController {
+public class ClinicHistoryController {
     
     BasicDBObject document = new BasicDBObject();
     
-    public DBObject addAppinment(String name, String id, String dateAppoinment, String timeAppoinment) {
-        document.put("Name", name);
-        document.put("Id", id);
-        document.put("Date", dateAppoinment);
-        document.put("Time", timeAppoinment);
 
+    public DBObject request(String name, String id, String health, String allergies) {
+
+        document.put("Name", name);
+        document.put("ID", id);
+        document.put("Health Insurance", health);
+        document.put("Allergies", allergies);
+     
         return document;
     }
 }

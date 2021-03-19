@@ -8,6 +8,7 @@ package ec.edu.espe.prototypevirtualid.view;
 import ec.edu.espe.datamanager.utils.MongoOperation;
 import ec.edu.espe.datamanager.utils.NSQLDBManager;
 import ec.edu.espe.prototypevirtualid.controller.MedicalCheckController;
+import ec.edu.espe.prototypevirtualid.controller.TablesController;
 import ec.edu.espe.prototypevirtualid.model.MedicalCheck;
 import javax.swing.JOptionPane;
 
@@ -35,17 +36,28 @@ public class FrmMedicalCheckRecord extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         txtDate = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         txtTime = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblAddAppointment = new javax.swing.JTable();
         btnSave = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Add Appointment");
+
+        jLabel4.setText("Name:");
+
+        jLabel5.setText("ID:");
 
         jLabel2.setText("Date:");
 
@@ -64,27 +76,56 @@ public class FrmMedicalCheckRecord extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addGap(54, 54, 54)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtDate)
-                    .addComponent(txtTime, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtTime)
+                        .addGap(1, 1, 1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 73, Short.MAX_VALUE))
+                    .addComponent(txtName)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtId)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                    .addComponent(txtTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
+
+        tblAddAppointment.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblAddAppointment);
 
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -100,25 +141,43 @@ public class FrmMedicalCheckRecord extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Show");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnSave)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addComponent(btnExit)
-                .addGap(24, 24, 24))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnSave)
+                        .addGap(31, 31, 31)
+                        .addComponent(btnExit)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(49, 49, 49))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addGap(19, 19, 19)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
                     .addComponent(btnExit))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -132,11 +191,11 @@ public class FrmMedicalCheckRecord extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(120, 120, 120)
-                        .addComponent(jLabel1)))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -159,16 +218,22 @@ public class FrmMedicalCheckRecord extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTimeActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        System.out.println("Name -> " + txtName.getText());
+        System.out.println("ID -> " + txtId.getText());
         System.out.println("Date Appointment -> " + txtDate.getText());
         System.out.println("Time Appointment -> " + txtTime.getText());
         
         try {
 
             String dataToSave = "The next Data will be save \n"
+                    + txtName.getText() + "\n"
+                    + txtId.getText() + "\n"
                     + txtDate.getText() + "\n"
                     + txtTime.getText() + "\n";
 
             MedicalCheck medical = new MedicalCheck();
+            medical.setName(txtName.getText());
+            medical.setId(txtId.getText());
             medical.setDate(txtDate.getText());
             medical.setTime(txtTime.getText());
 
@@ -187,9 +252,9 @@ public class FrmMedicalCheckRecord extends javax.swing.JFrame {
                 mongo = new MongoOperation();
                 mongo.DatabaseConection("Medical Appoinment");
                 
-                mongo.create(medicalc.addAppinment(txtDate.getText(), txtTime.getText()));
+                mongo.create(medicalc.addAppinment(txtName.getText(),txtId.getText(),txtDate.getText(), txtTime.getText()));
 
-                System.out.println(medicalc.addAppinment(txtDate.getText(), txtTime.getText()));
+                System.out.println(medicalc.addAppinment(txtName.getText(),txtId.getText(),txtDate.getText(), txtTime.getText()));
 
                 
             } else if (selection == 1) {
@@ -209,7 +274,15 @@ public class FrmMedicalCheckRecord extends javax.swing.JFrame {
         frmGeneral.setVisible(true);
     }//GEN-LAST:event_btnExitActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        TablesController HistoryClinic = new TablesController();
+        tblAddAppointment.setModel(HistoryClinic.tableMedicalCheck());
+        MongoOperation.getMongoC().close();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public void emptyFields() {
+        txtName.setText("");
+        txtId.setText("");
         txtDate.setText("");
         txtTime.setText("");
     } 
@@ -249,12 +322,19 @@ public class FrmMedicalCheckRecord extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnSave;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblAddAppointment;
     private javax.swing.JTextField txtDate;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtTime;
     // End of variables declaration//GEN-END:variables
 }
