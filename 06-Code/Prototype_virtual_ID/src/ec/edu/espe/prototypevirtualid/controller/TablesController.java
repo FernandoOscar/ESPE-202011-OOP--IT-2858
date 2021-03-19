@@ -46,6 +46,75 @@ public class TablesController {
     }
     
     
+    public DefaultTableModel tableAppoinment() {
+        
+        NSQLDBManager mongo = new MongoOperation();
+        mongo.DatabaseConection("Medical Appoinment");
+        DB BaseData = MongoOperation.getMongoC().getDB("PrototypeVirtualID");
+        DBCollection collections = BaseData.getCollection("Medical Appoinment");
+        DBCursor cursor = collections.find();
+
+        String[] columnNames = {"Name", "ID", "Date", "Time"};
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+
+        while (cursor.hasNext()) {
+            DBObject obj = cursor.next();
+            String name = (String) obj.get("Name");
+            String id = (String) obj.get("ID");
+            String date = (String) obj.get("Date");
+            String time = (String) obj.get("Time");
+            model.addRow(new Object[]{name, id, date, time});
+        }
+        return model;
+    }
+    
+    
+    public DefaultTableModel tableHistoryClinic() {
+        
+        NSQLDBManager mongo = new MongoOperation();
+        mongo.DatabaseConection("ClinicHistory");
+        DB BaseData = MongoOperation.getMongoC().getDB("PrototypeVirtualID");
+        DBCollection collections = BaseData.getCollection("ClinicHistory");
+        DBCursor cursor = collections.find();
+
+        String[] columnNames = {"Name", "ID", "healthInsurance", "allergies"};
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+
+        while (cursor.hasNext()) {
+            DBObject obj = cursor.next();
+            String name = (String) obj.get("Name");
+            String id = (String) obj.get("ID");
+            String health = (String) obj.get("Health Insurance");
+            String allergies = (String) obj.get("Allergies");
+            model.addRow(new Object[]{name, id, health, allergies});
+        }
+        return model;
+    }
+    
+    
+    public DefaultTableModel tableDiagnosis() {
+        
+        NSQLDBManager mongo = new MongoOperation();
+        mongo.DatabaseConection("Diagnosis");
+        DB BaseData = MongoOperation.getMongoC().getDB("PrototypeVirtualID");
+        DBCollection collections = BaseData.getCollection("Diagnosis");
+        DBCursor cursor = collections.find();
+
+        String[] columnNames = {"Name", "ID", "healthInsurance", "allergies"};
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+
+        while (cursor.hasNext()) {
+            DBObject obj = cursor.next();
+            String name = (String) obj.get("Patient Name");
+            String sym = (String) obj.get("Symptom");
+            String medi = (String) obj.get("Medicine");
+            model.addRow(new Object[]{name, sym, medi});
+        }
+        return model;
+    }
+    
+    
+    
     
     
 }
