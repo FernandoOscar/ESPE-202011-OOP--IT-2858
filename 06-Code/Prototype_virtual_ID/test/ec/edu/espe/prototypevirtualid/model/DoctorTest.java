@@ -5,6 +5,9 @@
  */
 package ec.edu.espe.prototypevirtualid.model;
 
+import ec.edu.espe.prototypevirtualid.model.Doctor;
+import ec.edu.espe.prototypevirtualid.model.Doctor;
+import ec.edu.espe.prototypevirtualid.model.Doctor;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,21 +47,30 @@ public class DoctorTest {
     public void testGetSpecialty() {
         System.out.println("getSpecialty");
         Doctor instance = new Doctor();
-        String expResult = null;
+        instance.setSpecialty("Medicine");
+        String expResult = "Medicine";
         String result = instance.getSpecialty();
         assertEquals(expResult, result);
 
     }
-
-    /**
-     * Test of setSpecialty method, of class Doctor.
-     */
     @Test
-    public void testSetSpecialty() {
-        System.out.println("setSpecialty");
-        String specialty = "Laboratory";
+    public void testGetSpecialty1() {
+        System.out.println("getSpecialty");
         Doctor instance = new Doctor();
-        instance.setSpecialty(specialty);
+        instance.setSpecialty("Medicine");
+        String expResult = "medicine";
+        String result = instance.getSpecialty();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetSpecialty2() {
+        System.out.println("getSpecialty");
+        Doctor instance = new Doctor();
+        instance.setSpecialty("medicine");
+        String expResult = "Medicine";
+        String result = instance.getSpecialty();
+        assertEquals(expResult, result);
 
     }
 
@@ -69,23 +81,33 @@ public class DoctorTest {
     public void testGetNameDoctor() {
         System.out.println("getNameDoctor");
         Doctor instance = new Doctor();
-        String expResult = null;
+        instance.setNameDoctor("Pedro");
+        String expResult = "Pedro";
+        String result = instance.getNameDoctor();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetNameDoctor1() {
+        System.out.println("getNameDoctor");
+        Doctor instance = new Doctor();
+        instance.setNameDoctor("Calos");
+        String expResult = "carlos";
+        String result = instance.getNameDoctor();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetNameDoctor2() {
+        System.out.println("getNameDoctor");
+        Doctor instance = new Doctor();
+        instance.setNameDoctor("juan");
+        String expResult = "Juan";
         String result = instance.getNameDoctor();
         assertEquals(expResult, result);
 
     }
 
-    /**
-     * Test of setNameDoctor method, of class Doctor.
-     */
-    @Test
-    public void testSetNameDoctor() {
-        System.out.println("setNameDoctor");
-        String nameDoctor = "Pedro";
-        Doctor instance = new Doctor();
-        instance.setNameDoctor(nameDoctor);
-
-    }
 
     /**
      * Test of getWorkingHour method, of class Doctor.
@@ -94,22 +116,32 @@ public class DoctorTest {
     public void testGetWorkingHour() {
         System.out.println("getWorkingHour");
         Doctor instance = new Doctor();
-        String expResult = null;
+        instance.setWorkingHour("6 Hours");
+        String expResult = "6 Hours";
+        String result = instance.getWorkingHour();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetWorkingHour1() {
+        System.out.println("getWorkingHour");
+        Doctor instance = new Doctor();
+        instance.setWorkingHour("6 Hours");
+        String expResult = "5 Hours";
+        String result = instance.getWorkingHour();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetWorkingHour2() {
+        System.out.println("getWorkingHour");
+        Doctor instance = new Doctor();
+        instance.setWorkingHour("6 Hours");
+        String expResult = "6 hours";
         String result = instance.getWorkingHour();
         assertEquals(expResult, result);
 
     }
 
-    /**
-     * Test of setWorkingHour method, of class Doctor.
-     */
-    @Test
-    public void testSetWorkingHour() {
-        System.out.println("setWorkingHour");
-        String workingHour = "5 hours";
-        Doctor instance = new Doctor();
-        instance.setWorkingHour(workingHour);
-
-    }
     
 }

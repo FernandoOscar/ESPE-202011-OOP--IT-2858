@@ -5,6 +5,9 @@
  */
 package ec.edu.espe.prototypevirtualid.model;
 
+import ec.edu.espe.prototypevirtualid.model.VirtualCard;
+import ec.edu.espe.prototypevirtualid.model.VirtualCard;
+import ec.edu.espe.prototypevirtualid.model.VirtualCard;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,23 +47,53 @@ public class VirtualCardTest {
     public void testGetDepartment() {
         System.out.println("getDepartment");
         VirtualCard instance = new VirtualCard();
-        String expResult = null;
+        instance.setDepartment("Computer's science");
+        String expResult = "Computer's science";
+        String result = instance.getDepartment();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetDepartment1() {
+        System.out.println("getDepartment");
+        VirtualCard instance = new VirtualCard();
+        instance.setDepartment("Computer's science");
+        String expResult = "Computer's Science";
+        String result = instance.getDepartment();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetDepartment2() {
+        System.out.println("getDepartment");
+        VirtualCard instance = new VirtualCard();
+        instance.setDepartment("Computer's Science");
+        String expResult = "Computer's science";
+        String result = instance.getDepartment();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetDepartment3() {
+        System.out.println("getDepartment");
+        VirtualCard instance = new VirtualCard();
+        instance.setDepartment("Computer's science");
+        String expResult = "Computer's cience";
+        String result = instance.getDepartment();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetDepartment4() {
+        System.out.println("getDepartment");
+        VirtualCard instance = new VirtualCard();
+        instance.setDepartment("Computer's science");
+        String expResult = "Computer's cience";
         String result = instance.getDepartment();
         assertEquals(expResult, result);
 
     }
 
-    /**
-     * Test of setDepartment method, of class VirtualCard.
-     */
-    @Test
-    public void testSetDepartment() {
-        System.out.println("setDepartment");
-        String department = "computer's science";
-        VirtualCard instance = new VirtualCard();
-        instance.setDepartment(department);
-
-    }
 
     /**
      * Test of getId method, of class VirtualCard.
@@ -69,23 +102,53 @@ public class VirtualCardTest {
     public void testGetId() {
         System.out.println("getId");
         VirtualCard instance = new VirtualCard();
-        int expResult = 0;
+        instance.setId(374568);
+        int expResult = 374568;
+        int result = instance.getId();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetId1() {
+        System.out.println("getId");
+        VirtualCard instance = new VirtualCard();
+        instance.setId(3745678);
+        int expResult = 374568;
+        int result = instance.getId();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetId2() {
+        System.out.println("getId");
+        VirtualCard instance = new VirtualCard();
+        instance.setId(374568);
+        int expResult = 3747568;
+        int result = instance.getId();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetId3() {
+        System.out.println("getId");
+        VirtualCard instance = new VirtualCard();
+        instance.setId(37411568);
+        int expResult = 374568;
+        int result = instance.getId();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetId4() {
+        System.out.println("getId");
+        VirtualCard instance = new VirtualCard();
+        instance.setId(37454268);
+        int expResult = 37456228;
         int result = instance.getId();
         assertEquals(expResult, result);
 
     }
 
-    /**
-     * Test of setId method, of class VirtualCard.
-     */
-    @Test
-    public void testSetId() {
-        System.out.println("setId");
-        int id = 0;
-        VirtualCard instance = new VirtualCard();
-        instance.setId(id);
-
-    }
 
     /**
      * Test of getName method, of class VirtualCard.
@@ -94,23 +157,53 @@ public class VirtualCardTest {
     public void testGetName() {
         System.out.println("getName");
         VirtualCard instance = new VirtualCard();
-        String expResult = null;
+        instance.setName("Carlos Peralta");
+        String expResult = "Carlos Peralta";
         String result = instance.getName();
         assertEquals(expResult, result);
 
     }
-
-    /**
-     * Test of setName method, of class VirtualCard.
-     */
     @Test
-    public void testSetName() {
-        System.out.println("setName");
-        String name = "Melissa";
+    public void testGetName1() {
+        System.out.println("getName");
         VirtualCard instance = new VirtualCard();
-        instance.setName(name);
+        instance.setName("Carlos Peralta");
+        String expResult = "Carlos peralta";
+        String result = instance.getName();
+        assertEquals(expResult, result);
 
     }
+    @Test
+    public void testGetName2() {
+        System.out.println("getName");
+        VirtualCard instance = new VirtualCard();
+        instance.setName("Alison Paez");
+        String expResult = "Alison Paez";
+        String result = instance.getName();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetName3() {
+        System.out.println("getName");
+        VirtualCard instance = new VirtualCard();
+        instance.setName("Carlos Peralta");
+        String expResult = "Carlos";
+        String result = instance.getName();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetName4() {
+        System.out.println("getName");
+        VirtualCard instance = new VirtualCard();
+        instance.setName("Alison Paez");
+        String expResult = "AlisonPaez";
+        String result = instance.getName();
+        assertEquals(expResult, result);
+
+    }
+    
 
     /**
      * Test of getQrCode method, of class VirtualCard.
@@ -119,22 +212,42 @@ public class VirtualCardTest {
     public void testGetQrCode() {
         System.out.println("getQrCode");
         VirtualCard instance = new VirtualCard();
-        int expResult = 0;
+        instance.setQrCode(47247334);
+        int expResult = 47247334;
+        int result = instance.getQrCode();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetQrCode1() {
+        System.out.println("getQrCode");
+        VirtualCard instance = new VirtualCard();
+        instance.setQrCode(47247334);
+        int expResult = 4724334;
+        int result = instance.getQrCode();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetQrCode2() {
+        System.out.println("getQrCode");
+        VirtualCard instance = new VirtualCard();
+        instance.setQrCode(4727334);
+        int expResult = 47247334;
+        int result = instance.getQrCode();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetQrCode3() {
+        System.out.println("getQrCode");
+        VirtualCard instance = new VirtualCard();
+        instance.setQrCode(47247334);
+        int expResult = 472457334;
         int result = instance.getQrCode();
         assertEquals(expResult, result);
 
     }
 
-    /**
-     * Test of setQrCode method, of class VirtualCard.
-     */
-    @Test
-    public void testSetQrCode() {
-        System.out.println("setQrCode");
-        int QrCode = 0;
-        VirtualCard instance = new VirtualCard();
-        instance.setQrCode(QrCode);
-
-    }
     
 }

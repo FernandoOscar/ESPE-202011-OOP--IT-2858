@@ -5,6 +5,9 @@
  */
 package ec.edu.espe.prototypevirtualid.model;
 
+import ec.edu.espe.prototypevirtualid.model.Polyclinic;
+import ec.edu.espe.prototypevirtualid.model.Polyclinic;
+import ec.edu.espe.prototypevirtualid.model.Polyclinic;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,21 +47,40 @@ public class PolyclinicTest {
     public void testGetVirtualid() {
         System.out.println("getVirtualid");
         Polyclinic instance = new Polyclinic();
-        int expResult = 0;
+        instance.setVirtualid(384524);
+        int expResult = 384524;
         int result = instance.getVirtualid();
         assertEquals(expResult, result);
 
     }
-
-    /**
-     * Test of setVirtualid method, of class Polyclinic.
-     */
     @Test
-    public void testSetVirtualid() {
-        System.out.println("setVirtualid");
-        int virtualid = 0;
+    public void testGetVirtualid1() {
+        System.out.println("getVirtualid");
         Polyclinic instance = new Polyclinic();
-        instance.setVirtualid(virtualid);
+        instance.setVirtualid(38454);
+        int expResult = 384524;
+        int result = instance.getVirtualid();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetVirtualid2() {
+        System.out.println("getVirtualid");
+        Polyclinic instance = new Polyclinic();
+        instance.setVirtualid(3845214);
+        int expResult = 384524;
+        int result = instance.getVirtualid();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetVirtualid3() {
+        System.out.println("getVirtualid");
+        Polyclinic instance = new Polyclinic();
+        instance.setVirtualid(38524);
+        int expResult = 3844524;
+        int result = instance.getVirtualid();
+        assertEquals(expResult, result);
 
     }
 
@@ -69,23 +91,33 @@ public class PolyclinicTest {
     public void testIsQrcode() {
         System.out.println("isQrcode");
         Polyclinic instance = new Polyclinic();
+        instance.setQrcode(true);
+        boolean expResult = true;
+        boolean result = instance.isQrcode();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testIsQrcode1() {
+        System.out.println("isQrcode");
+        Polyclinic instance = new Polyclinic();
+        instance.setQrcode(true);
         boolean expResult = false;
         boolean result = instance.isQrcode();
         assertEquals(expResult, result);
 
     }
-
-    /**
-     * Test of setQrcode method, of class Polyclinic.
-     */
     @Test
-    public void testSetQrcode() {
-        System.out.println("setQrcode");
-        boolean qrcode = false;
+    public void testIsQrcode2() {
+        System.out.println("isQrcode");
         Polyclinic instance = new Polyclinic();
-        instance.setQrcode(qrcode);
+        instance.setQrcode(false);
+        boolean expResult = true;
+        boolean result = instance.isQrcode();
+        assertEquals(expResult, result);
 
     }
+
 
     /**
      * Test of getTreatment method, of class Polyclinic.
@@ -94,21 +126,40 @@ public class PolyclinicTest {
     public void testGetTreatment() {
         System.out.println("getTreatment");
         Polyclinic instance = new Polyclinic();
-        String expResult = null;
+        instance.setTreatment("tablet");
+        String expResult = "tablet";
         String result = instance.getTreatment();
         assertEquals(expResult, result);
 
     }
-
-    /**
-     * Test of setTreatment method, of class Polyclinic.
-     */
     @Test
-    public void testSetTreatment() {
-        System.out.println("setTreatment");
-        String treatment = "medicine";
+    public void testGetTreatment1() {
+        System.out.println("getTreatment");
         Polyclinic instance = new Polyclinic();
-        instance.setTreatment(treatment);
+        instance.setTreatment("Tablet");
+        String expResult = "tablet";
+        String result = instance.getTreatment();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetTreatment2() {
+        System.out.println("getTreatment");
+        Polyclinic instance = new Polyclinic();
+        instance.setTreatment("tablet");
+        String expResult = "Tablet";
+        String result = instance.getTreatment();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetTreatment3() {
+        System.out.println("getTreatment");
+        Polyclinic instance = new Polyclinic();
+        instance.setTreatment("surgery");
+        String expResult = "Surgery";
+        String result = instance.getTreatment();
+        assertEquals(expResult, result);
 
     }
 
@@ -119,22 +170,42 @@ public class PolyclinicTest {
     public void testGetInfection() {
         System.out.println("getInfection");
         Polyclinic instance = new Polyclinic();
-        String expResult = null;
+        instance.setInfection("cut");
+        String expResult = "cut";
+        String result = instance.getInfection();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetInfection1() {
+        System.out.println("getInfection");
+        Polyclinic instance = new Polyclinic();
+        instance.setInfection("cut");
+        String expResult = "cut ";
+        String result = instance.getInfection();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetInfection2() {
+        System.out.println("getInfection");
+        Polyclinic instance = new Polyclinic();
+        instance.setInfection("Cut");
+        String expResult = "cut";
+        String result = instance.getInfection();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetInfection3() {
+        System.out.println("getInfection");
+        Polyclinic instance = new Polyclinic();
+        instance.setInfection("cut");
+        String expResult = "Cut";
         String result = instance.getInfection();
         assertEquals(expResult, result);
 
     }
 
-    /**
-     * Test of setInfection method, of class Polyclinic.
-     */
-    @Test
-    public void testSetInfection() {
-        System.out.println("setInfection");
-        String infection = "cut";
-        Polyclinic instance = new Polyclinic();
-        instance.setInfection(infection);
-
-    }
     
 }

@@ -5,6 +5,9 @@
  */
 package ec.edu.espe.prototypevirtualid.model;
 
+import ec.edu.espe.prototypevirtualid.model.Administrator;
+import ec.edu.espe.prototypevirtualid.model.Administrator;
+import ec.edu.espe.prototypevirtualid.model.Administrator;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -38,40 +41,6 @@ public class AdministratorTest {
     }
 
     /**
-     * Test of addDatabase method, of class Administrator.
-     */
-    @Test
-    public void testAddDatabase() {
-        System.out.println("addDatabase");
-        Administrator instance = new AdministratorImpl();
-        instance.addDatabase();
-
-    }
-
-    /**
-     * Test of createId method, of class Administrator.
-     */
-    @Test
-    public void testCreateId() {
-        System.out.println("createId");
-        Administrator instance = new AdministratorImpl();
-        instance.createId();
-
-    }
-
-    @Test
-    public void testValidUser() {
-        System.out.println("validUser");
-        String user = "Hector";
-        String password = "12345";
-        Administrator instance = new AdministratorImpl();
-        boolean expResult = false;
-        boolean result = instance.validUser(user, password);
-        assertEquals(expResult, result);
-
-    }
-
-    /**
      * Test of getDeparment method, of class Administrator.
      */
     @Test
@@ -82,7 +51,108 @@ public class AdministratorTest {
         String expResult = "Computer's science";
         String result = instance.getDeparment();
         assertEquals(expResult, result);
-
+    }
+    
+    @Test
+    public void testGetDeparment1() {
+        System.out.println("getDeparment");
+        Administrator instance = new AdministratorImpl();
+        instance.setDeparment("Computer's science");
+        String expResult = "Computer's scienc";
+        String result = instance.getDeparment();
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testGetDeparment2() {
+        System.out.println("getDeparment");
+        Administrator instance = new AdministratorImpl();
+        instance.setDeparment("Computer's science");
+        String expResult = "Computer'sscience";
+        String result = instance.getDeparment();
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testGetDeparment3() {
+        System.out.println("getDeparment");
+        Administrator instance = new AdministratorImpl();
+        instance.setDeparment("exact Sciences");
+        String expResult = "exact Sciences";
+        String result = instance.getDeparment();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testGetDeparment4() {
+        System.out.println("getDeparment");
+        Administrator instance = new AdministratorImpl();
+        instance.setDeparment("exact Sciences");
+        String expResult = "exactSciences";
+        String result = instance.getDeparment();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testGetDeparment5() {
+        System.out.println("getDeparment");
+        Administrator instance = new AdministratorImpl();
+        instance.setDeparment("Computer's science");
+        String expResult = "computer's science";
+        String result = instance.getDeparment();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testGetDeparment6() {
+        System.out.println("getDeparment");
+        Administrator instance = new AdministratorImpl();
+        instance.setDeparment("Computer's Science");
+        String expResult = "computer's science";
+        String result = instance.getDeparment();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testGetDeparment7() {
+        System.out.println("getDeparment");
+        Administrator instance = new AdministratorImpl();
+        instance.setDeparment("exact Sciences");
+        String expResult = "exactSciences";
+        String result = instance.getDeparment();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testGetDeparment8() {
+        System.out.println("getDeparment");
+        Administrator instance = new AdministratorImpl();
+        instance.setDeparment("exact sciences");
+        String expResult = "exact Sciences";
+        String result = instance.getDeparment();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testGetDeparment9() {
+        System.out.println("getDeparment");
+        Administrator instance = new AdministratorImpl();
+        instance.setDeparment("exact sciences");
+        String expResult = "exact science";
+        String result = instance.getDeparment();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testGetDeparment10() {
+        System.out.println("getDeparment");
+        Administrator instance = new AdministratorImpl();
+        instance.setDeparment("exact sciences");
+        String expResult = "exactSciences";
+        String result = instance.getDeparment();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testGetDeparment11() {
+        System.out.println("getDeparment");
+        Administrator instance = new AdministratorImpl();
+        instance.setDeparment("Sxact Sciences");
+        String expResult = "Exact Sciences";
+        String result = instance.getDeparment();
+        assertEquals(expResult, result);
     }
 
 

@@ -5,6 +5,9 @@
  */
 package ec.edu.espe.prototypevirtualid.model;
 
+import ec.edu.espe.prototypevirtualid.model.Area;
+import ec.edu.espe.prototypevirtualid.model.Area;
+import ec.edu.espe.prototypevirtualid.model.Area;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -38,18 +41,6 @@ public class AreaTest {
     }
 
     /**
-     * Test of setLocation method, of class Area.
-     */
-    @Test
-    public void testSetLocation() {
-        System.out.println("setLocation");
-        String location = "Quito";
-        Area instance = new Area();
-        instance.setLocation(location);
-
-    }
-
-    /**
      * Test of isAvailability method, of class Area.
      */
     @Test
@@ -62,18 +53,17 @@ public class AreaTest {
         assertEquals(expResult, result);
  
     }
-
-    /**
-     * Test of setAvailability method, of class Area.
-     */
     @Test
-    public void testSetAvailability() {
-        System.out.println("setAvailability");
-        boolean availability = false;
+    public void testIsAvailability1() {
+        System.out.println("isAvailability");
         Area instance = new Area();
-        instance.setAvailability(availability);
-
+        boolean availability = false;
+        boolean expResult = availability;
+        boolean result = instance.isAvailability();
+        assertEquals(expResult, result);
+ 
     }
+
 
     /**
      * Test of getArea method, of class Area.
@@ -82,22 +72,93 @@ public class AreaTest {
     public void testGetArea() {
         System.out.println("getArea");
         Area instance = new Area();
-        String expResult = null;
+        instance.setArea("general medicine");
+        String expResult = "general medicine";
+        String result = instance.getArea();
+        assertEquals(expResult, result);
+  
+    }
+    @Test
+    public void testGetArea1() {
+        System.out.println("getArea");
+        Area instance = new Area();
+        instance.setArea("General medicine");
+        String expResult = "general medicine";
+        String result = instance.getArea();
+        assertEquals(expResult, result);
+  
+    }
+    @Test
+    public void testGetArea2() {
+        System.out.println("getArea");
+        Area instance = new Area();
+        instance.setArea("general medicine");
+        String expResult = "general Medicine";
+        String result = instance.getArea();
+        assertEquals(expResult, result);
+  
+    }
+    @Test
+    public void testGetArea3() {
+        System.out.println("getArea");
+        Area instance = new Area();
+        instance.setArea("general medicine");
+        String expResult = "generalMedicine";
+        String result = instance.getArea();
+        assertEquals(expResult, result);
+  
+    }
+    @Test
+    public void testGetArea4() {
+        System.out.println("getArea");
+        Area instance = new Area();
+        instance.setArea("generalmedicine");
+        String expResult = "general medicine";
+        String result = instance.getArea();
+        assertEquals(expResult, result);
+  
+    }
+    @Test
+    public void testGetArea5() {
+        System.out.println("getArea");
+        Area instance = new Area();
+        instance.setArea("General Medicine");
+        String expResult = "general medicine";
+        String result = instance.getArea();
+        assertEquals(expResult, result);
+  
+    }
+    @Test
+    public void testGetArea6() {
+        System.out.println("getArea");
+        Area instance = new Area();
+        instance.setArea("General Medicine");
+        String expResult = "general Medicine";
+        String result = instance.getArea();
+        assertEquals(expResult, result);
+  
+    }
+    @Test
+    public void testGetArea7() {
+        System.out.println("getArea");
+        Area instance = new Area();
+        instance.setArea("GENERAL MEDICINE");
+        String expResult = "general medicine";
+        String result = instance.getArea();
+        assertEquals(expResult, result);
+  
+    }
+    @Test
+    public void testGetArea8() {
+        System.out.println("getArea");
+        Area instance = new Area();
+        instance.setArea("general medicine");
+        String expResult = "GENERAL MEDICINE";
         String result = instance.getArea();
         assertEquals(expResult, result);
   
     }
 
-    /**
-     * Test of setArea method, of class Area.
-     */
-    @Test
-    public void testSetArea() {
-        System.out.println("setArea");
-        String area = "Computer's science";
-        Area instance = new Area();
-        instance.setArea(area);
 
-    }
     
 }

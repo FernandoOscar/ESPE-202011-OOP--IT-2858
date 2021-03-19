@@ -5,6 +5,9 @@
  */
 package ec.edu.espe.prototypevirtualid.model;
 
+import ec.edu.espe.prototypevirtualid.model.Student;
+import ec.edu.espe.prototypevirtualid.model.Student;
+import ec.edu.espe.prototypevirtualid.model.Student;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,22 +47,42 @@ public class StudentTest {
     public void testGetCareer() {
         System.out.println("getCareer");
         Student instance = new Student();
-        String expResult = null;
+        instance.setCareer("Software");
+        String expResult = "Software";
+        String result = instance.getCareer();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetCareer1() {
+        System.out.println("getCareer");
+        Student instance = new Student();
+        instance.setCareer("Software");
+        String expResult = "software";
+        String result = instance.getCareer();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetCareer2() {
+        System.out.println("getCareer");
+        Student instance = new Student();
+        instance.setCareer("Software");
+        String expResult = "Software ";
+        String result = instance.getCareer();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetCareer3() {
+        System.out.println("getCareer");
+        Student instance = new Student();
+        instance.setCareer("software");
+        String expResult = "Software";
         String result = instance.getCareer();
         assertEquals(expResult, result);
 
     }
 
-    /**
-     * Test of setCareer method, of class Student.
-     */
-    @Test
-    public void testSetCareer() {
-        System.out.println("setCareer");
-        String career = "Information technology";
-        Student instance = new Student();
-        instance.setCareer(career);
-
-    }
     
 }

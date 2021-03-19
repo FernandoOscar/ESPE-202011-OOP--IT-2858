@@ -5,6 +5,9 @@
  */
 package ec.edu.espe.prototypevirtualid.model;
 
+import ec.edu.espe.prototypevirtualid.model.MedicalCheck;
+import ec.edu.espe.prototypevirtualid.model.MedicalCheck;
+import ec.edu.espe.prototypevirtualid.model.MedicalCheck;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,23 +47,53 @@ public class MedicalCheckTest {
     public void testGetDate() {
         System.out.println("getDate");
         MedicalCheck instance = new MedicalCheck();
-        String expResult = null;
+        instance.setDate("01/07/2015");
+        String expResult = "01/07/2015";
+        String result = instance.getDate();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetDate1() {
+        System.out.println("getDate");
+        MedicalCheck instance = new MedicalCheck();
+        instance.setDate("01/07/2015");
+        String expResult = "01/07/2016";
+        String result = instance.getDate();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetDate2() {
+        System.out.println("getDate");
+        MedicalCheck instance = new MedicalCheck();
+        instance.setDate("01/07/2015");
+        String expResult = "01-07-2015";
+        String result = instance.getDate();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetDate3() {
+        System.out.println("getDate");
+        MedicalCheck instance = new MedicalCheck();
+        instance.setDate("01/07/2015");
+        String expResult = "01/7/2015";
+        String result = instance.getDate();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetDate4() {
+        System.out.println("getDate");
+        MedicalCheck instance = new MedicalCheck();
+        instance.setDate("01/07/2015");
+        String expResult = "1/07/2015";
         String result = instance.getDate();
         assertEquals(expResult, result);
 
     }
 
-    /**
-     * Test of setDate method, of class MedicalCheck.
-     */
-    @Test
-    public void testSetDate() {
-        System.out.println("setDate");
-        String date = "March, 15th";
-        MedicalCheck instance = new MedicalCheck();
-        instance.setDate(date);
- 
-    }
 
     /**
      * Test of getTime method, of class MedicalCheck.
@@ -69,22 +102,52 @@ public class MedicalCheckTest {
     public void testGetTime() {
         System.out.println("getTime");
         MedicalCheck instance = new MedicalCheck();
-        String expResult = null;
+        instance.setTime("14:40");
+        String expResult = "14:40";
+        String result = instance.getTime();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetTime1() {
+        System.out.println("getTime");
+        MedicalCheck instance = new MedicalCheck();
+        instance.setTime("14:40");
+        String expResult = "14 y 40";
+        String result = instance.getTime();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetTime2() {
+        System.out.println("getTime");
+        MedicalCheck instance = new MedicalCheck();
+        instance.setTime("14:40");
+        String expResult = "14 and 40";
+        String result = instance.getTime();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetTime3() {
+        System.out.println("getTime");
+        MedicalCheck instance = new MedicalCheck();
+        instance.setTime("14:40");
+        String expResult = "14;40";
+        String result = instance.getTime();
+        assertEquals(expResult, result);
+
+    }
+    @Test
+    public void testGetTime4() {
+        System.out.println("getTime");
+        MedicalCheck instance = new MedicalCheck();
+        instance.setTime("14:40");
+        String expResult = "14:4";
         String result = instance.getTime();
         assertEquals(expResult, result);
 
     }
 
-    /**
-     * Test of setTime method, of class MedicalCheck.
-     */
-    @Test
-    public void testSetTime() {
-        System.out.println("setTime");
-        String time = "February 15";
-        MedicalCheck instance = new MedicalCheck();
-        instance.setTime(time);
-
-    }
     
 }
