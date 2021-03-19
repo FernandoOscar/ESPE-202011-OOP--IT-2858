@@ -59,7 +59,7 @@ public class MedicalCheckTest {
         String date = "March, 15th";
         MedicalCheck instance = new MedicalCheck();
         instance.setDate(date);
-
+ 
     }
 
     /**

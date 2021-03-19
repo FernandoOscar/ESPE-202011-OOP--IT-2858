@@ -106,7 +106,7 @@ public class PolyclinicTest {
     @Test
     public void testSetTreatment() {
         System.out.println("setTreatment");
-        String treatment = "";
+        String treatment = "medicine";
         Polyclinic instance = new Polyclinic();
         instance.setTreatment(treatment);
 
@@ -131,7 +131,7 @@ public class PolyclinicTest {
     @Test
     public void testSetInfection() {
         System.out.println("setInfection");
-        String infection = "Cut";
+        String infection = "cut";
         Polyclinic instance = new Polyclinic();
         instance.setInfection(infection);
 

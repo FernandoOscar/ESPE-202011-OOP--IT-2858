@@ -43,10 +43,10 @@ public class AreaTest {
     @Test
     public void testSetLocation() {
         System.out.println("setLocation");
-        String location = "Hall 1";
+        String location = "Quito";
         Area instance = new Area();
         instance.setLocation(location);
-        
+
     }
 
     /**
@@ -56,9 +56,11 @@ public class AreaTest {
     public void testIsAvailability() {
         System.out.println("isAvailability");
         Area instance = new Area();
-        boolean expResult = false;
+        boolean availability = true;
+        boolean expResult = availability;
         boolean result = instance.isAvailability();
         assertEquals(expResult, result);
+ 
     }
 
     /**
@@ -83,7 +85,7 @@ public class AreaTest {
         String expResult = null;
         String result = instance.getArea();
         assertEquals(expResult, result);
-        
+  
     }
 
     /**
@@ -92,10 +94,10 @@ public class AreaTest {
     @Test
     public void testSetArea() {
         System.out.println("setArea");
-        String area = "";
+        String area = "Computer's science";
         Area instance = new Area();
         instance.setArea(area);
- 
+
     }
     
 }

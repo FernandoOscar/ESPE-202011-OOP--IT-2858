@@ -46,10 +46,20 @@ public class LoginTest {
         String user = "MAJOF";
         String password = "12345";
         Login instance = new Login();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.validate(user, password);
         assertEquals(expResult, result);
-       
+
     }
-    
+    @Test
+    public void testValidate1() {
+        System.out.println("validate");
+        String user = "Hector";
+        String password = "12345";
+        Login instance = new Login();
+        boolean expResult = true;
+        boolean result = instance.validate(user, password);
+        assertEquals(expResult, result);
+
+    }
 }

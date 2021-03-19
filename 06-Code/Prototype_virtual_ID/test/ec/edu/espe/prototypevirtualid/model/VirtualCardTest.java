@@ -56,7 +56,7 @@ public class VirtualCardTest {
     @Test
     public void testSetDepartment() {
         System.out.println("setDepartment");
-        String department = "Ciencias de la Computacion";
+        String department = "computer's science";
         VirtualCard instance = new VirtualCard();
         instance.setDepartment(department);
 
@@ -106,7 +106,7 @@ public class VirtualCardTest {
     @Test
     public void testSetName() {
         System.out.println("setName");
-        String name = "Pedro";
+        String name = "Melissa";
         VirtualCard instance = new VirtualCard();
         instance.setName(name);
 

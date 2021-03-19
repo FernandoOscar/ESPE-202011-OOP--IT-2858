@@ -45,7 +45,7 @@ public class AdministratorTest {
         System.out.println("addDatabase");
         Administrator instance = new AdministratorImpl();
         instance.addDatabase();
-        
+
     }
 
     /**
@@ -56,18 +56,19 @@ public class AdministratorTest {
         System.out.println("createId");
         Administrator instance = new AdministratorImpl();
         instance.createId();
-        
+
     }
 
-    /**
-     * Test of removeStudent method, of class Administrator.
-     */
     @Test
-    public void testRemoveStudent() {
-        System.out.println("removeStudent");
+    public void testValidUser() {
+        System.out.println("validUser");
+        String user = "Hector";
+        String password = "12345";
         Administrator instance = new AdministratorImpl();
-        instance.removeStudent();
-        
+        boolean expResult = false;
+        boolean result = instance.validUser(user, password);
+        assertEquals(expResult, result);
+
     }
 
     /**
@@ -77,23 +78,13 @@ public class AdministratorTest {
     public void testGetDeparment() {
         System.out.println("getDeparment");
         Administrator instance = new AdministratorImpl();
-        String expResult = null;
+        instance.setDeparment("Computer's science");
+        String expResult = "Computer's science";
         String result = instance.getDeparment();
         assertEquals(expResult, result);
-        
+
     }
 
-    /**
-     * Test of setDeparment method, of class Administrator.
-     */
-    @Test
-    public void testSetDeparment() {
-        System.out.println("setDeparment");
-        String deparment = "General medicine";
-        Administrator instance = new AdministratorImpl();
-        instance.setDeparment(deparment);
-        
-    }
 
     public class AdministratorImpl extends Administrator {
 
@@ -108,7 +99,7 @@ public class AdministratorTest {
 
         @Override
         public boolean validUser(String user, String password) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            return false;
         }
     }
     

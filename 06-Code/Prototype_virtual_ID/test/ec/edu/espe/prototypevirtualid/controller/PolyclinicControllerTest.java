@@ -44,10 +44,11 @@ public class PolyclinicControllerTest {
     @Test
     public void testShowMedicaments() {
         System.out.println("showMedicaments");
-        File fileName = null;
-        String record = "General medicine";
+        File fileName = new File("Request.json");
+        String record = "Bryan Pazmino";
         PolyclinicController instance = new PolyclinicController();
         instance.showMedicaments(fileName, record);
+
     }
     
 }

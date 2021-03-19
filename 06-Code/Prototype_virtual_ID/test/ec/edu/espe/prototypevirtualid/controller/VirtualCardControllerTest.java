@@ -48,18 +48,7 @@ public class VirtualCardControllerTest {
         boolean expResult = false;
         boolean result = instance.giveWay(dataID);
         assertEquals(expResult, result);
-        
-    }
 
-    /**
-     * Test of showIdentification method, of class VirtualCardController.
-     */
-    @Test
-    public void testShowIdentification() {
-        System.out.println("showIdentification");
-        VirtualCardController instance = new VirtualCardController();
-        instance.showIdentification();
-        
-    }
+    }  
     
 }

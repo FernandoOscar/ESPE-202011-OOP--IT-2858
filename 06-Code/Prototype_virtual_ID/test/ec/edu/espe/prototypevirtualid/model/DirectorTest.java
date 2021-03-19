@@ -63,7 +63,7 @@ public class DirectorTest {
         boolean expResult = false;
         boolean result = instance.approveMotion(answer);
         assertEquals(expResult, result);
- 
+
     }
 
     /**
@@ -109,7 +109,7 @@ public class DirectorTest {
         String expResult = null;
         String result = instance.getCareer();
         assertEquals(expResult, result);
- 
+
     }
 
     /**
@@ -118,7 +118,7 @@ public class DirectorTest {
     @Test
     public void testSetCareer() {
         System.out.println("setCareer");
-        String career = "six hours";
+        String career = "Information technology";
         Director instance = new Director();
         instance.setCareer(career);
 

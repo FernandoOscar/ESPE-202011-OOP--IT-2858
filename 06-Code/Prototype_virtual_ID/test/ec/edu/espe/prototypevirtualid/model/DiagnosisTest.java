@@ -56,7 +56,7 @@ public class DiagnosisTest {
     @Test
     public void testSetPatientName() {
         System.out.println("setPatientName");
-        String patientName = "";
+        String patientName = "Juan";
         Diagnosis instance = new Diagnosis();
         instance.setPatientName(patientName);
 
@@ -81,7 +81,7 @@ public class DiagnosisTest {
     @Test
     public void testSetSymptom() {
         System.out.println("setSymptom");
-        String symptom = "";
+        String symptom = "headache";
         Diagnosis instance = new Diagnosis();
         instance.setSymptom(symptom);
 
@@ -106,10 +106,10 @@ public class DiagnosisTest {
     @Test
     public void testSetMedicine() {
         System.out.println("setMedicine");
-        String medicine = "";
+        String medicine = "paracetamol";
         Diagnosis instance = new Diagnosis();
         instance.setMedicine(medicine);
-        
+
     }
     
 }

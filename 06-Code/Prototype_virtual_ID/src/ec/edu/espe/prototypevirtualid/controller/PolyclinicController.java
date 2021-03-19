@@ -17,7 +17,7 @@ public class PolyclinicController {
     
     public void showMedicaments(File fileName, String record){
         Polyclinic pol = new Polyclinic();
-        Data.find(fileName, pol.getTreatment());
+        Data.find(fileName, record);
     }
     
 }
