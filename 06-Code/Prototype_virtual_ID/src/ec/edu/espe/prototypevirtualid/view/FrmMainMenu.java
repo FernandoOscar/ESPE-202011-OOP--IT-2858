@@ -40,7 +40,10 @@ public class FrmMainMenu extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         mnuAttention = new javax.swing.JMenu();
         menuInmediateAttention = new javax.swing.JMenuItem();
-        mnuMakeAppo = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         mnuAddDoctor = new javax.swing.JMenuItem();
 
@@ -98,8 +101,33 @@ public class FrmMainMenu extends javax.swing.JFrame {
         });
         mnuAttention.add(menuInmediateAttention);
 
-        mnuMakeAppo.setText("Make Appointment");
-        mnuAttention.add(mnuMakeAppo);
+        jMenu6.setText("Appointment");
+
+        jMenuItem2.setText("Make Apponitment");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem2);
+
+        jMenuItem3.setText("Delete Appointment");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem3);
+
+        jMenuItem4.setText("Udpate Appointment");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem4);
+
+        mnuAttention.add(jMenu6);
 
         jMenu5.add(mnuAttention);
 
@@ -123,7 +151,7 @@ public class FrmMainMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 632, Short.MAX_VALUE)
+            .addGap(0, 691, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,6 +190,24 @@ public class FrmMainMenu extends javax.swing.JFrame {
         this.setVisible(false);
         update.setVisible(true);
     }//GEN-LAST:event_mnuUpdateStudntActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        FrmMedicalCheckRecord record = new FrmMedicalCheckRecord();
+        this.setVisible(false);
+        record.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        FrmMedicalCheckDelete delete = new FrmMedicalCheckDelete();
+        this.setVisible(false);
+        delete.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        FrmMedicalcheckUpdate update = new FrmMedicalcheckUpdate();
+        this.setVisible(false);
+        update.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,14 +250,17 @@ public class FrmMainMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem menuInmediateAttention;
     private javax.swing.JMenuItem mnuAddDoctor;
     private javax.swing.JMenu mnuAttention;
-    private javax.swing.JMenuItem mnuMakeAppo;
     private javax.swing.JMenuItem mnuRequestId;
     private javax.swing.JMenuItem mnuStudentDelete;
     private javax.swing.JMenuItem mnuUpdateStudnt;
