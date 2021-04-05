@@ -1,1 +1,1 @@
-Use Cases
+Class Diagram
