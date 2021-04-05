@@ -11,6 +11,12 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/User/Desktop/Repositorios/ESPE-202011-OOP--IT-2858/06-Code/Prototype_virtual_ID/src/ec/edu/espe/prototypevirtualid/view/FrmHistoryRecord.java</file>
+            <file>file:/C:/Users/User/Desktop/Repositorios/ESPE-202011-OOP--IT-2858/06-Code/Prototype_virtual_ID/src/ec/edu/espe/prototypevirtualid/view/FrmHistoryDelete.java</file>
+            <file>file:/C:/Users/User/Desktop/Repositorios/ESPE-202011-OOP--IT-2858/06-Code/Prototype_virtual_ID/src/ec/edu/espe/prototypevirtualid/controller/PolyclinicController.java</file>
+            <file>file:/C:/Users/User/Desktop/Repositorios/ESPE-202011-OOP--IT-2858/06-Code/Prototype_virtual_ID/test/ec/edu/espe/prototypevirtualid/controller/DirectorControllerTest.java</file>
+            <file>file:/C:/Users/User/Desktop/Repositorios/ESPE-202011-OOP--IT-2858/06-Code/Prototype_virtual_ID/src/ec/edu/espe/prototypevirtualid/view/FrmMedicalCheckRecord.java</file>
+        </group>
     </open-files>
 </project-private>

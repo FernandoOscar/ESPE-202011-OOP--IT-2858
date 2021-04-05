@@ -71,6 +71,10 @@ public class FrmUpdateStudent extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+
+        jLabel1.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("Name:");
 
         btnNameUpdate.setLabel("Update");
@@ -80,6 +84,8 @@ public class FrmUpdateStudent extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setText("ID: ");
 
         btnIdUpdate.setLabel("Update");
@@ -89,6 +95,8 @@ public class FrmUpdateStudent extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("Career:");
 
         btnCareerUpdate.setLabel("Update");
@@ -98,6 +106,8 @@ public class FrmUpdateStudent extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
         jLabel4.setText("email:");
 
         btnEmailUpdate.setLabel("Update");
@@ -107,6 +117,8 @@ public class FrmUpdateStudent extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
         jLabel5.setText("Address:");
 
         btnAddressUpdate.setLabel("Update");
@@ -116,6 +128,8 @@ public class FrmUpdateStudent extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
         jLabel6.setText("Age:");
 
         btnAgeUpdate.setLabel("Update");
@@ -125,6 +139,8 @@ public class FrmUpdateStudent extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel7.setForeground(new java.awt.Color(204, 204, 204));
         jLabel7.setText("Gender:");
 
         btnGenderUpdate.setLabel("Update");
@@ -160,8 +176,6 @@ public class FrmUpdateStudent extends javax.swing.JFrame {
                 btnShowActionPerformed(evt);
             }
         });
-
-        jLabel8.setText("UPDATE INFORMATION");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -236,16 +250,11 @@ public class FrmUpdateStudent extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(214, 214, 214)
-                .addComponent(jLabel8)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel8)
-                .addGap(18, 18, 18)
+                .addGap(1, 1, 1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnNameUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -300,24 +309,31 @@ public class FrmUpdateStudent extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jLabel8.setText("UPDATE INFORMATION");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(233, 233, 233)
+                .addComponent(jLabel8)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(6, 6, 6)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
