@@ -21,7 +21,8 @@ public class DoctorController {
         document.put("Name", name);
         document.put("Working Hour", working);
         document.put("Specialty", specialty);
-        return null;
+        
+        return document;
     }
 
 }

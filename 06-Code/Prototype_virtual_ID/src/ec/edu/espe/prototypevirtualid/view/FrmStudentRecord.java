@@ -5,15 +5,11 @@
  */
 package ec.edu.espe.prototypevirtualid.view;
 
-import com.mongodb.DBObject;
-import ec.edu.espe.datamanager.controller.Persistance;
+import ec.edu.espe.datamanager.utils.MongoDBManager;
 import ec.edu.espe.datamanager.utils.MongoOperation;
 import ec.edu.espe.datamanager.utils.NSQLDBManager;
 import ec.edu.espe.prototypevirtualid.controller.StudentController;
 import ec.edu.espe.prototypevirtualid.controller.TablesController;
-import ec.edu.espe.prototypevirtualid.model.Student;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -85,8 +81,6 @@ public class FrmStudentRecord extends javax.swing.JFrame {
         jLabel5.setText("Address:");
 
         jLabel6.setText("Career:");
-
-        txtCareer.setText(" ");
 
         jLabel7.setText("Gender: ");
 
@@ -209,13 +203,13 @@ public class FrmStudentRecord extends javax.swing.JFrame {
 
         tblStudent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Name", "ID", "Career", "email", "Address", "Age", "Gender"
             }
         ));
         jScrollPane1.setViewportView(tblStudent);
@@ -297,16 +291,11 @@ public class FrmStudentRecord extends javax.swing.JFrame {
 
                 JOptionPane.showMessageDialog(null, "Information was saved", txtName.getText() + "Saved", JOptionPane.INFORMATION_MESSAGE);
 
-                System.out.println("===========================================================");
-                System.out.println("Your request has been successfully saved!!");
-                System.out.println("===========================================================");
-
                 StudentController student1 = new StudentController();
-                NSQLDBManager mongo;
-                mongo = new MongoOperation();
-                mongo.DatabaseConection("Name");
+                NSQLDBManager mongo = new MongoDBManager();
+                mongo.openConection("Name");
 
-                mongo.create(student1.request(txtName.getText(), txtID.getText(),
+                MongoDBManager.create(student1.request(txtName.getText(), txtID.getText(),
                         txtCareer.getText(), txtAddress.getText(), Integer.parseInt(txtAge.getText()),
                          txtEmail.getText(), cmbGender.getSelectedItem().toString()));
 
@@ -316,7 +305,11 @@ public class FrmStudentRecord extends javax.swing.JFrame {
 
                 TablesController studentC = new TablesController();
                 tblStudent.setModel(studentC.tableStudent());
-                MongoOperation.getMongoC().close();
+                MongoDBManager.getMongoC().close();
+                
+                System.out.println("===========================================================");
+                System.out.println("Your request has been successfully saved!!");
+                System.out.println("===========================================================");
 
                 emptyFields();
 

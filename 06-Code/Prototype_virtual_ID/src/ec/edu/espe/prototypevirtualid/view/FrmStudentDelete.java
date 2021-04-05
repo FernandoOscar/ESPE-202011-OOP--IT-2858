@@ -5,6 +5,8 @@
  */
 package ec.edu.espe.prototypevirtualid.view;
 
+import ec.edu.espe.datamanager.controller.Persistance;
+import ec.edu.espe.datamanager.utils.MongoDBManager;
 import ec.edu.espe.datamanager.utils.MongoOperation;
 import ec.edu.espe.datamanager.utils.NSQLDBManager;
 import ec.edu.espe.prototypevirtualid.controller.TablesController;
@@ -195,10 +197,10 @@ public class FrmStudentDelete extends javax.swing.JFrame {
             if (selection == 0) {
 
                 JOptionPane.showMessageDialog(null, "Information was Delete", txtIdDelete.getText() + "Saved", JOptionPane.INFORMATION_MESSAGE);
-                NSQLDBManager mongo;
-                mongo = new MongoOperation();
-                mongo.DatabaseConection("Name");
-                mongo.delete(txtIdDelete.getText());
+                NSQLDBManager mongo = new MongoDBManager();
+                Persistance field = new MongoDBManager();
+                mongo.openConection("Name");
+                field.delete("ID", txtIdDelete.getText());
                 emptyFields();
 
             } else if (selection == 1) {

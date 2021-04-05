@@ -5,17 +5,14 @@
  */
 package ec.edu.espe.prototypevirtualid.view;
 
+import ec.edu.espe.datamanager.utils.MongoDBManager;
 import ec.edu.espe.datamanager.utils.MongoOperation;
 import ec.edu.espe.datamanager.utils.NSQLDBManager;
 import ec.edu.espe.prototypevirtualid.controller.ClinicHistoryController;
-import ec.edu.espe.prototypevirtualid.controller.StudentController;
 import ec.edu.espe.prototypevirtualid.controller.TablesController;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author FRANCISCO
- */
+
 public class FrmHistoryRecord extends javax.swing.JFrame {
 
     /**
@@ -120,7 +117,7 @@ public class FrmHistoryRecord extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Name", "ID", "HealthInsurance", "Allergies"
             }
         ));
         jScrollPane1.setViewportView(tblHistoryClinic);
@@ -233,10 +230,10 @@ public class FrmHistoryRecord extends javax.swing.JFrame {
 
                 ClinicHistoryController clinic  = new ClinicHistoryController();
                 NSQLDBManager mongo;
-                mongo = new MongoOperation();
-                mongo.DatabaseConection("ClinicHistory");
+                mongo = new MongoDBManager();
+                mongo.openConection("ClinicHistory");
 
-                mongo.create(clinic.request(txtName.getText(), txtID.getText(),
+                MongoDBManager.create(clinic.request(txtName.getText(), txtID.getText(),
                          cmbHealthInsurance.getSelectedItem().toString(),
                          txtAllergies.getText()));
 

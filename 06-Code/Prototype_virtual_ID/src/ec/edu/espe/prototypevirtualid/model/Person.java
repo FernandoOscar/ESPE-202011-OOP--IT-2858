@@ -10,11 +10,6 @@ public abstract class Person {
     private String id;
     private String gender;
     
-    /**
-     *
-     * @return
-     */
-    
 
     public Person() {
     }
@@ -28,8 +23,6 @@ public abstract class Person {
         this.gender = gender;
     }
 
-    
-      
 
     public String getName() {
         return name;

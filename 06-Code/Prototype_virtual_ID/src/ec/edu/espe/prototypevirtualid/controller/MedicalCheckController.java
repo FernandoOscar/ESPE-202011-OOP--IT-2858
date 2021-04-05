@@ -18,10 +18,10 @@ public class MedicalCheckController {
     
     public DBObject addAppinment(String name, String id, String dateAppoinment, String timeAppoinment) {
         document.put("Name", name);
-        document.put("Id", id);
+        document.put("ID", id);
         document.put("Date", dateAppoinment);
         document.put("Time", timeAppoinment);
-
+        
         return document;
     }
 }

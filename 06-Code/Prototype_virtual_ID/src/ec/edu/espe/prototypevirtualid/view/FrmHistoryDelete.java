@@ -5,6 +5,8 @@
  */
 package ec.edu.espe.prototypevirtualid.view;
 
+import ec.edu.espe.datamanager.controller.Persistance;
+import ec.edu.espe.datamanager.utils.MongoDBManager;
 import ec.edu.espe.datamanager.utils.MongoOperation;
 import ec.edu.espe.datamanager.utils.NSQLDBManager;
 import ec.edu.espe.prototypevirtualid.controller.TablesController;
@@ -62,7 +64,7 @@ public class FrmHistoryDelete extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Name", "ID", "HealthInsurance", "Allergies"
             }
         ));
         jScrollPane1.setViewportView(tblDelete);
@@ -128,7 +130,7 @@ public class FrmHistoryDelete extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDelete)
                     .addComponent(jButton3))
-                .addContainerGap(257, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -179,10 +181,10 @@ public class FrmHistoryDelete extends javax.swing.JFrame {
             if (selection == 0) {
 
                 JOptionPane.showMessageDialog(null, "Information was Delete", txtIdDelete.getText() + "Saved", JOptionPane.INFORMATION_MESSAGE);
-                NSQLDBManager mongo;
-                mongo = new MongoOperation();
-                mongo.DatabaseConection("ClinicHistory");
-                mongo.delete(txtIdDelete.getText());
+                NSQLDBManager mongo = new MongoDBManager();
+                Persistance field = new MongoDBManager();
+                mongo.openConection("ClinicHistory");
+                field.delete("ID", txtIdDelete.getText());
                 emptyFields();
 
             } else if (selection == 1) {

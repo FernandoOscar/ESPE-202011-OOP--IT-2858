@@ -9,6 +9,7 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
+import ec.edu.espe.datamanager.utils.MongoDBManager;
 import ec.edu.espe.datamanager.utils.MongoOperation;
 import ec.edu.espe.datamanager.utils.NSQLDBManager;
 import javax.swing.table.DefaultTableModel;
@@ -21,9 +22,9 @@ public class TablesController {
 
     public DefaultTableModel tableStudent() {
         
-        NSQLDBManager mongo = new MongoOperation();
-        mongo.DatabaseConection("Name");
-        DB BaseData = MongoOperation.getMongoC().getDB("PrototypeVirtualID");
+        NSQLDBManager mongo = new MongoDBManager();
+        mongo.openConection("Name");
+        DB BaseData = MongoDBManager.getMongoC().getDB("PrototypeVirtualID");
         DBCollection collections = BaseData.getCollection("Name");
         DBCursor cursor = collections.find();
 
@@ -48,9 +49,9 @@ public class TablesController {
     
     public DefaultTableModel tableAppoinment() {
         
-        NSQLDBManager mongo = new MongoOperation();
-        mongo.DatabaseConection("Medical Appoinment");
-        DB BaseData = MongoOperation.getMongoC().getDB("PrototypeVirtualID");
+        NSQLDBManager mongo = new MongoDBManager();
+        mongo.openConection("Medical Appoinment");
+        DB BaseData = MongoDBManager.getMongoC().getDB("PrototypeVirtualID");
         DBCollection collections = BaseData.getCollection("Medical Appoinment");
         DBCursor cursor = collections.find();
 
@@ -71,9 +72,9 @@ public class TablesController {
     
     public DefaultTableModel tableHistoryClinic() {
         
-        NSQLDBManager mongo = new MongoOperation();
-        mongo.DatabaseConection("ClinicHistory");
-        DB BaseData = MongoOperation.getMongoC().getDB("PrototypeVirtualID");
+        NSQLDBManager mongo = new MongoDBManager();
+        mongo.openConection("ClinicHistory");
+        DB BaseData = MongoDBManager.getMongoC().getDB("PrototypeVirtualID");
         DBCollection collections = BaseData.getCollection("ClinicHistory");
         DBCursor cursor = collections.find();
 
@@ -94,9 +95,9 @@ public class TablesController {
     
     public DefaultTableModel tableDiagnosis() {
         
-        NSQLDBManager mongo = new MongoOperation();
-        mongo.DatabaseConection("Diagnosis");
-        DB BaseData = MongoOperation.getMongoC().getDB("PrototypeVirtualID");
+        NSQLDBManager mongo = new MongoDBManager();
+        mongo.openConection("Diagnosis");
+        DB BaseData = MongoDBManager.getMongoC().getDB("PrototypeVirtualID");
         DBCollection collections = BaseData.getCollection("Diagnosis");
         DBCursor cursor = collections.find();
 
@@ -115,9 +116,9 @@ public class TablesController {
     
     public DefaultTableModel tableMedicalCheck() {
         
-        NSQLDBManager mongo = new MongoOperation();
-        mongo.DatabaseConection("Medical Appoinment");
-        DB BaseData = MongoOperation.getMongoC().getDB("PrototypeVirtualID");
+        NSQLDBManager mongo = new MongoDBManager();
+        mongo.openConection("Medical Appoinment");
+        DB BaseData = MongoDBManager.getMongoC().getDB("PrototypeVirtualID");
         DBCollection collections = BaseData.getCollection("Medical Appoinment");
         DBCursor cursor = collections.find();
 

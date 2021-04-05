@@ -5,14 +5,18 @@
  */
 package ec.edu.espe.prototypevirtualid.model;
 
+import com.mongodb.DBObject;
 
-public abstract class  Administrator extends Person{
-    
+public abstract class Administrator extends Person {
+
     private String deparment;
-    public abstract void addDatabase();
+
+    public abstract void addDatabase(DBObject object);
+
     public abstract void createId();
-    public abstract void removeStudent();
-    
+
+    public abstract void removeStudent(String dataToDelete);
+
     public abstract boolean validUser(String user, String password);
 
     public Administrator(String deparment) {
@@ -29,7 +33,5 @@ public abstract class  Administrator extends Person{
     public void setDeparment(String deparment) {
         this.deparment = deparment;
     }
-            
-    
 
 }

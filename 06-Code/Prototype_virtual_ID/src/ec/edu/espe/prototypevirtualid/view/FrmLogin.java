@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.prototypevirtualid.view;
 
+import ec.edu.espe.prototypevirtualid.controller.Login;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
@@ -172,22 +173,14 @@ public class FrmLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        JSONParser parser = new JSONParser();
-        String user = null;
+        
+        String user = txtUser.getText();
         String pass = null;
-        try {
-            Object object = parser.parse(new FileReader("C:\\user\\account.json"));
-            JSONObject jsonObject = (JSONObject) object;
-            user = (String) jsonObject.get("user");
-            pass = (String) jsonObject.get("password");        
-
-        } catch (IOException ex) {
-            System.err.println("Error: " + ex.toString());
-        } catch (org.json.simple.parser.ParseException ex) {
-            Logger.getLogger(FrmLogin.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-
-        if (txtUser.getText().equalsIgnoreCase(user) && txtPassword.getText().equals(pass)) {
+        
+        Login log = Login.getInstance();
+        log.validate(txtUser.getText(), txtPassword.getText());
+        
+        if (log.validate(txtUser.getText(), txtPassword.getText())== true) {
             FrmMainMenu menu = new FrmMainMenu();            
             System.out.println("Welcome Again " + user);
             this.setVisible(false);

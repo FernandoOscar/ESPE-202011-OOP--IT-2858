@@ -1,22 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ec.edu.espe.prototypevirtualid.view;
 
-
-import ec.edu.espe.datamanager.utils.MongoOperation;
+import ec.edu.espe.datamanager.utils.MongoDBManager;
 import ec.edu.espe.datamanager.utils.NSQLDBManager;
 import ec.edu.espe.prototypevirtualid.controller.DoctorController;
-import ec.edu.espe.prototypevirtualid.controller.TablesController;
-import ec.edu.espe.prototypevirtualid.model.Doctor;
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author FRANCISCO
- */
 public class FrmDoctorRecord extends javax.swing.JFrame {
 
     /**
@@ -58,6 +47,12 @@ public class FrmDoctorRecord extends javax.swing.JFrame {
         });
 
         jLabel3.setText("Working Hour");
+
+        txtWorkingHour.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtWorkingHourActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Speciality");
 
@@ -177,29 +172,21 @@ public class FrmDoctorRecord extends javax.swing.JFrame {
                     + txtNameDoctor.getText() + "\n"
                     + txtWorkingHour.getText() + "\n"
                     + cmbSpeciality.getSelectedItem().toString() + "\n";
-            
-            String name = txtNameDoctor.getText();
-            String working = txtWorkingHour.getText();
-            String specialty = cmbSpeciality.getSelectedItem().toString();
-
-           
 
             int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Students Saving", JOptionPane.YES_NO_CANCEL_OPTION);
 
             if (selection == 0) {
 
                 JOptionPane.showMessageDialog(null, "Information was saved", txtNameDoctor.getText() + "Saved", JOptionPane.INFORMATION_MESSAGE);
-                emptyFields();
+
                 System.out.println("===========================================================");
                 System.out.println("Your request has been successfully saved!!");
                 System.out.println("===========================================================");
                 DoctorController doctor = new DoctorController();
-                NSQLDBManager mongo;
-                mongo = new MongoOperation();
-                mongo.DatabaseConection("Doctor");
+                NSQLDBManager mongo = new MongoDBManager();
+                mongo.openConection("Doctor");
+                MongoDBManager.create(doctor.addDoctor(txtNameDoctor.getText(), txtWorkingHour.getText(), cmbSpeciality.getSelectedItem().toString()));
                 
-                             
-                mongo.create(doctor.addDoctor(name, working, specialty));
 
             } else if (selection == 1) {
                 JOptionPane.showMessageDialog(null, "Information was not saved", txtNameDoctor.getText() + "Not saved", JOptionPane.ERROR_MESSAGE);
@@ -207,7 +194,7 @@ public class FrmDoctorRecord extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Action was canceled", txtNameDoctor.getText() + "Canceled", JOptionPane.WARNING_MESSAGE);
             }
-        } catch (Exception e) {
+        } catch (HeadlessException e) {
             JOptionPane.showMessageDialog(null, "No data has been entered, please try again", txtNameDoctor.getText() + "ERROR", JOptionPane.WARNING_MESSAGE);
         }
 
@@ -233,6 +220,10 @@ public class FrmDoctorRecord extends javax.swing.JFrame {
         this.setVisible(false);
         frmGeneral.setVisible(true);
     }//GEN-LAST:event_btnExitAddDoctorActionPerformed
+
+    private void txtWorkingHourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWorkingHourActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtWorkingHourActionPerformed
 
     /**
      * @param args the command line arguments

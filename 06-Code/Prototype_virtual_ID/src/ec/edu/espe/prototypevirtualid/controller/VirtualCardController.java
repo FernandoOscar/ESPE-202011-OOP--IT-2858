@@ -21,7 +21,7 @@ public class VirtualCardController {
         return permission;
     }
     
-    public void showIdentification() {
+    public void createIdentification() {
         int random;
         int codeID[] = new int[8];
         for (int i = 0; i < 8; i++) {

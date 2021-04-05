@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.prototypevirtualid.view;
 
+import ec.edu.espe.datamanager.utils.MongoDBManager;
 import ec.edu.espe.datamanager.utils.MongoOperation;
 import ec.edu.espe.datamanager.utils.NSQLDBManager;
 import ec.edu.espe.prototypevirtualid.controller.MedicalCheckController;
@@ -57,7 +58,19 @@ public class FrmMedicalCheckRecord extends javax.swing.JFrame {
 
         jLabel4.setText("Name:");
 
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
+
         jLabel5.setText("ID:");
+
+        txtId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Date:");
 
@@ -122,7 +135,7 @@ public class FrmMedicalCheckRecord extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Name", "ID", "Date", "Time"
             }
         ));
         jScrollPane1.setViewportView(tblAddAppointment);
@@ -191,11 +204,11 @@ public class FrmMedicalCheckRecord extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(202, 202, 202)
+                        .addComponent(jLabel1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -231,31 +244,26 @@ public class FrmMedicalCheckRecord extends javax.swing.JFrame {
                     + txtDate.getText() + "\n"
                     + txtTime.getText() + "\n";
 
-            MedicalCheck medical = new MedicalCheck();
-            medical.setName(txtName.getText());
-            medical.setId(txtId.getText());
-            medical.setDate(txtDate.getText());
-            medical.setTime(txtTime.getText());
-
             int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Appointment Saving", JOptionPane.YES_NO_CANCEL_OPTION);
 
             if (selection == 0) {
 
                 JOptionPane.showMessageDialog(null, "Information was saved", txtDate.getText() + "Saved", JOptionPane.INFORMATION_MESSAGE);
-                emptyFields();
-                System.out.println("===========================================================");
-                System.out.println("Your request has been successfully saved!!");
-                System.out.println("===========================================================");
-               
+                             
                 MedicalCheckController medicalc = new MedicalCheckController();
                 NSQLDBManager mongo;
-                mongo = new MongoOperation();
-                mongo.DatabaseConection("Medical Appoinment");
+                mongo = new MongoDBManager();
+                mongo.openConection("Medical Appoinment");
                 
-                mongo.create(medicalc.addAppinment(txtName.getText(),txtId.getText(),txtDate.getText(), txtTime.getText()));
+                MongoDBManager.create(medicalc.addAppinment(txtName.getText(),txtId.getText(),txtDate.getText(), txtTime.getText()));
 
                 System.out.println(medicalc.addAppinment(txtName.getText(),txtId.getText(),txtDate.getText(), txtTime.getText()));
 
+                System.out.println("===========================================================");
+                System.out.println("Your request has been successfully saved!!");
+                System.out.println("===========================================================");
+                
+                emptyFields();
                 
             } else if (selection == 1) {
                 JOptionPane.showMessageDialog(null, "Information was not saved", txtDate.getText() + "Not saved", JOptionPane.ERROR_MESSAGE);
@@ -279,6 +287,14 @@ public class FrmMedicalCheckRecord extends javax.swing.JFrame {
         tblAddAppointment.setModel(HistoryClinic.tableMedicalCheck());
         MongoOperation.getMongoC().close();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameActionPerformed
+
+    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdActionPerformed
 
     public void emptyFields() {
         txtName.setText("");

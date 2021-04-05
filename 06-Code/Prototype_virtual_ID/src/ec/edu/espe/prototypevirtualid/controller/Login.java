@@ -15,7 +15,22 @@ import org.json.simple.parser.JSONParser;
  * @author User
  */
 public class Login {
+    
+    private static Login log;
 
+    private Login() {
+        
+    }
+    
+    public static Login getInstance(){
+        
+        if(log == null){
+            log = new Login();
+        }  
+        
+        return log;
+    }
+    
     public boolean validate(String user, String password) {
         JSONParser parser = new JSONParser();
         String passwordData = null;
@@ -32,7 +47,7 @@ public class Login {
             System.out.println(ex);
         }
 
-        if (user.equals(userData) || password.equals(passwordData)) {
+        if (user.equals(userData) && password.equals(passwordData)) {
             return true;
         } else {
             return false;

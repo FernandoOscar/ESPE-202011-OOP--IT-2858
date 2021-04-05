@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.prototypevirtualid.view;
 
+import ec.edu.espe.datamanager.utils.MongoDBManager;
 import ec.edu.espe.datamanager.utils.MongoOperation;
 import ec.edu.espe.datamanager.utils.NSQLDBManager;
 import ec.edu.espe.prototypevirtualid.controller.DiagnosisController;
@@ -236,9 +237,9 @@ public class FrmDiagnosisRecord extends javax.swing.JFrame {
 
                 NSQLDBManager mongo;
                 DiagnosisController diag = new DiagnosisController();
-                mongo = new MongoOperation();
-                mongo.DatabaseConection("Diagnosis");
-                mongo.create(diag.addDiagnosis(patient, sympton, medicine));
+                mongo = new MongoDBManager();
+                mongo.openConection("Diagnosis");
+                MongoDBManager.create(diag.addDiagnosis(patient, sympton, medicine));
 
             } else if (selection == 1) {
                 JOptionPane.showMessageDialog(null, "Information was not saved", txtNamePatient.getText() + "Not saved", JOptionPane.ERROR_MESSAGE);

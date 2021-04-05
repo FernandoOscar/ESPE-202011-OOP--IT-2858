@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.prototypevirtualid.model;
 
+import com.mongodb.DBObject;
 import ec.edu.espe.prototypevirtualid.model.Administrator;
 import ec.edu.espe.prototypevirtualid.model.Administrator;
 import ec.edu.espe.prototypevirtualid.model.Administrator;
@@ -158,13 +159,13 @@ public class AdministratorTest {
 
     public class AdministratorImpl extends Administrator {
 
-        public void addDatabase() {
+        public void addDatabase(DBObject object) {
         }
 
         public void createId() {
         }
 
-        public void removeStudent() {
+        public void removeStudent(String dataToDelete) {
         }
 
         @Override

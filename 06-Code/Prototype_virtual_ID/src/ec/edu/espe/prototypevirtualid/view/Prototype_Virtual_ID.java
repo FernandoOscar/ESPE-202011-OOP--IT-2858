@@ -3,13 +3,11 @@ package ec.edu.espe.prototypevirtualid.view;
 
 import ec.edu.espe.datamanager.utils.MongoOperation;
 import ec.edu.espe.datamanager.utils.NSQLDBManager;
+import ec.edu.espe.prototypevirtualid.controller.DirectorController;
 import ec.edu.espe.prototypevirtualid.controller.VirtualCardController;
 import ec.edu.espe.prototypevirtualid.model.Diagnosis;
-import ec.edu.espe.prototypevirtualid.model.Director;
 import ec.edu.espe.prototypevirtualid.model.Doctor;
 import ec.edu.espe.prototypevirtualid.model.MedicalCheck;
-import ec.edu.espe.prototypevirtualid.model.Student;
-import ec.edu.espe.prototypevirtualid.model.VirtualCard;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -98,7 +96,7 @@ public class Prototype_Virtual_ID {
                     medicalCheck.setTime(scan.nextLine());
                     System.out.print("Enter the time medical appointment: ");
                     medicalCheck.setDate(scan.nextLine());
-                    mongo.DatabaseConection("Medical Appoinment");
+                    mongo.openConection("Medical Appoinment");
                     
                     //.createAppoinment(medicalCheck.getTime(), medicalCheck.getDate());
                 }
@@ -163,7 +161,7 @@ public class Prototype_Virtual_ID {
         Scanner valid = new Scanner(System.in);
         int answer2;
 
-        Director direc = new Director();
+        DirectorController direc = new DirectorController();
         System.out.println("User: ");
         String user = valid.nextLine();
         System.out.println("Password: ");
@@ -206,7 +204,7 @@ public class Prototype_Virtual_ID {
                     VirtualCardController qr = new VirtualCardController();
                     System.out.println("\n");
                     System.out.print("Su ID es -> ");
-                    qr.showIdentification();
+                    qr.createIdentification();
                     System.out.println("\n");
                     break;
 
